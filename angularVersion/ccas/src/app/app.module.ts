@@ -8,6 +8,8 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { AnnoncePreviewComponent } from './annonce-preview/annonce-preview.component';
 import { AnnonceDetailComponent } from './annonce-detail/annonce-detail.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { AnnonceListComponent } from './annonce-list/annonce-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { LogInComponent } from './log-in/log-in.component';
     SearchBarComponent,
     AnnoncePreviewComponent,
     AnnonceDetailComponent,
-    LogInComponent
+    LogInComponent,
+    AnnonceListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
