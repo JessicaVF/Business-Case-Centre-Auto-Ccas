@@ -5,14 +5,14 @@ header {
   margin-bottom: 150px;
 }
 header [alt~="logo"] {
-  width: 480px;
+  width: 33%;
   left: calc(50% - 480px / 2 - 4px);
   top: 10%;
   border-radius: 73px;
   position: absolute;
 }
 header img:not([alt~="logo"]) {
-  width: 300px;
+  width: 20%;
   position: absolute;
   top: 20px;
 }
