@@ -1,26 +1,37 @@
-#banner {
-  position: absolute;
-  width: 100%;
-  height: 10%;
+header {
   background-color: #c4c4c4;
+  position: relative;
+  height: 160px;
+  margin-bottom: 150px;
 }
-
-#logo {
+header [alt~="logo"] {
+  width: 480px;
+  left: calc(50% - 480px / 2 - 4px);
+  top: 10%;
+  border-radius: 73px;
   position: absolute;
-  width: 20%;
-  height: auto;
-  left: 40%;
-  top: 15%;
-  /* background: url(../../assets/logo.PNG); */
-  border-radius: 25%;
 }
-
-p {
-  text-align: right;
-  padding-right: 1%;
-  padding-top: 5%;
+header img:not([alt~="logo"]) {
+  width: 300px;
+  position: absolute;
+  top: 20px;
 }
-
-p a {
+header [alt~="car_man"] {
+  left: 10%;
+}
+header [alt~="car_woman"] {
+  right: 10%;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+header a {
   color: red;
+}
+header div {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: flex-end;
+  position: relative;
+  top: 170px;
+  right: 10px;
 }

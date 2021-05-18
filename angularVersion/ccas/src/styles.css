@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+.btn.red {
+  background-color: red;
+  color: white;
+}
+.btn.grey {
+  background-color: #c4c4c4;
+  color: black;
+  padding: 0 10%;
+  box-shadow: 2px 2px 5px 1px #686565 inset;
+}
+a:not(header a) {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
