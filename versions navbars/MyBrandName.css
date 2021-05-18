@@ -1,0 +1,55 @@
+body {
+    background-color: WHITE
+}
+
+#logo {
+    max-width: 20%;
+    height: auto;
+    border-radius: 20%;
+}
+
+.navbar .navbar-nav {
+    position: relative;
+}
+
+.navbar a, .navbar a:active {
+    font-size: 15px;
+    background: transparent;
+}
+
+.navbar .login-form label {
+    color: #888;
+    font-weight: normal;
+}
+
+.navbar .dropdown-menu.login-form {
+    width: 280px;
+    padding: 20px;
+    left: auto;
+    right: 0;
+    font-size: 14px;
+}
+
+/* This make sure that the buttoms in the phone mode cover all the screen */
+
+@media (min-width: 1200px) {
+    .form-inline .input-group {
+        width: 300px;
+        margin-left: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar .dropdown-menu.login-form {
+        width: 100%;
+        padding: 10px 15px;
+        background: transparent;
+        border: none;
+    }
+    .navbar .form-inline {
+        display: block;
+        .navbar .input-group {
+            width: 100%;
+        }
+    }
+}
