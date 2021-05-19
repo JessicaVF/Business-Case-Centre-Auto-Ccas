@@ -6,12 +6,13 @@
         <img [src]="annonce.photos[0]" class="card-img-top p-2" alt="clear color cadillac">
       </a>
       <div class="card-body">
-        <h5 [routerLink]="['/detail']" target="_blank" class="card-title">{{annonce?.titre}}</h5>
-        <p [routerLink]="['/detail']" target="_blank" class="card-text">{{annonce?.descriptionCourt}}</p>
+        <h5 [routerLink]="['/detail', annonce.reference]" target="_blank" class="card-title">{{annonce?.titre}}</h5>
+        <p [routerLink]="['/detail', annonce.reference]" target="_blank" class="card-text">{{annonce?.descriptionCourt}}
+        </p>
 
 
         <div class="d-flex mt-3 justify-content-between">
-          <p [routerLink]="['/detail']" target="_blank">{{annonce?.prix}}</p>
+          <p [routerLink]="['/detail', annonce.reference]" target="_blank">{{annonce?.prix}}</p>
           <p class="btn grey rounded-pill">
             Ref: {{annonce?.reference}}
             <i class="far fa-copy" id="i"></i>
