@@ -1,6 +1,3 @@
 <div>
-  <app-annonce-preview></app-annonce-preview>
-  <app-annonce-preview></app-annonce-preview>
-  <app-annonce-preview></app-annonce-preview>
-  <app-annonce-preview></app-annonce-preview>
+  <app-annonce-preview *ngFor=" let a of annonce" [annonce]="a"></app-annonce-preview>
 </div>

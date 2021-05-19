@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AnnonceService } from '../annonce.service';
+import { Annonce } from '../models/annonce';
 
 @Component({
   selector: 'app-annonce-list',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnnonceListComponent implements OnInit {
 
-  constructor() { }
+  annonce!: Annonce[];
+
+  constructor(private annonceService : AnnonceService) { }
 
   ngOnInit(): void {
+    this.annonce = this.annonceService.dummyAll();
+
+
+
   }
 
 }

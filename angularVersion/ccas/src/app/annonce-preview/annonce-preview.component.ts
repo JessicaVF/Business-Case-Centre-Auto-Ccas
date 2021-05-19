@@ -7,10 +7,11 @@ import { Annonce } from '../models/annonce';
   styleUrls: ['./annonce-preview.component.css']
 })
 export class AnnoncePreviewComponent implements OnInit {
-  @Input()annonce!:Annonce;
+  @Input() annonce!:Annonce;
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.annonce.prix)
   }
 
 }

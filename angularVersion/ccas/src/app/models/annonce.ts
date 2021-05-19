@@ -11,5 +11,5 @@ descriptionComplete: string,
 descriptionCourt: string,
 prix: number,
 datePublication: Date,
-photos:["../../assets/cadillac_1_preview.jpg"]
+photos: "../../assets/cadillac_1_preview.jpg"
 }
