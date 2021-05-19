@@ -11,7 +11,6 @@ export class AnnoncePreviewComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.annonce.prix)
   }
 
 }

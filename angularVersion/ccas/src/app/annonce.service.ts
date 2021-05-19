@@ -20,12 +20,13 @@ dummyAnnonce: Annonce[] = [
     descriptionCourt:" string",
     prix: 2000,
     datePublication: new Date,
-    photos:"../../assets/cadillac_1_preview.jpg"
+    photos:["../../assets/cadillac_1_preview.jpg", "dummyPhoto", "dummyPhoto", "dummyPhoto", "dummyPhoto"]
   }
+
 ];
-// dummyAnnonce = ["string", " string", 2000, "string", "string", "string", 2000, "string", "string", 2000, new Date,
-//     "../../assets/cadillac_1_preview.jpg"]
+
 link = ""
+
   constructor(private http: HttpClient) { }
 
   async getAll(): Promise<any[]> {
