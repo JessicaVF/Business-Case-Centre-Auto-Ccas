@@ -21,7 +21,7 @@ dummyAnnonce: Annonce[] = [
     descriptionCourt:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In viverra hendrerit est, eu eleifend nisl ornare ut.",
     prix: 2000,
     datePublication: new Date,
-    photos:["../../assets/cadillac_1_preview.jpg", "../../assets/cadillac(1)", "../../assets/cadillac(2)", "../../assets/cadillac(3)", "dummyPhoto"]
+    photos:["/assets/cadillac_1_preview.jpg", "/assets/cadillac_1.jpg", "/assets/cadillac_2.jpg", "/assets/cadillac_3.jpg", "dummyPhoto"]
   },
   {reference: 1,
     titre:" string 2",
@@ -132,7 +132,6 @@ link = ""
     return this.http.get<Annonce>(this.link + "/"+ id)
   }
   getOneDummy(id: number){
-    console.log(id +"in function")
     return this.dummyAnnonce[id]
   }
 }
