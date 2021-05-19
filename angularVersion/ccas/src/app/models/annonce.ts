@@ -1,6 +1,6 @@
 
 export interface Annonce{
-reference: string,
+reference: number,
 titre: string,
 aneeMiseCirculation: number,
 marque: string,

@@ -6,5 +6,8 @@ div div div div div p:nth-of-type(1) {
   font-size: 17px;
 }
 div div div div div p:nth-of-type(2) {
-  padding: 0 30px;
+  padding: 0 10%;
+}
+#i {
+  padding-left: 2%;
 }
