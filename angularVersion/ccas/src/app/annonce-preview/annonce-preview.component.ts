@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Annonce } from '../models/annonce';
 
 @Component({
   selector: 'app-annonce-preview',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./annonce-preview.component.css']
 })
 export class AnnoncePreviewComponent implements OnInit {
-
+  @Input()annonce!:Annonce;
   constructor() { }
 
   ngOnInit(): void {

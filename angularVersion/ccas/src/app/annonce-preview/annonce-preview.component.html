@@ -3,21 +3,17 @@
   <div class="col-lg-3 mt-2 col-9 col-md-5">
     <div class="card border border-3" style="width: 18rem;">
       <a [routerLink]="['/detail']" target="_blank">
-        <img src="../../assets/cadillac_1_preview.jpg" class="card-img-top p-2" alt="clear color cadillac">
+        <img [src]="annonce.photos[0]" class="card-img-top p-2" alt="clear color cadillac">
       </a>
       <div class="card-body">
-        <h5 [routerLink]="['/detail']" target="_blank" class="card-title">Cadillac</h5>
-        <p [routerLink]="['/detail']" target="_blank" class="card-text">Lorem ipsum dolor sit amet consectetur,
-          adipisicing elit. Possimus
-          voluptatem
-          atque
-          earum dolore quam temporibus! Quasi voluptatem excepturi enim ipsum.</p>
+        <h5 [routerLink]="['/detail']" target="_blank" class="card-title">{{annonce?.titre}}</h5>
+        <p [routerLink]="['/detail']" target="_blank" class="card-text">{{annonce?.descriptionCourt}}</p>
 
 
         <div class="d-flex mt-3 justify-content-between">
-          <p [routerLink]="['/detail']" target="_blank">14.000€</p>
+          <p [routerLink]="['/detail']" target="_blank">{{annonce?.prix}}</p>
           <p class="btn grey rounded-pill">
-            Ref: 001
+            Ref: {{annonce?.reference}}
             <i class="far fa-copy"></i>
             <i class="fas fa-share-alt"></i>
           </p>
