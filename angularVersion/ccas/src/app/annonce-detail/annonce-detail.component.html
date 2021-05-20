@@ -22,31 +22,31 @@
           </ngb-carousel>
         </div>
       </div>
-      <div class="row">
+      <div class="row" id="detailsRow">
         <div class="technicalDetails">
           <p class="badge rounded-pill btn grey"> Année Mise en Circulation</p>
-          {{annonce.aneeMiseCirculation}}
+          <span>{{annonce.aneeMiseCirculation}}</span>
         </div>
         <div class="technicalDetails">
           <p class="badge rounded-pill btn grey">Marque</p>
-          {{annonce.marque}}
+          <span>{{annonce.marque}}</span>
         </div>
         <div class="technicalDetails">
           <p class="badge rounded-pill btn grey">Modele</p>
-          {{annonce.modele}}
+          <span>{{annonce.modele}}</span>
         </div>
         <div class="technicalDetails">
           <p class="badge rounded-pill btn grey">Carburant</p>
-          {{annonce.carburant}}
+          <span>{{annonce.carburant}}</span>
         </div>
         <div class="technicalDetails">
           <p class="badge rounded-pill btn grey">Kilometrage</p>
-          {{annonce.kilometrage}}
+          <span>{{annonce.kilometrage}}</span>
         </div>
       </div>
       <p>Est-ce votre voiture idéale ? Prenez note de la référence et envoyez-la à M. Lodevie. Vous pouvez également
         copier la référence en cliquant simplement sur <i class="far fa-copy" id="i"></i></p>
-      <p p class="btn red">Ref: {{annonce.reference}} <i class="far fa-copy" id="i"></i></p>
+      <p p class="badge rounded-pill btn red">Ref: {{annonce.reference}} <i class="far fa-copy" id="i"></i></p>
 
     </div>
   </div>
