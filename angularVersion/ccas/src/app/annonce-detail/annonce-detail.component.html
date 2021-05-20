@@ -11,27 +11,43 @@
     <div class="col">
       <div class="row">
         <div class="col">
-          <ngb-carousel #carousel [interval]="1000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus"
+          <ngb-carousel #carousel [interval]="5000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus"
             (slide)="onSlide($event)">
             <ng-template ngbSlide *ngFor="let img of images">
-              <div class="carousel-caption">
-                <h3>My slide title</h3>
-              </div>
-
               <div class="picsum-img-wrapper">
-                <img [src]="img" alt="My image description">
+                <img [src]="img" alt="{{annonce.titre}}">
               </div>
 
             </ng-template>
           </ngb-carousel>
         </div>
       </div>
-      <div class="row">{{annonce.aneeMiseCirculation}}
-        {{annonce.marque}}
-        {{annonce.modele}}
-        {{annonce.carburant}}
-        {{annonce.kilometrage}}</div>
-      {{annonce.reference}}
+      <div class="row">
+        <div class="technicalDetails">
+          <p class="badge rounded-pill btn grey"> Année Mise en Circulation</p>
+          {{annonce.aneeMiseCirculation}}
+        </div>
+        <div class="technicalDetails">
+          <p class="badge rounded-pill btn grey">Marque</p>
+          {{annonce.marque}}
+        </div>
+        <div class="technicalDetails">
+          <p class="badge rounded-pill btn grey">Modele</p>
+          {{annonce.modele}}
+        </div>
+        <div class="technicalDetails">
+          <p class="badge rounded-pill btn grey">Carburant</p>
+          {{annonce.carburant}}
+        </div>
+        <div class="technicalDetails">
+          <p class="badge rounded-pill btn grey">Kilometrage</p>
+          {{annonce.kilometrage}}
+        </div>
+      </div>
+      <p>Est-ce votre voiture idéale ? Prenez note de la référence et envoyez-la à M. Lodevie. Vous pouvez également
+        copier la référence en cliquant simplement sur <i class="far fa-copy" id="i"></i></p>
+      <p p class="btn red">Ref: {{annonce.reference}} <i class="far fa-copy" id="i"></i></p>
+
     </div>
   </div>
 </div>

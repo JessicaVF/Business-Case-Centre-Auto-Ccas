@@ -1,0 +1,9 @@
+.btn.grey {
+  padding: 5% 10%;
+}
+.technicalDetails:nth-of-type(1) {
+  margin: 1.5% 2% 0 0;
+}
+.technicalDetails:not(:nth-of-type(1)) {
+  margin-top: 2%;
+}
