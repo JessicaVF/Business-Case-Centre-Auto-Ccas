@@ -6,14 +6,13 @@ div h2 + p + p {
   font-size: 200%;
   font-style: italic;
 }
-.short {
-}
+
 .btn.grey {
-  padding: 5% 10%;
+  padding: 5% 30%;
+  /* padding: 10px 20px; */
 }
 .technicalDetails:nth-of-type(1) {
-  margin: 1.5% 2% 0 0;
-  padding-left: 2%;
+  margin: 1.5% 3% 0 0;
 }
 .technicalDetails:not(:nth-of-type(1)) {
   margin-top: 2%;
@@ -21,12 +20,16 @@ div h2 + p + p {
 span {
   margin: 2%;
 }
-.btn.red {
-  padding: 1% 5%;
-  margin: 0 40%;
-}
+
 #detailsRow {
   border: 2px #c4c4c4 solid;
   margin-top: 1%;
   padding-bottom: 1%;
+  width: 100%;
+  text-align: center;
+  justify-content: space-evenly;
+}
+.btn.red {
+  padding: 1% 5%;
+  margin: 0 40%;
 }
