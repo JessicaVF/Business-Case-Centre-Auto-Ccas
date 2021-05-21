@@ -25,6 +25,22 @@
         <button ngbDropdownItem>Carburant</button>
       </div>
     </div>
+    <div>
+      <form [formGroup]="anneeForm">
+        <ngx-slider [options]="optionsA" formControlName="annee"></ngx-slider>
+      </form>
+    </div>
+    <div>
+      <form [formGroup]="kilometrageForm">
+        <ngx-slider [options]="optionsK" formControlName="kilometrage"></ngx-slider>
+      </form>
+    </div>
+    <div>
+      <form [formGroup]="prixForm">
+        <ngx-slider [options]="optionsP" formControlName="prix"></ngx-slider>
+      </form>
+    </div>
+    <div class="col"><button type="submit" class="btn red rounded-pill">Recherchez</button></div>
     <!-- <div class="dropdown mx-3">
       <button class="btn grey dropdown-toggle rounded-pill" type="button" id="dropdownMenuButton1"
         data-bs-toggle="dropdown" aria-expanded="false">
@@ -36,28 +52,7 @@
         <li><a class="dropdown-item" href="#">Something else here</a></li>
       </ul>
     </div>
-    <div class="dropdown mx-3">
-      <button class="btn grey dropdown-toggle rounded-pill" type="button" id="dropdownMenuButton1"
-        data-bs-toggle="dropdown" aria-expanded="false">
-        Modèle
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
-    <div class="dropdown mx-3">
-      <button class="btn grey dropdown-toggle rounded-pill" type="button" id="dropdownMenuButton1"
-        data-bs-toggle="dropdown" aria-expanded="false">
-        Carburant
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
+
     <div class="slidecontainer mx-3">
       <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
       <p>Année de mise en circulation</p>
@@ -75,6 +70,6 @@
   </div>
 </section>
 
-<form [formGroup]="sliderForm">
-  <ngx-slider [options]="options" formControlName="sliderControl"></ngx-slider>
-</form>
+<!-- <form [formGroup]="sliderForm">
+  <ngx-slider [options]="options" formControlName="annee"></ngx-slider>
+</form> -->
