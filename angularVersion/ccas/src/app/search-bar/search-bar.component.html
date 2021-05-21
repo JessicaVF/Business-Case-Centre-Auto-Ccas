@@ -1,75 +1,48 @@
 <section id="search_bar" class="shadow m-5 text-center">
   <h2>Trouvez votre voiture idéale</h2>
   <div class=" d-flex flex-column flex-lg-row">
-    <div ngbDropdown class="d-inline-block">
-      <button class="btn btn-outline-primary" id="dropMarque" ngbDropdownToggle>Marque</button>
+    <div ngbDropdown class="d-inline-block mx-3">
+      <button class="btn grey rounded-pill" id="dropMarque" ngbDropdownToggle>Marque</button>
       <div ngbDropdownMenu aria-labelledby="dropMarque">
         <button ngbDropdownItem>Marque</button>
         <button ngbDropdownItem>Marque</button>
         <button ngbDropdownItem>Marque</button>
       </div>
     </div>
-    <div ngbDropdown class="d-inline-block">
-      <button class="btn btn-outline-primary" id="dropModele" ngbDropdownToggle>Modèle</button>
+    <div ngbDropdown class="d-inline-block mx-3">
+      <button class="btn grey rounded-pill" id="dropModele" ngbDropdownToggle>Modèle</button>
       <div ngbDropdownMenu aria-labelledby="dropModele">
         <button ngbDropdownItem>Modèle</button>
         <button ngbDropdownItem>Modèle</button>
         <button ngbDropdownItem>Modèle</button>
       </div>
     </div>
-    <div ngbDropdown class="d-inline-block">
-      <button class="btn btn-outline-primary" id="dropCarburant" ngbDropdownToggle>Carburant</button>
+    <div ngbDropdown class="d-inline-block mx-3">
+      <button class="btn grey rounded-pill" id="dropCarburant" ngbDropdownToggle>Carburant</button>
       <div ngbDropdownMenu aria-labelledby="dropCarburant">
         <button ngbDropdownItem>Carburant</button>
         <button ngbDropdownItem>Carburant</button>
         <button ngbDropdownItem>Carburant</button>
       </div>
     </div>
-    <div>
-      <form [formGroup]="anneeForm">
-        <ngx-slider [options]="optionsA" formControlName="annee"></ngx-slider>
+    <div class="mx-3 sliderContainer">
+      <form [formGroup]="anneeForm" class="custom-slider">
+
+        <ngx-slider [options]="optionsA" formControlName="annee">
+        </ngx-slider>
+
       </form>
     </div>
-    <div>
-      <form [formGroup]="kilometrageForm">
+    <div class="mx-3 sliderContainer">
+      <form [formGroup]="kilometrageForm" class="custom-slider">
         <ngx-slider [options]="optionsK" formControlName="kilometrage"></ngx-slider>
       </form>
     </div>
-    <div>
-      <form [formGroup]="prixForm">
+    <div class="mx-3 sliderContainer">
+      <form [formGroup]="prixForm" class="custom-slider">
         <ngx-slider [options]="optionsP" formControlName="prix"></ngx-slider>
       </form>
     </div>
     <div class="col"><button type="submit" class="btn red rounded-pill">Recherchez</button></div>
-    <!-- <div class="dropdown mx-3">
-      <button class="btn grey dropdown-toggle rounded-pill" type="button" id="dropdownMenuButton1"
-        data-bs-toggle="dropdown" aria-expanded="false">
-        Marque
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
-
-    <div class="slidecontainer mx-3">
-      <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-      <p>Année de mise en circulation</p>
-    </div>
-    <div class="slidecontainer mx-3">
-      <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-      <p>Année de mise en circulation</p>
-    </div>
-    <div class="slidecontainer mx-3">
-      <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-      <p>Année de mise en circulation</p>
-    </div>
-    <div class="col"><button type="submit" class="btn red rounded-pill">Recherchez</button></div> -->
-
   </div>
 </section>
-
-<!-- <form [formGroup]="sliderForm">
-  <ngx-slider [options]="options" formControlName="annee"></ngx-slider>
-</form> -->

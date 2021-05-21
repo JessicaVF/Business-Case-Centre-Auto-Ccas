@@ -9,10 +9,26 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
-  sliderForm: FormGroup = new FormGroup({
-    sliderControl: new FormControl([20, 80])
+  anneeForm: FormGroup = new FormGroup({
+    annee: new FormControl([20, 80])
   });
-  options: Options = {
+  optionsA: Options = {
+    floor: 0,
+    ceil: 100,
+    step: 5
+  };
+  kilometrageForm: FormGroup = new FormGroup({
+    kilometrage: new FormControl([20, 80])
+  });
+  optionsK: Options = {
+    floor: 0,
+    ceil: 100,
+    step: 5
+  };
+  prixForm: FormGroup = new FormGroup({
+    prix: new FormControl([20, 80])
+  });
+  optionsP: Options = {
     floor: 0,
     ceil: 100,
     step: 5
