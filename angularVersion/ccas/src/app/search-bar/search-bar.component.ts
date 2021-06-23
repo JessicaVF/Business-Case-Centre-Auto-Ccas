@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Options } from '@angular-slider/ngx-slider';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { LabelType } from "@angular-slider/ngx-slider";
+import { ModuleResolutionKind } from 'typescript';
 
 
 @Component({
@@ -9,6 +11,11 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
+  marques = ["ford", "toyota", "montero"];
+  modeles = ["a", "b", "c"];
+  carburants = ["diesel", "gasolina"];
+  rechercheForm!: FormGroup;
+
   anneeForm: FormGroup = new FormGroup({
     annee: new FormControl([20, 80])
   });
@@ -16,7 +23,11 @@ export class SearchBarComponent implements OnInit {
     floor: 0,
     ceil: 100,
     step: 5
-  };
+
+
+  }
+
+
   kilometrageForm: FormGroup = new FormGroup({
     kilometrage: new FormControl([20, 80])
   });
@@ -32,9 +43,17 @@ export class SearchBarComponent implements OnInit {
     floor: 0,
     ceil: 100,
     step: 5
-  };
-  constructor() {
 
+  }
+  constructor(private fb: FormBuilder) {
+    this.rechercheForm = fb.group({
+      marque: fb.control(''),
+      modele: fb.control(''),
+      carburant: fb.control(''),
+      anne: fb.control(''),
+      kilometrage: fb.control(''),
+      prix: fb.control('')
+    })
   }
 
   ngOnInit(): void {

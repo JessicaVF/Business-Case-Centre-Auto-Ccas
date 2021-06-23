@@ -1,45 +1,42 @@
 <section id="search_bar" class="shadow m-5 text-center">
   <h2>Trouvez votre voiture idéale</h2>
   <div class=" d-flex flex-column flex-lg-row">
+
     <div ngbDropdown class="d-inline-block mx-3">
       <button class="btn grey rounded-pill" id="dropMarque" ngbDropdownToggle>Marque</button>
       <div ngbDropdownMenu aria-labelledby="dropMarque">
-        <button ngbDropdownItem>Marque</button>
-        <button ngbDropdownItem>Marque</button>
-        <button ngbDropdownItem>Marque</button>
+        <button ngbDropdownItem *ngFor=" let marque of marques">{{marque}}</button>
       </div>
     </div>
-    <div ngbDropdown class="d-inline-block mx-3">
+    <div ngbDropdown class=" d-inline-block mx-3">
       <button class="btn grey rounded-pill" id="dropModele" ngbDropdownToggle>Modèle</button>
       <div ngbDropdownMenu aria-labelledby="dropModele">
-        <button ngbDropdownItem>Modèle</button>
-        <button ngbDropdownItem>Modèle</button>
-        <button ngbDropdownItem>Modèle</button>
+        <button ngbDropdownItem *ngFor=" let modele of modeles">{{modele}}</button>
       </div>
     </div>
     <div ngbDropdown class="d-inline-block mx-3">
       <button class="btn grey rounded-pill" id="dropCarburant" ngbDropdownToggle>Carburant</button>
       <div ngbDropdownMenu aria-labelledby="dropCarburant">
-        <button ngbDropdownItem>Carburant</button>
-        <button ngbDropdownItem>Carburant</button>
-        <button ngbDropdownItem>Carburant</button>
+        <button ngbDropdownItem *ngFor=" let carburant of carburants">{{carburant}}</button>
       </div>
     </div>
+
     <div class="mx-3 sliderContainer">
       <form [formGroup]="anneeForm" class="custom-slider">
-
+        <label> Année de mise en Circulation</label>
         <ngx-slider [options]="optionsA" formControlName="annee">
         </ngx-slider>
-
       </form>
     </div>
     <div class="mx-3 sliderContainer">
       <form [formGroup]="kilometrageForm" class="custom-slider">
+        <label> kilométrage</label>
         <ngx-slider [options]="optionsK" formControlName="kilometrage"></ngx-slider>
       </form>
     </div>
     <div class="mx-3 sliderContainer">
       <form [formGroup]="prixForm" class="custom-slider">
+        <label> Prix</label>
         <ngx-slider [options]="optionsP" formControlName="prix"></ngx-slider>
       </form>
     </div>
