@@ -5,14 +5,20 @@
     <div ngbDropdown class="d-inline-block mx-3">
       <button class="btn grey rounded-pill" id="dropMarque" ngbDropdownToggle>Marque</button>
       <div ngbDropdownMenu aria-labelledby="dropMarque">
-        <button ngbDropdownItem *ngFor=" let marque of marques">{{marque}}</button>
+        <button ngbDropdownItem *ngFor=" let marque of marques">{{marque.marque}}</button>
       </div>
     </div>
     <div ngbDropdown class=" d-inline-block mx-3">
       <button class="btn grey rounded-pill" id="dropModele" ngbDropdownToggle>Modèle</button>
       <div ngbDropdownMenu aria-labelledby="dropModele">
-        <button ngbDropdownItem *ngFor=" let modele of modeles">{{modele}}</button>
+        <button ngbDropdownItem *ngFor=" let modele of marques">{{modele.modeles}}</button>
       </div>
+
+      <!-- WORKING IN HOW TO DISPLAY ONE MODEL FOR LINE
+        check: https://stackoverflow.com/questions/49404844/how-to-combine-ngif-with-ngfor
+      <li *ngFor=" let modele in modeles">{{modele}</li>
+      -->
+
     </div>
     <div ngbDropdown class="d-inline-block mx-3">
       <button class="btn grey rounded-pill" id="dropCarburant" ngbDropdownToggle>Carburant</button>
@@ -31,13 +37,13 @@
     <div class="mx-3 sliderContainer">
       <form [formGroup]="kilometrageForm" class="custom-slider">
         <label> kilométrage</label>
-        <ngx-slider [options]="optionsK" formControlName="kilometrage"></ngx-slider>
+        <ngx-slider [options]="optionsB" formControlName="kilometrage"></ngx-slider>
       </form>
     </div>
     <div class="mx-3 sliderContainer">
       <form [formGroup]="prixForm" class="custom-slider">
         <label> Prix</label>
-        <ngx-slider [options]="optionsP" formControlName="prix"></ngx-slider>
+        <ngx-slider [options]="optionsC" formControlName="prix"></ngx-slider>
       </form>
     </div>
     <div class="col"><button type="submit" class="btn red rounded-pill">Recherchez</button></div>

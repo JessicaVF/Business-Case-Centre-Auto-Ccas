@@ -11,40 +11,69 @@ import { ModuleResolutionKind } from 'typescript';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
-  marques = ["ford", "toyota", "montero"];
+  // Dummy data //
+
+  marques = [{
+    marque: "ford",
+    modeles: ["ford1", "ford2, ford3"]
+  },
+  {
+    marque: "toyota",
+    modeles: ["toyota1", "toyota2, toyota3"]
+  },
+  { marque: "montero" }];
   modeles = ["a", "b", "c"];
   carburants = ["diesel", "gasolina"];
+  prixPlusBas = 10;
+  prixPlusHaut = 1500;
   rechercheForm!: FormGroup;
 
+  // End of Dummy data //
+
+  // forms that shape the rangers
+
+  // form for année de mise en circulation
+
   anneeForm: FormGroup = new FormGroup({
-    annee: new FormControl([20, 80])
+    annee: new FormControl([0, this.prixPlusHaut])
   });
+
   optionsA: Options = {
-    floor: 0,
-    ceil: 100,
+    floor: this.prixPlusBas,
+    ceil: this.prixPlusHaut,
     step: 5
-
-
   }
 
+  // form for kilométrage
 
   kilometrageForm: FormGroup = new FormGroup({
     kilometrage: new FormControl([20, 80])
   });
-  optionsK: Options = {
+
+  optionsB: Options = {
     floor: 0,
     ceil: 100,
     step: 5
   };
+
+  //form for kilometrage
+
   prixForm: FormGroup = new FormGroup({
     prix: new FormControl([20, 80])
   });
-  optionsP: Options = {
+
+  optionsC: Options = {
     floor: 0,
     ceil: 100,
     step: 5
 
   }
+
+  // end of forms that shape the rangers
+
+  //form that is going to take the data insert for the user to look for cars that
+  //match it's criteria
+
   constructor(private fb: FormBuilder) {
     this.rechercheForm = fb.group({
       marque: fb.control(''),
