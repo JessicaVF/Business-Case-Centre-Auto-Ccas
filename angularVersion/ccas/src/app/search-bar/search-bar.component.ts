@@ -13,16 +13,20 @@ import { ModuleResolutionKind } from 'typescript';
 export class SearchBarComponent implements OnInit {
   // Dummy data //
 
-  marques = [{
-    marque: "ford",
-    modeles: ["ford1", "ford2, ford3"]
-  },
-  {
-    marque: "toyota",
-    modeles: ["toyota1", "toyota2, toyota3"]
-  },
-  { marque: "montero" }];
-  modeles = ["a", "b", "c"];
+  marques: Array<any> =[
+    {
+      marque: "ford",
+      modeles: ["ford1", "ford2", "ford3"]
+    },
+    {
+      marque: "toyota",
+      modeles: ["toyota1", "toyota2", "toyota3"]
+    },
+    {
+      marque: "montero",
+      modeles: ["a", "b", "c"]
+    }
+  ];
   carburants = ["diesel", "gasolina"];
   prixPlusBas = 10;
   prixPlusHaut = 1500;
