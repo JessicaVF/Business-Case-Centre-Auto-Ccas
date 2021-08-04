@@ -117,7 +117,7 @@ dummyAnnonce: Annonce[] = [
 
 ];
 
-link = ""
+link = "";
 
   constructor(private http: HttpClient) { }
 

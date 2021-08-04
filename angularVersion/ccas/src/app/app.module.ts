@@ -36,6 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+
     NgxSliderModule,
     ReactiveFormsModule
   ],
