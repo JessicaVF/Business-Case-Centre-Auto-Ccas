@@ -22,24 +22,10 @@ export class AnnonceListComponent implements OnInit {
   ngOnInit(): void {
     this.annonce = this.annonceService.dummyAll();
 
+    this.url= 'http://127.0.0.1:8000/garage/all';
 
-    //nothing of this work. Maybe is angular fault
-    // this.url= 'https://api.chucknorris.io/jokes/random';
-    // this.http.get(this.url).subscribe(leGarageDeResponse=>{this.garage = leGarageDeResponse});
-    // console.log(this.garage);
-    this.url= 'http://127.0.0.1:8000/api/garages';
     this.http.get(this.url).subscribe(data=>{
-      console.log(data);
-      this.dati.push(data);
-      console.log(this.dati);
-
-    })
-    this.url= 'https://api.chucknorris.io/jokes/random';
-    this.http.get(this.url).subscribe(data=>{
-      console.log(data);
-      // this.dati.push(data);
-
-    })
+      this.dati = data});
 
 
   }
