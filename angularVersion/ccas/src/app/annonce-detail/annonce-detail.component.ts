@@ -11,9 +11,8 @@ import { Annonce } from '../models/annonce';
   styleUrls: ['./annonce-detail.component.css']
 })
 export class AnnonceDetailComponent implements OnInit {
-  annonce!: Annonce;
 
-  images!: [string, string, string, string];
+  annonce!: Annonce;
   paused = false;
   unpauseOnArrow = false;
   pauseOnIndicator = false;
@@ -26,15 +25,9 @@ export class AnnonceDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'))
-    // this.annonceService.getOne(+id).subscribe( v => {
-    //   this.annonce = v;
-    // } );
-    this.annonce = this.annonceService.getOneDummy(id);
-    this.setImages();
-
-  }
-  setImages(){
-    this.images =[this.annonce.photos[0], this.annonce.photos[1], this.annonce.photos[2], this.annonce.photos[3]]
+    this.annonceService.getOne(+id).subscribe( data => {
+      this.annonce = data;
+    } );
   }
   togglePaused() {
     if (this.paused) {

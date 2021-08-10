@@ -1,15 +1,17 @@
 
 export interface Annonce{
-reference: number,
-titre: string,
-aneeMiseCirculation: number,
-marque: string,
-modele: string,
-carburant: string,
-kilometrage: number,
-descriptionComplete: string,
-descriptionCourt: string,
-prix: number,
-datePublication: Date,
-photos: [string, string, string, string, string] | [string, string, string, string]
-}
+  id: number,
+  make: any,
+  author_id: number,
+  photos:any,
+  title: string,
+  description: string,
+  shortDescription: string,
+  circulationYear: number,
+  kilometers: number,
+  fuelType: string,
+  model: any,
+  garage_id: number,
+  price: number,
+
+  }

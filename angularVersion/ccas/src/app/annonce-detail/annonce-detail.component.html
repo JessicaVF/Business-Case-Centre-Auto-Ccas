@@ -1,23 +1,22 @@
 <app-search-bar></app-search-bar>
 
-<div class="container">
-  <div class="row">
-    <div class="col short">
-      <h2>{{annonce.titre}}</h2>
-      <p>{{annonce.descriptionComplete}}</p>
-      <p>Prix: {{annonce.prix}}</p>
 
+<div class="container annonce">
+  <div class="row">
+    <div class="col-6">
+      <h2>{{annonce.title}}</h2>
+      <p>{{annonce.description}}</p>
+      <p>Prix: {{annonce.price}}</p>
     </div>
-    <div class="col">
+    <div class="col-6">
       <div class="row">
         <div class="col">
           <ngb-carousel #carousel [interval]="5000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus"
             (slide)="onSlide($event)">
-            <ng-template ngbSlide *ngFor="let img of images">
+            <ng-template ngbSlide *ngFor="let img of annonce.photos">
               <div class="picsum-img-wrapper">
-                <img [src]="img" alt="{{annonce.titre}}">
+                <img [src]="img" alt="{{annonce.title}}">
               </div>
-
             </ng-template>
           </ngb-carousel>
         </div>
@@ -25,36 +24,38 @@
 
     </div>
 
+
+
     <!-- Technical Details-->
     <div class="row" id="detailsRow">
       <div class="technicalDetails">
         <p class="badge rounded-pill btn grey"> Année Mise en Circulation</p>
-        <span>{{annonce.aneeMiseCirculation}}</span>
+        <span>{{annonce.circulationYear}}</span>
       </div>
       <div class="technicalDetails">
         <p class="badge rounded-pill btn grey">Marque</p>
-        <span>{{annonce.marque}}</span>
+        <span>{{annonce.make.name}}</span>
       </div>
       <div class="technicalDetails">
         <p class="badge rounded-pill btn grey">Modele</p>
-        <span>{{annonce.modele}}</span>
+        <span>{{annonce.model.name}}</span>
       </div>
       <div class="technicalDetails">
         <p class="badge rounded-pill btn grey">Carburant</p>
-        <span>{{annonce.carburant}}</span>
+        <span>{{annonce.fuelType}}</span>
       </div>
       <div class="technicalDetails">
         <p class="badge rounded-pill btn grey">Kilometrage</p>
-        <span>{{annonce.kilometrage}}</span>
+        <span>{{annonce.kilometers}}</span>
       </div>
       <div class="technicalDetails">
         <p class="badge rounded-pill btn grey">Prix</p>
-        <span>{{annonce.prix}}</span>
+        <span>{{annonce.price}}</span>
       </div>
     </div>
     <p>Est-ce votre voiture idéale ? Prenez note de la référence et envoyez-la à M. Lodevie. Vous pouvez également
       copier la référence en cliquant simplement sur <i class="far fa-copy" id="i"></i></p>
-    <p p class="badge rounded-pill btn red">Ref: {{annonce.reference}} <i class="far fa-copy" id="i"></i></p>
+    <p p class="badge rounded-pill btn red">Ref: {{annonce.id}} <i class="far fa-copy" id="i"></i></p>
 
   </div>
 </div>

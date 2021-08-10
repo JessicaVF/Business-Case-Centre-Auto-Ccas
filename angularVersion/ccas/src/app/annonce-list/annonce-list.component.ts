@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AnnonceService } from '../annonce.service';
 import { Annonce } from '../models/annonce';
-import { Test } from '../models/test';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -11,23 +10,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AnnonceListComponent implements OnInit {
 
-  annonce!: Annonce[];
-  test!: Test[];
-  url = "";
-  dati:any=[];
+  annonces:Annonce[]=[];
 
 
-  constructor(private annonceService : AnnonceService, private http: HttpClient) { }
+  constructor(private annonceService : AnnonceService, private http: HttpClient) {
+   }
 
   ngOnInit(): void {
-    this.annonce = this.annonceService.dummyAll();
+      this.getAnnounces();
 
-    this.url= 'http://127.0.0.1:8000/garage/all';
-
-    this.http.get(this.url).subscribe(data=>{
-      this.dati = data});
-
-
+  }
+  getAnnounces():void{
+    // this.annonceService.dummyAll()
+    //     .subscribe((announces:any) => this.annonces = announces);
+        this.annonceService.getAll().then( data => this.annonces = data);
   }
 
 }

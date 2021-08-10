@@ -9,130 +9,28 @@ import { isLoweredSymbol } from '@angular/compiler';
 })
 export class AnnonceService {
 annonce!: Annonce[];
-dummyAnnonce: Annonce[] = [
-  {reference: 0,
-    titre:"Cadillac",
-    aneeMiseCirculation: 2000,
-    marque:"Cadillac",
-    modele:"Escalade",
-    carburant:"Diesel",
-    kilometrage: 2000,
-    descriptionComplete: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In viverra hendrerit est, eu eleifend nisl ornare ut. Etiam pharetra sit amet sem id pretium. Nunc a mauris nisi. Nam ullamcorper, nisl vitae malesuada congue, ante ex consectetur enim, et gravida nisl lacus vitae mi. Donec quis congue nisl. Vestibulum eget pretium dolor. Donec semper justo in odio vulputate fermentum",
-    descriptionCourt:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In viverra hendrerit est, eu eleifend nisl ornare ut.",
-    prix: 2000,
-    datePublication: new Date,
-    photos:["/assets/cadillac_1_preview.jpg", "/assets/cadillac_1.jpg", "/assets/cadillac_2.jpg", "/assets/cadillac_3.jpg", "dummyPhoto"]
-  },
-  {reference: 1,
-    titre:" string 2",
-    aneeMiseCirculation: 2000,
-    marque:" string 2",
-    modele:" string 2",
-    carburant:" string 2",
-    kilometrage: 2000,
-    descriptionComplete:" string 2",
-    descriptionCourt:" string 2",
-    prix: 2000,
-    datePublication: new Date,
-    photos:["../../assets/cadillac_1_preview.jpg", "dummyPhoto", "dummyPhoto", "dummyPhoto", "dummyPhoto"]
-  },
-  {reference: 3,
-    titre:" string",
-    aneeMiseCirculation: 2000,
-    marque:" string",
-    modele:" string",
-    carburant:" string",
-    kilometrage: 2000,
-    descriptionComplete:" string",
-    descriptionCourt:" string",
-    prix: 2000,
-    datePublication: new Date,
-    photos:["../../assets/cadillac_1_preview.jpg", "dummyPhoto", "dummyPhoto", "dummyPhoto", "dummyPhoto"]
-  },
-  {reference: 4,
-    titre:" string",
-    aneeMiseCirculation: 2000,
-    marque:" string",
-    modele:" string",
-    carburant:" string",
-    kilometrage: 2000,
-    descriptionComplete:" string",
-    descriptionCourt:" string",
-    prix: 2000,
-    datePublication: new Date,
-    photos:["../../assets/cadillac_1_preview.jpg", "dummyPhoto", "dummyPhoto", "dummyPhoto", "dummyPhoto"]
-  },
-  {reference: 5,
-    titre:" string",
-    aneeMiseCirculation: 2000,
-    marque:" string",
-    modele:" string",
-    carburant:" string",
-    kilometrage: 2000,
-    descriptionComplete:" string",
-    descriptionCourt:" string",
-    prix: 2000,
-    datePublication: new Date,
-    photos:["../../assets/cadillac_1_preview.jpg", "dummyPhoto", "dummyPhoto", "dummyPhoto", "dummyPhoto"]
-  },
-  {reference: 6,
-    titre:" string",
-    aneeMiseCirculation: 2000,
-    marque:" string",
-    modele:" string",
-    carburant:" string",
-    kilometrage: 2000,
-    descriptionComplete:" string",
-    descriptionCourt:" string",
-    prix: 2000,
-    datePublication: new Date,
-    photos:["../../assets/cadillac_1_preview.jpg", "dummyPhoto", "dummyPhoto", "dummyPhoto", "dummyPhoto"]
-  },
-  {reference: 7,
-    titre:" string",
-    aneeMiseCirculation: 2000,
-    marque:" string",
-    modele:" string",
-    carburant:" string",
-    kilometrage: 2000,
-    descriptionComplete:" string",
-    descriptionCourt:" string",
-    prix: 2000,
-    datePublication: new Date,
-    photos:["../../assets/cadillac_1_preview.jpg", "dummyPhoto", "dummyPhoto", "dummyPhoto", "dummyPhoto"]
-  },
-  {reference: 8,
-    titre:" string",
-    aneeMiseCirculation: 2000,
-    marque:" string",
-    modele:" string",
-    carburant:" string",
-    kilometrage: 2000,
-    descriptionComplete:" string",
-    descriptionCourt:" string",
-    prix: 2000,
-    datePublication: new Date,
-    photos:["../../assets/cadillac_1_preview.jpg", "dummyPhoto", "dummyPhoto", "dummyPhoto", "dummyPhoto"]
-  }
-
-];
 
 link = "";
+localData:any =[];
 
   constructor(private http: HttpClient) { }
 
   async getAll(): Promise<any[]> {
+    this.link= 'http://127.0.0.1:8000/annonce/all';
     return await this.http.get<any[]>(this.link).toPromise();
   }
 
-  dummyAll() {
-    return this.dummyAnnonce
+  dummyAll(){
+    this.link= 'http://127.0.0.1:8000/annonce/all';
+    return this.http.get<any[]>(this.link);
+
   }
   getOne(id: number): Observable<Annonce>{
+    this.link = 'http://127.0.0.1:8000/annonce/show';
     return this.http.get<Annonce>(this.link + "/"+ id)
   }
   getOneDummy(id: number){
-    return this.dummyAnnonce[id]
+    // return this.dummyAnnonce[id]
   }
 }
 

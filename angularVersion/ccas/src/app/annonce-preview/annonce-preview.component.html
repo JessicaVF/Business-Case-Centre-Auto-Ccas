@@ -2,19 +2,19 @@
 
   <div class="col-lg-3 mt-2 col-9 col-md-5">
     <div class="card border border-3" style="width: 18rem;">
-      <a [routerLink]="['/detail', annonce.reference]" target="_blank">
-        <img [src]="annonce.photos[0]" class="card-img-top p-2" alt="clear color cadillac">
+      <a [routerLink]="['/detail', annonce.id]" target="_blank">
+        <img [src]="annonce.photos[1]" class="card-img-top p-2" alt="">
       </a>
       <div class="card-body">
-        <h5 [routerLink]="['/detail', annonce.reference]" target="_blank" class="card-title">{{annonce?.titre}}</h5>
-        <p [routerLink]="['/detail', annonce.reference]" target="_blank" class="card-text">{{annonce?.descriptionCourt}}
+        <h5 [routerLink]="['/detail', annonce.id]" target="_blank" class="card-title">{{annonce?.title}}</h5>
+        <p [routerLink]="['/detail', annonce.id]" target="_blank" class="card-text">{{annonce?.shortDescription}}
         </p>
 
 
         <div class="d-flex mt-3 justify-content-between">
-          <p [routerLink]="['/detail', annonce.reference]" target="_blank">{{annonce?.prix}}</p>
+          <p [routerLink]="['/detail', annonce.id]" target="_blank">{{annonce?.price}}€</p>
           <p class="btn grey rounded-pill">
-            Ref: {{annonce?.reference}}
+            Ref: {{annonce?.id}}
             <i class="far fa-copy" id="i"></i>
             <!-- <i class="fas fa-share-alt"></i> -->
           </p>
