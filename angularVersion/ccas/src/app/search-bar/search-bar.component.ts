@@ -3,6 +3,7 @@ import { Options } from '@angular-slider/ngx-slider';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { LabelType } from "@angular-slider/ngx-slider";
 import { ModuleResolutionKind } from 'typescript';
+import { AnnonceService } from '../annonce.service';
 
 
 @Component({
@@ -11,28 +12,15 @@ import { ModuleResolutionKind } from 'typescript';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
-  // Dummy data //
 
-  marques: Array<any> =[
-    {
-      marque: "ford",
-      modeles: ["ford1", "ford2", "ford3"]
-    },
-    {
-      marque: "toyota",
-      modeles: ["toyota1", "toyota2", "toyota3"]
-    },
-    {
-      marque: "montero",
-      modeles: ["a", "b", "c"]
-    }
-  ];
-  carburants = ["diesel", "gasolina"];
+  marques: Array<any> =[];
+  models: Array<any>=[];
+  carburants: Array<any>=[];
+  marqueSelected!: number;
   prixPlusBas = 10;
   prixPlusHaut = 1500;
   rechercheForm!: FormGroup;
 
-  // End of Dummy data //
 
   // forms that shape the rangers
 
@@ -78,7 +66,9 @@ export class SearchBarComponent implements OnInit {
   //form that is going to take the data insert for the user to look for cars that
   //match it's criteria
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private annonceService : AnnonceService) {
+
+
     this.rechercheForm = fb.group({
       marque: fb.control(''),
       modele: fb.control(''),
@@ -90,6 +80,13 @@ export class SearchBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.annonceService.getMakes().then( data => this.marques = data);
   }
 
+  getModels():any{
+
+    this.annonceService.getModelsByMake(this.marqueSelected).then(data=>this.models = data)
+
+  }
 }

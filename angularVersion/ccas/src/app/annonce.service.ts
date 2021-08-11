@@ -11,7 +11,6 @@ export class AnnonceService {
 annonce!: Annonce[];
 
 link = "";
-localData:any =[];
 
   constructor(private http: HttpClient) { }
 
@@ -20,17 +19,18 @@ localData:any =[];
     return await this.http.get<any[]>(this.link).toPromise();
   }
 
-  dummyAll(){
-    this.link= 'http://127.0.0.1:8000/annonce/all';
-    return this.http.get<any[]>(this.link);
-
-  }
   getOne(id: number): Observable<Annonce>{
     this.link = 'http://127.0.0.1:8000/annonce/show';
     return this.http.get<Annonce>(this.link + "/"+ id)
   }
-  getOneDummy(id: number){
-    // return this.dummyAnnonce[id]
+  getMakes(): Promise<any[]>{
+    this.link = 'http://127.0.0.1:8000/make';
+    return this.http.get<any[]>(this.link).toPromise();
   }
+  getModelsByMake(id: number): Promise<any[]>{
+    this.link = 'http://127.0.0.1:8000/make';
+    return this.http.get<any[]>(this.link+ "/"+ id+"/models").toPromise();
+  }
+
 }
 

@@ -2,10 +2,19 @@
   <h2>Trouvez votre voiture idéale</h2>
   <div class=" d-flex flex-column flex-lg-row">
 
+    <form method="post">
+      <select name="make" [(ngModel)]="marqueSelected" (ngModelChange)="getModels()">
+        <option *ngFor=" let marque of marques" value={{marque.id}}>{{marque.name}}</option>
+      </select>
+      <select name="model">
+        <option *ngFor="let model of models" value={{model.name}}>{{model.name}}</option>
+      </select>
+    </form>
+
     <div ngbDropdown class="d-inline-block mx-3">
       <button class="btn grey rounded-pill" id="dropMarque" ngbDropdownToggle>Marque</button>
       <div ngbDropdownMenu aria-labelledby="dropMarque">
-        <button ngbDropdownItem *ngFor=" let marque of marques">{{marque.marque}}</button>
+        <button ngbDropdownItem *ngFor=" let marque of marques">{{marque.name}}</button>
       </div>
     </div>
     <div ngbDropdown class=" d-inline-block mx-3">
