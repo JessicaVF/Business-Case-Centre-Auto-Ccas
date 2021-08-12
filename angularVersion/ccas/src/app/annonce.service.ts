@@ -31,6 +31,8 @@ link = "";
     this.link = 'http://127.0.0.1:8000/make';
     return this.http.get<any[]>(this.link+ "/"+ id+"/models").toPromise();
   }
-
+  getFuelTypes(): Promise<any[]>{
+    this.link = 'http://127.0.0.1:8000/fueltype';
+    return this.http.get<any[]>(this.link).toPromise();
+  }
 }
-

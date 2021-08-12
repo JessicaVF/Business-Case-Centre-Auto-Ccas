@@ -13,10 +13,13 @@ import { AnnonceService } from '../annonce.service';
 })
 export class SearchBarComponent implements OnInit {
 
-  marques: Array<any> =[];
+  makes: Array<any> =[];
   models: Array<any>=[];
-  carburants: Array<any>=[];
-  marqueSelected!: number;
+  fuelTypes: Array<any>=[];
+  makeSelected!: number;
+
+
+
   prixPlusBas = 10;
   prixPlusHaut = 1500;
   rechercheForm!: FormGroup;
@@ -24,21 +27,21 @@ export class SearchBarComponent implements OnInit {
 
   // forms that shape the rangers
 
-  // form for année de mise en circulation
+    // form for année de mise en circulation
 
   anneeForm: FormGroup = new FormGroup({
     annee: new FormControl([0, this.prixPlusHaut])
   });
 
-  optionsA: Options = {
+  optionsYear: Options = {
     floor: this.prixPlusBas,
     ceil: this.prixPlusHaut,
     step: 5
   }
 
-  // form for kilométrage
+    // form for kilométrage
 
-  kilometrageForm: FormGroup = new FormGroup({
+    kilometrageForm: FormGroup = new FormGroup({
     kilometrage: new FormControl([20, 80])
   });
 
@@ -48,7 +51,7 @@ export class SearchBarComponent implements OnInit {
     step: 5
   };
 
-  //form for kilometrage
+  //form for PRIX
 
   prixForm: FormGroup = new FormGroup({
     prix: new FormControl([20, 80])
@@ -63,12 +66,12 @@ export class SearchBarComponent implements OnInit {
 
   // end of forms that shape the rangers
 
-  //form that is going to take the data insert for the user to look for cars that
-  //match it's criteria
+
 
   constructor(private fb: FormBuilder, private annonceService : AnnonceService) {
 
-
+//form that is going to take the data insert for the user to look for cars that
+  //match it's criteria
     this.rechercheForm = fb.group({
       marque: fb.control(''),
       modele: fb.control(''),
@@ -81,12 +84,21 @@ export class SearchBarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.annonceService.getMakes().then( data => this.marques = data);
+    this.annonceService.getMakes().then( data => this.makes = data);
+    this.annonceService.getFuelTypes().then(data => this.fuelTypes = data);
+
+
   }
 
   getModels():any{
 
-    this.annonceService.getModelsByMake(this.marqueSelected).then(data=>this.models = data)
+    this.annonceService.getModelsByMake(this.makeSelected).then(data=>this.models = data)
 
   }
+  test(){
+    console.log("here");
+
+    console.log(this.anneeForm.value.annee[0]);
+  }
+
 }

@@ -3,7 +3,7 @@
   <div class="col-lg-3 mt-2 col-9 col-md-5">
     <div class="card border border-3" style="width: 18rem;">
       <a [routerLink]="['/detail', annonce.id]" target="_blank">
-        <img [src]="annonce.photos[1]" class="card-img-top p-2" alt="">
+        <img [src]="annonce.photos[0]" class="card-img-top p-2" alt="">
       </a>
       <div class="card-body">
         <h5 [routerLink]="['/detail', annonce.id]" target="_blank" class="card-title">{{annonce?.title}}</h5>

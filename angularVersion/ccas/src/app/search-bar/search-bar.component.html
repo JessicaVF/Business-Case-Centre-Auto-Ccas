@@ -3,15 +3,18 @@
   <div class=" d-flex flex-column flex-lg-row">
 
     <form method="post">
-      <select name="make" [(ngModel)]="marqueSelected" (ngModelChange)="getModels()">
-        <option *ngFor=" let marque of marques" value={{marque.id}}>{{marque.name}}</option>
+      <select name="make" [(ngModel)]="makeSelected" (ngModelChange)="getModels()">
+        <option *ngFor=" let make of makes" value={{make.id}}>{{make.name}}</option>
       </select>
       <select name="model">
         <option *ngFor="let model of models" value={{model.name}}>{{model.name}}</option>
       </select>
+      <select name="fuelType">
+        <option *ngFor="let fuelType of fuelTypes" value={{fuelType.name}}>{{fuelType.name}}</option>
+      </select>
     </form>
 
-    <div ngbDropdown class="d-inline-block mx-3">
+    <!--<div ngbDropdown class="d-inline-block mx-3">
       <button class="btn grey rounded-pill" id="dropMarque" ngbDropdownToggle>Marque</button>
       <div ngbDropdownMenu aria-labelledby="dropMarque">
         <button ngbDropdownItem *ngFor=" let marque of marques">{{marque.name}}</button>
@@ -21,12 +24,10 @@
       <button class="btn grey rounded-pill" id="dropModele" ngbDropdownToggle>Modèle</button>
       <div ngbDropdownMenu aria-labelledby="dropModele">
         <button ngbDropdownItem *ngFor=" let modele of marques">{{modele.modeles}}</button>
-      </div>
+      </div> -->
 
-      <!-- WORKING IN HOW TO DISPLAY ONE MODEL FOR LINE
-        check: https://stackoverflow.com/questions/49404844/how-to-combine-ngif-with-ngfor
-      <li *ngFor=" let modele in modeles">{{modele}</li>
-      -->
+    <!--
+
 
     </div>
     <div ngbDropdown class="d-inline-block mx-3">
@@ -35,11 +36,11 @@
         <button ngbDropdownItem *ngFor=" let carburant of carburants">{{carburant}}</button>
       </div>
     </div>
-
+-->
     <div class="mx-3 sliderContainer">
       <form [formGroup]="anneeForm" class="custom-slider">
         <label> Année de mise en Circulation</label>
-        <ngx-slider [options]="optionsA" formControlName="annee">
+        <ngx-slider [options]="optionsYear" (valueChange)="test()" formControlName="annee">
         </ngx-slider>
       </form>
     </div>
