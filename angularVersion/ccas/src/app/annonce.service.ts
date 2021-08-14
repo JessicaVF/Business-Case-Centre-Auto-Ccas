@@ -35,4 +35,9 @@ link = "";
     this.link = 'http://127.0.0.1:8000/fueltype';
     return this.http.get<any[]>(this.link).toPromise();
   }
+  async getByUserSelection(value: Annonce): Promise<any[]> {
+    this.link= 'http://127.0.0.1:8000/annonce/search';
+    return await this.http.post<any[]>(this.link, value).toPromise();
+
+  }
 }

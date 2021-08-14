@@ -22,8 +22,8 @@ export class SearchBarComponent implements OnInit {
 
   prixPlusBas = 10;
   prixPlusHaut = 1500;
+  searchForm!: FormGroup;
   rechercheForm!: FormGroup;
-
 
   // forms that shape the rangers
 
@@ -79,7 +79,16 @@ export class SearchBarComponent implements OnInit {
       anne: fb.control(''),
       kilometrage: fb.control(''),
       prix: fb.control('')
+    });
+    this.searchForm = fb.group({
+      make: fb.control(''),
+      model: fb.control(''),
+      fuelType: fb.control(''),
+      circulationYear: fb.control(''),
+      kilometers: fb.control(''),
+      price: fb.control('')
     })
+
   }
 
   ngOnInit(): void {
@@ -92,13 +101,19 @@ export class SearchBarComponent implements OnInit {
 
   getModels():any{
 
-    this.annonceService.getModelsByMake(this.makeSelected).then(data=>this.models = data)
+    // this.annonceService.getModelsByMake(this.makeSelected).then(data=>this.models = data);
 
+    this.annonceService.getModelsByMake(this.searchForm.value.make).then(data=>this.models = data);
+  }
+  submitForm(){
+    const formsInfo = this.searchForm.value;
+    this.annonceService.getByUserSelection(formsInfo).then(data=> console.log(data));
   }
   test(){
+
     console.log("here");
-
+    console.log(this.searchForm.value.make);
     console.log(this.anneeForm.value.annee[0]);
+    console.log(this.anneeForm.value.annee[1]);
   }
-
 }
