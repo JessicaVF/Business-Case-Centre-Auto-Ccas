@@ -10,16 +10,12 @@ import { isLoweredSymbol } from '@angular/compiler';
 export class AnnonceService {
 link = "";
 annonce!: Annonce[];
-annonces!: any[];
+annonces!: Annonce[];
 
 
-private messageSource = new BehaviorSubject('default message');
+
 private annoncesSource = new BehaviorSubject(this.annonces);
-
-currentMessage = this.messageSource.asObservable();
 currentAnnonces = this.annoncesSource.asObservable();
-
-
 
   constructor(private http: HttpClient) { }
 
@@ -48,18 +44,12 @@ currentAnnonces = this.annoncesSource.asObservable();
     return this.http.get<any[]>(this.link).toPromise();
   }
 
-  //example for update a field that is an observable
-  changeMessage(message: string) {
-    this.messageSource.next(message)
 
-  }
   async getByUserSelection(value: Annonce): Promise<any[]> {
 
     this.link= 'http://127.0.0.1:8000/annonce/search';
     this.annonces= await this.http.post<any[]>(this.link, value).toPromise();
     this.annoncesSource.next(this.annonces)
-    console.log("in getUserSelection");
-    console.log(this.annonces);
     return this.annonces;
   }
 }

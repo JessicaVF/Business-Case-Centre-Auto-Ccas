@@ -19,9 +19,6 @@ export class SearchBarComponent implements OnInit {
   fuelTypes: Array<any>=[];
   searchForm!: FormGroup;
 
-  message!:string;
-  annoncesSearch!:any;
-
   // Options for the rangers
 
   optionsKilometers: Options = {
@@ -64,8 +61,7 @@ export class SearchBarComponent implements OnInit {
 
     this.annonceService.getMakes().then( data => this.makes = data);
     this.annonceService.getFuelTypes().then(data => this.fuelTypes = data);
-    this.annonceService.currentMessage.subscribe(message => this.message = message)
-      console.log(this.message);
+
   }
 
   getModels():any{
@@ -75,13 +71,6 @@ export class SearchBarComponent implements OnInit {
     const formsInfo = this.searchForm.value;
     this.annonceService.getByUserSelection(formsInfo).then(data=> this.route.navigate(['/home']));
   }
-  newMessage() {
-    // const formsInfo = this.searchForm.value;
-    // console.log(formsInfo);
-    // this.annonceService.getByUserSelection(formsInfo).then(data => this.annoncesSearch = data);
-    this.annonceService.changeMessage("Hello from Sibling");
-    console.log("erwan test");
-    console.log(this.annoncesSearch);
-  }
+
 
 }
