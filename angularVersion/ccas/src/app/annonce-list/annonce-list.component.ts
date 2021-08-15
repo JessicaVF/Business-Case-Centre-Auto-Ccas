@@ -21,8 +21,7 @@ export class AnnonceListComponent implements OnInit {
 
   }
   getAnnounces():void{
-    // this.annonceService.dummyAll()
-    //     .subscribe((announces:any) => this.annonces = announces);
+
         this.annonceService.getAll().then( data => this.annonces = data);
   }
 

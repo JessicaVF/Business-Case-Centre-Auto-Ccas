@@ -16,77 +16,43 @@ export class SearchBarComponent implements OnInit {
   makes: Array<any> =[];
   models: Array<any>=[];
   fuelTypes: Array<any>=[];
-  makeSelected!: number;
-
-
-
-  prixPlusBas = 10;
-  prixPlusHaut = 1500;
   searchForm!: FormGroup;
-  rechercheForm!: FormGroup;
 
-  // forms that shape the rangers
 
-    // form for année de mise en circulation
+  // Options for the rangers
 
-  anneeForm: FormGroup = new FormGroup({
-    annee: new FormControl([0, this.prixPlusHaut])
-  });
-
-  optionsYear: Options = {
-    floor: this.prixPlusBas,
-    ceil: this.prixPlusHaut,
-    step: 5
-  }
-
-    // form for kilométrage
-
-    kilometrageForm: FormGroup = new FormGroup({
-    kilometrage: new FormControl([20, 80])
-  });
-
-  optionsB: Options = {
+  optionsKilometers: Options = {
     floor: 0,
-    ceil: 100,
+    ceil: 150000,
     step: 5
   };
 
-  //form for PRIX
-
-  prixForm: FormGroup = new FormGroup({
-    prix: new FormControl([20, 80])
-  });
-
-  optionsC: Options = {
-    floor: 0,
-    ceil: 100,
+  optionsCirculationYear: Options = {
+    floor: 1940,
+    ceil: 2021,
     step: 5
 
   }
 
-  // end of forms that shape the rangers
+  optionsPrice: Options = {
+    floor: 100,
+    ceil: 70000,
+    step: 5
+  }
+
+  // end of options for the rangers
 
 
 
   constructor(private fb: FormBuilder, private annonceService : AnnonceService) {
 
-//form that is going to take the data insert for the user to look for cars that
-  //match it's criteria
-    this.rechercheForm = fb.group({
-      marque: fb.control(''),
-      modele: fb.control(''),
-      carburant: fb.control(''),
-      anne: fb.control(''),
-      kilometrage: fb.control(''),
-      prix: fb.control('')
-    });
     this.searchForm = fb.group({
-      make: fb.control(''),
-      model: fb.control(''),
-      fuelType: fb.control(''),
-      circulationYear: fb.control(''),
-      kilometers: fb.control(''),
-      price: fb.control('')
+      make: fb.control(false),
+      model: fb.control(false),
+      fuelType: fb.control(false),
+      circulationYear: new FormControl([1940, 2021]),
+      kilometers: new FormControl([0, 150000]),
+      price: new FormControl([100, 70000])
     })
 
   }
@@ -101,19 +67,14 @@ export class SearchBarComponent implements OnInit {
 
   getModels():any{
 
-    // this.annonceService.getModelsByMake(this.makeSelected).then(data=>this.models = data);
 
     this.annonceService.getModelsByMake(this.searchForm.value.make).then(data=>this.models = data);
   }
   submitForm(){
     const formsInfo = this.searchForm.value;
+    console.log(formsInfo);
+
     this.annonceService.getByUserSelection(formsInfo).then(data=> console.log(data));
   }
-  test(){
 
-    console.log("here");
-    console.log(this.searchForm.value.make);
-    console.log(this.anneeForm.value.annee[0]);
-    console.log(this.anneeForm.value.annee[1]);
-  }
 }
