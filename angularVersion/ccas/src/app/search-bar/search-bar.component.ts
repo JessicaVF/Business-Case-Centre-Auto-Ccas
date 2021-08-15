@@ -18,6 +18,7 @@ export class SearchBarComponent implements OnInit {
   models: Array<any>=[];
   fuelTypes: Array<any>=[];
   searchForm!: FormGroup;
+
   message!:string;
   annoncesSearch!:any;
 
@@ -32,7 +33,7 @@ export class SearchBarComponent implements OnInit {
   optionsCirculationYear: Options = {
     floor: 1940,
     ceil: 2021,
-    step: 5
+    step: 1
 
   }
 
@@ -72,14 +73,13 @@ export class SearchBarComponent implements OnInit {
   }
   submitForm(){
     const formsInfo = this.searchForm.value;
-    console.log(formsInfo);
     this.annonceService.getByUserSelection(formsInfo).then(data=> this.route.navigate(['/home']));
   }
   newMessage() {
-    const formsInfo = this.searchForm.value;
-    console.log(formsInfo);
-    this.annonceService.getByUserSelection(formsInfo).then(data => this.annoncesSearch = data);
-    this.annonceService.changeMessage("Hello from Sibling", this.annoncesSearch);
+    // const formsInfo = this.searchForm.value;
+    // console.log(formsInfo);
+    // this.annonceService.getByUserSelection(formsInfo).then(data => this.annoncesSearch = data);
+    this.annonceService.changeMessage("Hello from Sibling");
     console.log("erwan test");
     console.log(this.annoncesSearch);
   }

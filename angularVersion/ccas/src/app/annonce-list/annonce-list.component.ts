@@ -11,7 +11,6 @@ import { HttpClient } from '@angular/common/http';
 export class AnnonceListComponent implements OnInit {
 
   annonces:Annonce[]=[];
-  testAnnonces:Annonce[]=[];
   message!:string;
 
   constructor(private annonceService : AnnonceService, private http: HttpClient) {
@@ -20,14 +19,16 @@ export class AnnonceListComponent implements OnInit {
   ngOnInit(): void {
       this.getAnnounces();
 
+      //example of observable with a simple string "message"
       console.log("in annonce list");
       this.annonceService.currentMessage.subscribe(message => this.message = message);
       console.log(this.message);
-      //Lets try
-      this.annonceService.currentAnnonces.subscribe(annonces => this.testAnnonces =annonces);
-      console.log("aca");
 
-      console.log(this.testAnnonces);
+
+      //Our version for annonces
+      this.annonceService.currentAnnonces.subscribe(annonces => this.annonces =annonces);
+      console.log("aca");
+      console.log(this.annonces);
 
 
   }
@@ -35,15 +36,10 @@ export class AnnonceListComponent implements OnInit {
 
         this.annonceService.getAll().then( data => this.annonces = data);
   }
-  // testa(){
 
-  //     this.annonceService.test().subscribe( data => {
-  //       this.test = data;});
-  //       console.log("here");
-  //     console.log(this.test);
-
-  // }
   logIt(){
-    console.log(this.testAnnonces);
+    console.log("in log it");
+
+    console.log(this.annonces);
   }
 }

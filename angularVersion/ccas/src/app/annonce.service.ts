@@ -10,13 +10,11 @@ import { isLoweredSymbol } from '@angular/compiler';
 export class AnnonceService {
 link = "";
 annonce!: Annonce[];
+annonces!: any[];
 
-
-annonces!:any;
-testi !:any;
 
 private messageSource = new BehaviorSubject('default message');
-private annoncesSource = new BehaviorSubject([this.annonces]);
+private annoncesSource = new BehaviorSubject(this.annonces);
 
 currentMessage = this.messageSource.asObservable();
 currentAnnonces = this.annoncesSource.asObservable();
@@ -24,20 +22,7 @@ currentAnnonces = this.annoncesSource.asObservable();
 
 
   constructor(private http: HttpClient) { }
-  currentAnnoncesList(){
 
-  }
-  changeMessage(message: string, annonces: any) {
-    this.messageSource.next(message)
-    this.annoncesSource.next(annonces)
-  }
-  test(): Observable<Annonce>{
-    console.log("in service");
-    this.testi = ["teste"];
-    console.log(this.testi);
-    // return Observable.from(this.testi);
-    return this.testi;
-  }
 
   async getAll(): Promise<any[]> {
     this.link= 'http://127.0.0.1:8000/annonce/all';
@@ -62,14 +47,18 @@ currentAnnonces = this.annoncesSource.asObservable();
     this.link = 'http://127.0.0.1:8000/fueltype';
     return this.http.get<any[]>(this.link).toPromise();
   }
+
+  //example for update a field that is an observable
+  changeMessage(message: string) {
+    this.messageSource.next(message)
+
+  }
   async getByUserSelection(value: Annonce): Promise<any[]> {
 
     this.link= 'http://127.0.0.1:8000/annonce/search';
     this.annonces= await this.http.post<any[]>(this.link, value).toPromise();
-
     this.annoncesSource.next(this.annonces)
     console.log("in getUserSelection");
-
     console.log(this.annonces);
     return this.annonces;
   }

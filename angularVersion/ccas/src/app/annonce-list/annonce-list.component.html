@@ -1,8 +1,8 @@
 <button (click)="logIt()">Logit</button>
 {{message}}
-<div *ngFor=" let a of testAnnonces">
-  {{a}}
+<div *ngFor=" let a of annonces">
+  {{a.id}}
 </div>
-<!-- <div>
+<div>
   <app-annonce-preview *ngFor=" let annonce of annonces" [annonce]="annonce"></app-annonce-preview>
-</div> -->
+</div>
