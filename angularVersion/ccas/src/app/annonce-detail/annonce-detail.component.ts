@@ -28,6 +28,8 @@ export class AnnonceDetailComponent implements OnInit {
     this.annonceService.getOne(+id).subscribe( data => {
       this.annonce = data;
     } );
+
+
   }
   togglePaused() {
     if (this.paused) {
@@ -47,4 +49,5 @@ export class AnnonceDetailComponent implements OnInit {
       this.togglePaused();
     }
   }
+
 }

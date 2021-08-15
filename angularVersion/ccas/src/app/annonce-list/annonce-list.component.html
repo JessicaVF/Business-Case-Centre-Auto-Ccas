@@ -1,3 +1,8 @@
-<div>
-  <app-annonce-preview *ngFor=" let annonce of annonces" [annonce]="annonce"></app-annonce-preview>
+<button (click)="logIt()">Logit</button>
+{{message}}
+<div *ngFor=" let a of testAnnonces">
+  {{a}}
 </div>
+<!-- <div>
+  <app-annonce-preview *ngFor=" let annonce of annonces" [annonce]="annonce"></app-annonce-preview>
+</div> -->

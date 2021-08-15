@@ -4,6 +4,7 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { LabelType } from "@angular-slider/ngx-slider";
 import { ModuleResolutionKind } from 'typescript';
 import { AnnonceService } from '../annonce.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class SearchBarComponent implements OnInit {
   models: Array<any>=[];
   fuelTypes: Array<any>=[];
   searchForm!: FormGroup;
-
+  message!:string;
+  annoncesSearch!:any;
 
   // Options for the rangers
 
@@ -44,7 +46,7 @@ export class SearchBarComponent implements OnInit {
 
 
 
-  constructor(private fb: FormBuilder, private annonceService : AnnonceService) {
+  constructor(private fb: FormBuilder, private annonceService : AnnonceService, private route: Router) {
 
     this.searchForm = fb.group({
       make: fb.control(false),
@@ -61,20 +63,25 @@ export class SearchBarComponent implements OnInit {
 
     this.annonceService.getMakes().then( data => this.makes = data);
     this.annonceService.getFuelTypes().then(data => this.fuelTypes = data);
-
-
+    this.annonceService.currentMessage.subscribe(message => this.message = message)
+      console.log(this.message);
   }
 
   getModels():any{
-
-
     this.annonceService.getModelsByMake(this.searchForm.value.make).then(data=>this.models = data);
   }
   submitForm(){
     const formsInfo = this.searchForm.value;
     console.log(formsInfo);
-
-    this.annonceService.getByUserSelection(formsInfo).then(data=> console.log(data));
+    this.annonceService.getByUserSelection(formsInfo).then(data=> this.route.navigate(['/home']));
+  }
+  newMessage() {
+    const formsInfo = this.searchForm.value;
+    console.log(formsInfo);
+    this.annonceService.getByUserSelection(formsInfo).then(data => this.annoncesSearch = data);
+    this.annonceService.changeMessage("Hello from Sibling", this.annoncesSearch);
+    console.log("erwan test");
+    console.log(this.annoncesSearch);
   }
 
 }
