@@ -9,7 +9,7 @@ export interface Annonce{
   shortDescription: string,
   circulationYear: number,
   kilometers: number,
-  fuelType: string,
+  fuelType: any,
   model: any,
   garage_id: number,
   price: number,

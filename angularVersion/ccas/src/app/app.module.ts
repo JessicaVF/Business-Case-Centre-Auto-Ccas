@@ -16,6 +16,15 @@ import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { ManageMyAccountComponent } from './manage-my-account/manage-my-account.component';
+import { ManageMyGaragesComponent } from './manage-my-garages/manage-my-garages.component';
+import { ManageMyAnnoncesByGaragesComponent } from './manage-my-annonces-by-garages/manage-my-annonces-by-garages.component';
+import { ProfilAdminComponent } from './profil-admin/profil-admin.component';
+import { MenuUserComponent } from './menu-user/menu-user.component';
+import { ManageUsersAdminComponent } from './manage-users-admin/manage-users-admin.component';
+import { ManageGaragesAdminComponent } from './manage-garages-admin/manage-garages-admin.component';
+import { ManageAnnoncesAdminComponent } from './manage-annonces-admin/manage-annonces-admin.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +38,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ContactLodevieComponent,
     HomeComponent,
     FooterComponent,
+    MyProfileComponent,
+    ManageMyAccountComponent,
+    ManageMyGaragesComponent,
+    ManageMyAnnoncesByGaragesComponent,
+    ProfilAdminComponent,
+    MenuUserComponent,
+    ManageUsersAdminComponent,
+    ManageGaragesAdminComponent,
+    ManageAnnoncesAdminComponent,
 
   ],
   imports: [
