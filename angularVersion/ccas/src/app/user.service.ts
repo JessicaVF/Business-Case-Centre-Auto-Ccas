@@ -15,7 +15,11 @@ export class UserService {
 
   }
   getAll(){
-    this.link ="http://127.0.0.1:8000/user/all"
+    this.link = "http://127.0.0.1:8000/user/all";
     return this.http.get<User[]>(this.link);
+  }
+  edit(user:User, id:number){
+    this.link = "http://127.0.0.1:8000/user/edit/" + id;
+    return this.http.patch<User[]>(this.link, user);
   }
 }

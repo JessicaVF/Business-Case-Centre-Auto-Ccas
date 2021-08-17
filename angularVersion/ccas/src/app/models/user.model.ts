@@ -4,6 +4,6 @@ export interface User {
   firstname:string,
   email: string,
   telephone: string,
-  siret: number,
+  siret: string,
   password: string
 }

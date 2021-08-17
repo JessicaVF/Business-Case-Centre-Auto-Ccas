@@ -1,6 +1,26 @@
 <div *ngIf="editUser == user.id; else testa">
 
-  y un jamon
+  <form [formGroup]="editUserForm" (ngSubmit)="submitForm()">
+
+    <label for="lastname">Nom: </label>
+    <input id="lastname" type="text" value="{{user.lastname}}" placeholder="{{user.lastname}}"
+      formControlName="lastname">
+    <label for="firstname">Prenom : </label>
+    <input id="firstname" type="text" value="{{user.firstname}}" formControlName="firstname">
+
+    <label for="email">Adresse Mail : </label>
+    <input id="email" type="email" value="{{user.email}}" formControlName="email">
+
+    <label for="telephone">telephone: </label>
+    <input id="telephone" type="text" value="{{user.telephone}}" formControlName="telephone">
+
+    <label for="siret">siret: </label>
+    <input id="siret" type="text" value="{{user.siret}}" formControlName="siret">
+
+    <button type="submit" class="btn red rounded-pill">Editer l'utilisateur</button>
+
+
+  </form>
 </div>
 <ng-template #testa>
   <div class="card" style="width: 18rem;">
