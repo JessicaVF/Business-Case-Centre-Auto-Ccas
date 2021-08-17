@@ -1,0 +1,28 @@
+<div class="card" style="width: 18rem;">
+
+  <div class="card-body">
+    <h5 class="card-title">{{user.lastname}} {{user.firstname}}</h5>
+
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Email: {{user.email}}</li>
+    <li class="list-group-item">Telephone:{{user.telephone}}</li>
+    <li class="list-group-item">
+      <p>Siret:{{user.siret}}</p>
+    </li>
+  </ul>
+
+</div>
+<h2>Garages</h2>
+<div *ngFor="let garage of user.garages">
+
+  {{garage.name}}
+  <hr>
+</div>
+
+<h2>Annonces</h2>
+
+<div *ngFor="let annonce of user.annonces">
+  {{annonce.title}}
+  <hr>
+</div>

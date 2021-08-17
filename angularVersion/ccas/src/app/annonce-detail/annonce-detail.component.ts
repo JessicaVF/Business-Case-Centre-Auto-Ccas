@@ -24,7 +24,7 @@ export class AnnonceDetailComponent implements OnInit {
   constructor(private annonceService: AnnonceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'))
+    const id = Number(this.route.snapshot.paramMap.get('id'));
     this.annonceService.getOne(+id).subscribe( data => {
       this.annonce = data;
     } );

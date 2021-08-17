@@ -5,5 +5,7 @@ export interface User {
   email: string,
   telephone: string,
   siret: string,
-  password: string
+  password: string,
+  garages:any,
+  annonces:any
 }

@@ -12,6 +12,7 @@ import { ManageMyGaragesComponent } from './manage-my-garages/manage-my-garages.
 import { ManageUsersAdminComponent } from './manage-users-admin/manage-users-admin.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { ProfilAdminComponent } from './profil-admin/profil-admin.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/accueil', pathMatch: 'full'},
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path:"admin/profil", component:ProfilAdminComponent},
   {path:"admin/utilisateurs", component:ManageUsersAdminComponent},
   {path:"admin/garages", component:ManageGaragesAdminComponent},
-  {path:"admin/annonces", component:ManageAnnoncesAdminComponent}
+  {path:"admin/annonces", component:ManageAnnoncesAdminComponent},
+  {path:"user/detail/:id", component:UserDetailComponent}
 
 ];
 

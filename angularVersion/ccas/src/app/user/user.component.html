@@ -1,4 +1,4 @@
-<div *ngIf="editUser == user.id; else testa">
+<div *ngIf="editUser == user.id; else regularDisplay">
 
   <form [formGroup]="editUserForm" (ngSubmit)="submitForm()">
 
@@ -22,13 +22,12 @@
 
   </form>
 </div>
-<ng-template #testa>
+<ng-template #regularDisplay>
   <div class="card" style="width: 18rem;">
 
     <div class="card-body">
       <h5 class="card-title">{{user.lastname}} {{user.firstname}}</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-        content.</p>
+
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Email: {{user.email}}</li>
@@ -38,8 +37,8 @@
       </li>
     </ul>
     <div class="card-body">
-      <a href="#" class="btn btn-primary">Voir le Garages</a>
-      <a href="#" class="btn btn-primary">Voir les annonces</a>
+      <button [routerLink]="['/user/detail', user.id]" target="_blank" class="btn btn-primary">Voir les garages et
+        annonces</button>
       <hr>
       <button class="btn btn-primary" (click)="edit(user.id)">Edit</button>
       <button class="btn btn-danger" (click)="delete(user.id)">Delete</button>

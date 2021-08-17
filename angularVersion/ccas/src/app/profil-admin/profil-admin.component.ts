@@ -32,7 +32,7 @@ export class ProfilAdminComponent implements OnInit {
 
     if (this.addUserForm.valid) {
       const formsInfo = this.addUserForm.value;
-      this.userService.add(formsInfo).subscribe(r => this.route.navigate(['/admin/profil']));
+      this.userService.add(formsInfo).subscribe(r => location.reload());
     }
 
   }
