@@ -24,7 +24,7 @@ export class UserService {
   }
   delete(id:number){
     this.link = "http://127.0.0.1:8000/user/delete/" + id;
-    this.http.delete(this.link).subscribe();
-    return location.reload();
+
+    return this.http.delete(this.link);
   }
 }
