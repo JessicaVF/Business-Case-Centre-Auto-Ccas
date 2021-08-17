@@ -25,6 +25,8 @@ import { MenuUserComponent } from './menu-user/menu-user.component';
 import { ManageUsersAdminComponent } from './manage-users-admin/manage-users-admin.component';
 import { ManageGaragesAdminComponent } from './manage-garages-admin/manage-garages-admin.component';
 import { ManageAnnoncesAdminComponent } from './manage-annonces-admin/manage-annonces-admin.component';
+import { MenuAdminComponent } from './menu-admin/menu-admin.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { ManageAnnoncesAdminComponent } from './manage-annonces-admin/manage-ann
     ManageUsersAdminComponent,
     ManageGaragesAdminComponent,
     ManageAnnoncesAdminComponent,
+    MenuAdminComponent,
+    UserComponent,
 
   ],
   imports: [
