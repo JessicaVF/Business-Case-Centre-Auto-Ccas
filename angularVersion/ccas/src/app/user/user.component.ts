@@ -32,6 +32,10 @@ export class UserComponent implements OnInit {
 
 
   })
+  }
+  delete(id:number){
+    console.log("in here"+id);
+    this.userService.delete(id);
 
   }
   submitForm(){

@@ -22,4 +22,9 @@ export class UserService {
     this.link = "http://127.0.0.1:8000/user/edit/" + id;
     return this.http.patch<User[]>(this.link, user);
   }
+  delete(id:number){
+    this.link = "http://127.0.0.1:8000/user/delete/" + id;
+    this.http.delete(this.link).subscribe();
+    return location.reload();
+  }
 }
