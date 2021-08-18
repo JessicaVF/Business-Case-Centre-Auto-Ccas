@@ -20,7 +20,8 @@ export class ProfilAdminComponent implements OnInit {
       email: fb.control('', Validators.required),
       telephone: fb.control('', Validators.required),
       siret: fb.control('', Validators.required),
-      password: fb.control('0123456789', Validators.required)
+      password: fb.control('LodevieP@assw0rd2020', Validators.required),
+      username:fb.control('')
 
     })
   }
