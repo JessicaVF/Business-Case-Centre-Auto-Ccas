@@ -33,9 +33,13 @@ export class LogInComponent implements OnInit {
         (data:any) => {
 
         this.authService.loginChangeStatus();
-        this.router.navigate(['/profil']);
-        // const test = data;
+        this.authService.setToken(data.token);
         // const token: any = jwt_decode(data.token);
+        // console.log(data);
+        // console.log(data.token);
+        // console.log(token);
+
+        this.router.navigate(['/profil']);
       },
       (error) => {
         location.reload();

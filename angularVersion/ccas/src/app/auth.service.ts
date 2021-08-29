@@ -21,4 +21,10 @@ export class AuthService {
   loginStatus(){
     return this.isLogin;
   }
+  setToken(data: any) {
+    sessionStorage.setItem("token", data);
+  }
+  getToken(): any {
+    return sessionStorage.getItem("token");
+  }
 }

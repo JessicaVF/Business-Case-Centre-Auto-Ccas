@@ -9,6 +9,7 @@ import { User } from './models/user.model';
 export class UserService {
   link = "";
   User!:User[];
+  // headerss = { 'Authorization': "Bearer " + sessionStorage.getItem("token") };
 
   constructor(private http: HttpClient) { }
 
@@ -20,9 +21,18 @@ export class UserService {
     this.link = "http://127.0.0.1:8000/user/all";
     return this.http.get<User[]>(this.link);
   }
-  getOne(id: number): Observable<User>{
-    this.link = 'http://127.0.0.1:8000/user/show';
-    return this.http.get<User>(this.link + "/"+ id)
+  getOne(id?: number): Observable<User>{
+    if(id){
+      this.link = 'http://127.0.0.1:8000/api/user/show' + '/'+ id;
+
+    }
+    else{
+      this.link = 'http://127.0.0.1:8000/api/user/show'
+    }
+    const headers = { 'Authorization': "Bearer " + sessionStorage.getItem("token") };
+    // return this.http.get<User>(this.link + "/"+ id)
+    return this.http.get<User>(this.link, { headers })
+
   }
   edit(user:User, id:number){
     this.link = "http://127.0.0.1:8000/user/edit/" + id;
@@ -33,4 +43,10 @@ export class UserService {
 
     return this.http.delete(this.link);
   }
+  test(){
+    this.link ="http://127.0.0.1:8000/api/user/test";
+    const headers = { 'Authorization': "Bearer " + sessionStorage.getItem("token") };
+    return this.http.get<User>(this.link, { headers })
+  }
+
 }
