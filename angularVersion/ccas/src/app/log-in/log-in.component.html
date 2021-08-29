@@ -1,18 +1,19 @@
 <div class="row">
   <h2 class="mx-auto">Se Connecter</h2>
 </div>
-<form action="" method="">
+<form [formGroup]="loginForm" (ngSubmit)="submitForm()">
   <div class="row">
     <div class="flex-column d-flex mx-auto">
       <div class="d-flex justify-content-between">
-        <label for=" email">Email:</label>
-        <input type="email" id="email" name="email">
+        <label for="username">Nom d'utilisateur : </label>
+        <input id="username" type="username" formControlName="username">
       </div>
       <div>
         <label for="password">password:</label>
-        <input type="password" id="password" name="password">
+        <input id="password" type="password" formControlName="password">
       </div>
-      <input type="submit">
+      <button type="submit" class="btn red rounded-pill">Se connecter</button>
+
 
     </div>
   </div>

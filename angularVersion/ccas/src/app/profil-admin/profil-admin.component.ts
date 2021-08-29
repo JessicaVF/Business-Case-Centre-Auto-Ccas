@@ -20,7 +20,8 @@ export class ProfilAdminComponent implements OnInit {
       email: fb.control('', Validators.required),
       telephone: fb.control('', Validators.required),
       siret: fb.control('', Validators.required),
-      password: fb.control('0123456789', Validators.required)
+      password: fb.control('0123456789', Validators.required),
+      username:fb.control('')
 
     })
   }
@@ -31,8 +32,8 @@ export class ProfilAdminComponent implements OnInit {
 
 
     if (this.addUserForm.valid) {
-      const formsInfo = this.addUserForm.value;
-      this.userService.add(formsInfo).subscribe(r => location.reload());
+      const formInfo = this.addUserForm.value;
+      this.userService.add(formInfo).subscribe(r => location.reload());
     }
 
   }
