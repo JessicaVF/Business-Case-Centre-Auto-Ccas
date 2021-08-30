@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 import { User } from '../models/user.model';
 import { UserService } from '../user.service';
 
@@ -13,12 +14,18 @@ export class UserComponent implements OnInit {
   @Input() user!:User;
   editUser!:number;
   editUserForm!: FormGroup;
+  editPasswordForm!: FormGroup;
+  usernameLogged!:any;
+  isForEditPassword = false;
 
-  constructor(private fb: FormBuilder, private userService: UserService, private route: Router) {
+  constructor(private fb: FormBuilder, private userService: UserService, private authService: AuthService, private route: Router) {
 
 }
 
   ngOnInit(): void {
+    this.usernameLogged = this.authService.getUsernameInStorage();
+
+
   }
   edit(id:number){
     this.editUser = id;
@@ -27,22 +34,36 @@ export class UserComponent implements OnInit {
       firstname: this.fb.control(this.user.firstname, Validators.required),
       email: this.fb.control(this.user.email, Validators.required),
       telephone: this.fb.control(this.user.email, Validators.required),
-      siret: this.fb.control(this.user.siret+ "", Validators.required),
-      password: this.fb.control(this.user.password, Validators.required)
+      siret: this.fb.control(this.user.siret, Validators.required)
 
-
-  })
-  }
-  delete(id:number){
-    this.userService.delete(id).subscribe(r => location.reload());;
-
+    })
   }
   submitForm(){
 
     this.editUser = 0;
     const formInfo = this.editUserForm.value;
     this.userService.edit(formInfo, this.user.id).subscribe(r => location.reload());
+  }
+  editPassword(){
+    this.isForEditPassword = true;
+    this.editPasswordForm = this.fb.group({
+      oldPassword: this.fb.control('', Validators.required),
+      newPassword: this.fb.control('', Validators.required),
+    })
 
   }
+  submitEditPassword(){
+
+    const formInfo = this.editPasswordForm.value;
+    console.log(formInfo);
+
+
+  }
+
+  delete(id:number){
+    this.userService.delete(id).subscribe(r => location.reload());;
+
+  }
+
 
 }

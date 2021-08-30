@@ -7,5 +7,6 @@ export interface User {
   siret: string,
   password: string,
   garages:any,
-  annonces:any
+  annonces:any,
+  username:string
 }

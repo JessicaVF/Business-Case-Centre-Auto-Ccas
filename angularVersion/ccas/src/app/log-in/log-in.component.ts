@@ -33,9 +33,11 @@ export class LogInComponent implements OnInit {
         (data:any) => {
 
         this.authService.loginChangeStatus();
-        this.authService.setToken(data.token);
-        // const token: any = jwt_decode(data.token);
-        // console.log(data);
+        this.authService.setTokenInStorage(data.token);
+        const tokenDecoded: any = jwt_decode(data.token);
+        console.log(tokenDecoded.username);
+        this.authService.setUsernameInStorage(tokenDecoded.username);
+
         // console.log(data.token);
         // console.log(token);
 

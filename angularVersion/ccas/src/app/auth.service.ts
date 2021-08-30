@@ -21,10 +21,16 @@ export class AuthService {
   loginStatus(){
     return this.isLogin;
   }
-  setToken(data: any) {
+  setTokenInStorage(data: any) {
     sessionStorage.setItem("token", data);
   }
-  getToken(): any {
+  getTokenInStorage(): any {
     return sessionStorage.getItem("token");
+  }
+  setUsernameInStorage(data:any){
+    sessionStorage.setItem("username", data);
+  }
+  getUsernameInStorage(): any {
+    return sessionStorage.getItem("username");
   }
 }
