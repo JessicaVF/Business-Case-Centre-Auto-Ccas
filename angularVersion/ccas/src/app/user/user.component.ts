@@ -34,12 +34,12 @@ export class UserComponent implements OnInit {
       firstname: this.fb.control(this.user.firstname, Validators.required),
       email: this.fb.control(this.user.email, Validators.required),
       telephone: this.fb.control(this.user.email, Validators.required),
-      siret: this.fb.control(this.user.siret, Validators.required)
+      siret: this.fb.control(this.user.siret.toString(), Validators.required),
+      username: this.fb.control(this.user.username, Validators.required)
 
     })
   }
   submitForm(){
-
     this.editUser = 0;
     const formInfo = this.editUserForm.value;
     this.userService.edit(formInfo, this.user.id).subscribe(r => location.reload());
@@ -50,7 +50,6 @@ export class UserComponent implements OnInit {
       currentPassword: this.fb.control('', Validators.required),
       newPassword: this.fb.control('', Validators.required),
     })
-
   }
   submitEditPassword(){
 

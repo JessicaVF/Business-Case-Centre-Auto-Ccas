@@ -35,6 +35,7 @@ export class UserService {
 
   }
   edit(user:User, id:number){
+    const headers = { 'Authorization': "Bearer " + sessionStorage.getItem("token") };
     this.link = "http://127.0.0.1:8000/user/edit/" + id;
     return this.http.patch<User[]>(this.link, user);
   }
