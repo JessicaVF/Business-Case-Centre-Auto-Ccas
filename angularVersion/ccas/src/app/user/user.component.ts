@@ -47,7 +47,7 @@ export class UserComponent implements OnInit {
   editPassword(){
     this.isForEditPassword = true;
     this.editPasswordForm = this.fb.group({
-      oldPassword: this.fb.control('', Validators.required),
+      currentPassword: this.fb.control('', Validators.required),
       newPassword: this.fb.control('', Validators.required),
     })
 
@@ -55,7 +55,7 @@ export class UserComponent implements OnInit {
   submitEditPassword(){
 
     const formInfo = this.editPasswordForm.value;
-    console.log(formInfo);
+    this.userService.changePassword(formInfo, this.user.id).subscribe(r => location.reload());
 
 
   }

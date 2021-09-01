@@ -38,6 +38,11 @@ export class UserService {
     this.link = "http://127.0.0.1:8000/user/edit/" + id;
     return this.http.patch<User[]>(this.link, user);
   }
+  changePassword(formInfo:any, id:number){
+    const headers = { 'Authorization': "Bearer " + sessionStorage.getItem("token") };
+    this.link = "http://127.0.0.1:8000/api/user/editPassword/" + id ;
+    return this.http.patch<any[]>(this.link, formInfo, { headers });
+  }
   delete(id:number){
     this.link = "http://127.0.0.1:8000/user/delete/" + id;
 
