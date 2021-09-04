@@ -1,0 +1,19 @@
+<p>garage works!</p>
+<div class="card" style="width: 18rem;">
+
+  <div class="card-body">
+    <h5 class="card-title">{{garage.name}</h5>
+
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Telephone: {{garage.telephone}}</li>
+    <li class="list-group-item"> Address: {{garage.address}} </li>
+  </ul>
+  <div class="card-body">
+    <button [routerLink]="['/garage/detail', garage.id]" target="_blank" class="btn btn-primary">Voir les
+      annonces</button>
+    <hr>
+    <button class="btn btn-primary" (click)="edit(garage.id)">Edit</button>
+    <button class="btn btn-danger" (click)="delete(garage.id)">Delete</button>
+  </div>
+</div>

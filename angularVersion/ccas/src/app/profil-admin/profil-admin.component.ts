@@ -30,7 +30,6 @@ export class ProfilAdminComponent implements OnInit {
   }
   submitForm(){
 
-
     if (this.addUserForm.valid) {
       const formInfo = this.addUserForm.value;
       this.userService.add(formInfo).subscribe(r => location.reload());

@@ -24,8 +24,6 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.usernameLogged = this.authService.getUsernameInStorage();
-
-
   }
   edit(id:number){
     this.editUser = id;

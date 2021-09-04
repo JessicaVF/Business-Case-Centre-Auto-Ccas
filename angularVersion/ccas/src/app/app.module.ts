@@ -28,6 +28,7 @@ import { ManageAnnoncesAdminComponent } from './manage-annonces-admin/manage-ann
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { UserComponent } from './user/user.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { GarageComponent } from './garage/garage.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     MenuAdminComponent,
     UserComponent,
     UserDetailComponent,
+    GarageComponent,
 
   ],
   imports: [

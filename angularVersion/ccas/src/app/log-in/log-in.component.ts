@@ -27,6 +27,7 @@ export class LogInComponent implements OnInit {
   submitForm(){
     if (this.loginForm.valid){
       const formInfo = this.loginForm.value;
+      console.log(formInfo.password);
 
       this.authService.login(formInfo)
         .subscribe(
@@ -37,14 +38,12 @@ export class LogInComponent implements OnInit {
         const tokenDecoded: any = jwt_decode(data.token);
         console.log(tokenDecoded.username);
         this.authService.setUsernameInStorage(tokenDecoded.username);
-
-        // console.log(data.token);
-        // console.log(token);
-
         this.router.navigate(['/profil']);
       },
       (error) => {
-        location.reload();
+        console.log(error);
+
+        // location.reload();
 
       }
       );

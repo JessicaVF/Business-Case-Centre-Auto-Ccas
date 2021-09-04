@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GarageService } from '../garage.service';
+import { Garage } from '../models/garage.model';
 
 @Component({
   selector: 'app-manage-my-garages',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageMyGaragesComponent implements OnInit {
 
-  constructor() { }
+  garages!:Garage[];
+
+  constructor(private garageService: GarageService) { }
 
   ngOnInit(): void {
+    this.garageService.getAllByUser(2).subscribe(data => this.garages = data)
   }
 
 }
