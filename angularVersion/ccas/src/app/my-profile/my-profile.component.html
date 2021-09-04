@@ -1,6 +1,53 @@
 <p>Bienvenue {{user.firstname}} {{user.lastname}}</p>
 
 <app-menu-user></app-menu-user>
-Votre info:
-<app-user [user]="user"></app-user>
-Cree un annonce:
+
+
+<form [formGroup]="addAnnonceForm" (ngSubmit)="submitForm()">
+
+  <label for="title">Title: </label>
+  <input id="title" type="text" formControlName="title">
+
+  <label for="description">description: </label>
+  <input id="description" type="text" formControlName="description">
+
+  <label for="shortDescription">shortDescription: </label>
+  <input id="shortDescription" type="text" formControlName="shortDescription">
+
+  <label for="circulationYear">circulationYear: </label>
+  <input id="circulationYear" type="number" formControlName="circulationYear">
+
+  <label for="kilometers">kilometers: </label>
+  <input id="kilometers" type="number" formControlName="kilometers">
+
+  <label for="price">price: </label>
+  <input id="price" type="number" formControlName="price">
+
+  <label for="make">make: </label>
+  <select name="make" formControlName="make" (ngModelChange)="getModels()">
+    <option *ngFor=" let make of makes" value={{make.id}}>{{make.name}}</option>
+  </select>
+
+  <label for="model">model: </label>
+  <select name="model" formControlName="model">
+    <option *ngFor="let model of models" value={{model.id}}>{{model.name}}</option>
+  </select>
+
+  <label for="fyelType">fuel type: </label>
+  <select name="fuelType" formControlName="fuelType">
+    <option *ngFor="let fuelType of fuelTypes" value={{fuelType.id}}>{{fuelType.name}}</option>
+  </select>
+
+  <label for="garage">garage: </label>
+  <select name="garage" formControlName="garage">
+    <option *ngFor="let garage of user.garages" value={{garage.id}}>{{garage.name}}</option>
+  </select>
+
+  <button type="submit" class="btn red rounded-pill">Ajoute annonce</button>
+
+</form>
+
+<h2>Number of annonces actives: </h2>
+<h2>Number of annonces already take out: </h2>
+<h2>Number total of annonces</h2>
+<h2>Number of garages: </h2>
