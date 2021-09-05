@@ -14,9 +14,11 @@ export class GarageComponent implements OnInit {
   editGarage!:number;
   editGarageForm!: FormGroup;
 
+
   constructor(private fb: FormBuilder, private garageService: GarageService) { }
 
   ngOnInit(): void {
+
   }
   edit(id:number){
     this.editGarage = id;

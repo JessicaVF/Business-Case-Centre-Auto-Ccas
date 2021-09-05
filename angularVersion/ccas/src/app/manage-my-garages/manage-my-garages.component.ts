@@ -14,7 +14,8 @@ export class ManageMyGaragesComponent implements OnInit {
   constructor(private garageService: GarageService) { }
 
   ngOnInit(): void {
-    this.garageService.getAllByUser(2).subscribe(data => this.garages = data)
+    this.garageService.getAllByUser().subscribe(data =>  this.garages= data
+    );
   }
 
 }

@@ -1,19 +1,28 @@
-<p>garage works!</p>
 <div class="card" style="width: 18rem;">
 
   <div class="card-body">
-    <h5 class="card-title">{{garage.name}</h5>
+    <h5 class="card-title">{{garage.name}}</h5>
 
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Telephone: {{garage.telephone}}</li>
-    <li class="list-group-item"> Address: {{garage.address}} </li>
+    <li class="list-group-item"> Address: {{garage.address.number}} {{garage.address.road}}
+      <span *ngIf="garage.address.complement != null">
+        {{garage.address.complement}}
+      </span>{{garage.address.codePostal}}, {{garage.address.city}}
+    </li>
   </ul>
+
   <div class="card-body">
-    <button [routerLink]="['/garage/detail', garage.id]" target="_blank" class="btn btn-primary">Voir les
-      annonces</button>
+    <div *ngIf="garage.annonces.length >0; else notAnnoncesDisplay">
+      <button [routerLink]="['/garage/detail', garage.id]" target="_blank" class="btn btn-primary">Voir les
+        annonces</button>
+
+    </div>
+    <ng-template #notAnnoncesDisplay> You dont have annonces</ng-template>
     <hr>
     <button class="btn btn-primary" (click)="edit(garage.id)">Edit</button>
     <button class="btn btn-danger" (click)="delete(garage.id)">Delete</button>
   </div>
 </div>
+<br>

@@ -3,5 +3,6 @@ export interface Garage {
   name:string,
   telephone:string,
   address:any,
-  user:any
+  user:any,
+  annonces: any
 }
