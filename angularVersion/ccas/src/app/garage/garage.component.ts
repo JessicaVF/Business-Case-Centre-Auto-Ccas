@@ -13,7 +13,7 @@ export class GarageComponent implements OnInit {
   @Input() garage!:Garage;
   editGarage!:number;
   editGarageForm!: FormGroup;
-
+  editAddressForm!: FormGroup;
 
   constructor(private fb: FormBuilder, private garageService: GarageService) { }
 
@@ -22,12 +22,17 @@ export class GarageComponent implements OnInit {
   }
   edit(id:number){
     this.editGarage = id;
+
     this.editGarageForm = this.fb.group({
       id: this.fb.control(this.garage.id, Validators.required),
       name: this.fb.control(this.garage.name, Validators.required),
       telephone: this.fb.control(this.garage.telephone, Validators.required),
       user: this.fb.control(this.garage.user, Validators.required),
-      address: this.fb.control(this.garage.address, Validators.required),
+      road: this.fb.control(this.garage.address.road),
+        number: this.fb.control(this.garage.address.number),
+        complement: this.fb.control(this.garage.address.complement),
+        codePostal: this.fb.control(this.garage.address.codePostal),
+        ville: this.fb.control(this.garage.address.ville)
     })
 
   }
