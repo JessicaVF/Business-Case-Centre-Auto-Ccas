@@ -26,6 +26,18 @@ currentAnnonces = this.annoncesSource.asObservable();
     return await this.http.get<any[]>(this.link).toPromise();
 
   }
+  getAllByUser(id?: number){
+
+    const headers = { 'Authorization': "Bearer " + sessionStorage.getItem("token") };
+    if(id){
+      this.link = "http://127.0.0.1:8000/api/annonce/allByUser/"+ id;
+    }
+    else{
+      this.link = "http://127.0.0.1:8000/api/annonce/allByUser/";
+    }
+
+    return this.http.get<Annonce[]>(this.link, {headers});
+  }
 
   getOne(id: number): Observable<Annonce>{
     this.link = 'http://127.0.0.1:8000/annonce/show';
