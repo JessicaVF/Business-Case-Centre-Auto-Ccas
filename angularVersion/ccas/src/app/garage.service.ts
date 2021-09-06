@@ -32,4 +32,8 @@ delete(id:number){
 
   return this.http.delete(this.link);
 }
+add(infoToSend:any){
+  this.link = "http://127.0.0.1:8000/garage/create";
+  return this.http.post<any[]>(this.link, infoToSend);
+}
 }
