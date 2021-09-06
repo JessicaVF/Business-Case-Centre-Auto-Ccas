@@ -2,7 +2,7 @@
 export interface Annonce{
   id: number,
   make: any,
-  author_id: number,
+  author: any,
   photos:any,
   title: string,
   description: string,
