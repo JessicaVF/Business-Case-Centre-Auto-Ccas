@@ -71,4 +71,9 @@ currentAnnonces = this.annoncesSource.asObservable();
     this.link = "http://127.0.0.1:8000/annonce/edit/"+ id;
     return this.http.patch<any[]>(this.link, annonce);
   }
+  delete(id:number){
+    this.link = "http://127.0.0.1:8000/annonce/delete/" + id;
+
+    return this.http.delete(this.link);
+  }
 }

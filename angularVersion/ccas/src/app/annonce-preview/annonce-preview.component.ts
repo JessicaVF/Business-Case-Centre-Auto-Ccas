@@ -69,7 +69,7 @@ export class AnnoncePreviewComponent implements OnInit {
   }
 
   delete(id: number) {
-    // this.garageService.delete(id).subscribe(r => location.reload());;
+    this.annonceService.delete(id).subscribe(r => location.reload());;
   }
 
 }
