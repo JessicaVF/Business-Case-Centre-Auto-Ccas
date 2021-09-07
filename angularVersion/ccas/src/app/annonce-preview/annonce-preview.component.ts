@@ -44,27 +44,28 @@ export class AnnoncePreviewComponent implements OnInit {
     this.editAnnonce = id;
     this.editAnnonceForm = this.fb.group({
       id: this.fb.control(this.annonce.id, Validators.required),
-      make: this.fb.control(this.annonce.make, Validators.required),
-      author: this.fb.control(this.annonce.author.id, Validators.required),
-      photos:this.fb.control(this.annonce.photos, Validators.required),
       title: this.fb.control(this.annonce.title, Validators.required),
       description: this.fb.control(this.annonce.description, Validators.required),
       shortDescription: this.fb.control(this.annonce.shortDescription, Validators.required),
+      price: this.fb.control(this.annonce.price, Validators.required),
+      // author: this.fb.control(this.annonce.author.id, Validators.required),
       circulationYear: this.fb.control(this.annonce.circulationYear, Validators.required),
       kilometers: this.fb.control(this.annonce.kilometers, Validators.required),
+      photos:this.fb.control(this.annonce.photos, Validators.required),
       fuelType: this.fb.control(this.annonce.fuelType, Validators.required),
+      make: this.fb.control(this.annonce.make, Validators.required),
       model: this.fb.control(this.annonce.model, Validators.required),
-      garage: this.fb.control(this.annonce.garage, Validators.required),
-      price: this.fb.control(this.annonce.price, Validators.required)
+      garage: this.fb.control(this.annonce.garage, Validators.required)
+
     })
   }
 
   submitForm(){
-    console.log(this.annonce);
+
 
     let formInfo = this.editAnnonceForm.value;
-    console.log(formInfo);
-    // this.annonceService.edit(formInfo).subscribe(r => location.reload);
+
+    this.annonceService.edit(formInfo, this.annonce.id).subscribe(r => location.reload());
   }
 
   delete(id: number) {

@@ -67,8 +67,8 @@ currentAnnonces = this.annoncesSource.asObservable();
     this.link = "http://127.0.0.1:8000/annonce/create";
     return this.http.post<any[]>(this.link, annonce);
   }
-  edit(annonce:any){
-    this.link = "http://127.0.0.1:8000/annonce/edit";
+  edit(annonce:any, id:number){
+    this.link = "http://127.0.0.1:8000/annonce/edit/"+ id;
     return this.http.patch<any[]>(this.link, annonce);
   }
 }
