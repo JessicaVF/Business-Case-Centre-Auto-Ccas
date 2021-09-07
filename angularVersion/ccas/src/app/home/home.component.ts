@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.getAnnounces();
-      this.annonceService.currentAnnonces.subscribe(annonces => this.annonces =annonces);
+      this.annonceService.currentAnnonces.subscribe(annonces => this.annonces = annonces);
   }
 
   getAnnounces():void{

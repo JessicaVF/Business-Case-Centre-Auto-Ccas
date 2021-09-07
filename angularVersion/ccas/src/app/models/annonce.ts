@@ -11,7 +11,7 @@ export interface Annonce{
   kilometers: number,
   fuelType: any,
   model: any,
-  garage_id: number,
+  garage: number,
   price: number,
 
   }

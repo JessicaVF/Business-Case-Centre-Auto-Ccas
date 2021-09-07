@@ -1,4 +1,55 @@
-<div class="row justify-content-center">
+<div *ngIf="editAnnonce == annonce.id">
+
+  <form [formGroup]="editAnnonceForm" (ngSubmit)="submitForm()">
+    <label for="title">Title: </label>
+    <input id="title" type="text" value="{{annonce.title}}" formControlName="title">
+
+    <label for="description">description: </label>
+    <input id="description" type="text" value="{{annonce.description}}" formControlName="description">
+
+    <label for="shortDescription">shortDescription: </label>
+    <input id="shortDescription" type="text" value="{{annonce.shortDescription}}" formControlName="shortDescription">
+
+    <label for="circulationYear">circulationYear: </label>
+    <input id="circulationYear" type="number" value="{{annonce.circulationYear}}" formControlName="circulationYear">
+
+    <label for="kilometers">kilometers: </label>
+    <input id="kilometers" type="number" value="{{annonce.kilometers}}" formControlName="kilometers">
+
+    <label for="price">price: </label>
+    <input id="price" type="number" value="{{annonce.price}}" formControlName="price">
+
+    <label for="make">make: </label>
+    <select name="make" formControlName="make" (ngModelChange)="getModels()">
+      <option *ngFor=" let make of makes" value={{make.id}}>{{make.name}}</option>
+    </select>
+
+    <label for="model">model: </label>
+    <select name="model" formControlName="model">
+      <option *ngFor="let model of models" value={{model.id}}>{{model.name}}</option>
+    </select>
+
+    <label for="fyelType">fuel type: </label>
+    <select name="fuelType" formControlName="fuelType">
+      <option *ngFor="let fuelType of fuelTypes" value={{fuelType.id}}>{{fuelType.name}}</option>
+    </select>
+
+    <label for="garage">garage: </label>
+    <select name="garage" formControlName="garage">
+      <option *ngFor="let garage of user.garages" value={{garage.id}}>{{garage.name}}</option>
+    </select>
+
+    <button type="submit" class="btn red rounded-pill">Edit annonce</button>
+
+  </form>
+
+
+</div>
+
+
+
+
+<div class=" row justify-content-center">
 
   <div class="col-lg-3 mt-2 col-9 col-md-5">
     <div class="card border border-3" style="width: 18rem;">
@@ -18,7 +69,9 @@
             <!-- <i class="far fa-copy" id="i"></i> -->
             <!-- <i class="fas fa-share-alt"></i> -->
           </p>
+
           <span *ngIf="usernameLogged == annonce.author.username">
+
             <button class="btn btn-primary" (click)="edit(annonce.id)">Edit</button>
             <button class="btn btn-danger" (click)="delete(annonce.id)">Delete</button>
           </span>
