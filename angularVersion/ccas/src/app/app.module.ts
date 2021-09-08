@@ -29,6 +29,7 @@ import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { UserComponent } from './user/user.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { GarageComponent } from './garage/garage.component';
+import { AddAnnonceComponent } from './add-annonce/add-annonce.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { GarageComponent } from './garage/garage.component';
     UserComponent,
     UserDetailComponent,
     GarageComponent,
+    AddAnnonceComponent,
 
   ],
   imports: [
