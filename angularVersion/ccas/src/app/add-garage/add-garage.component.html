@@ -1,0 +1,26 @@
+<div *ngIf="!isAddForm; else addForm">
+  <button (click)="showAddForm()">Ajouter un garage</button>
+</div>
+<ng-template #addForm>
+  <form [formGroup]="addGarageForm" (ngSubmit)="submitAddForm()">
+    <label for="name">name: </label>
+    <input id="name" type="text" formControlName="name">
+    <label for="telephone">telephone: </label>
+    <input id="telephone" type="text" formControlName="telephone">
+    <p>Address:</p>
+    <label for="number">number: </label>
+    <input id="number" type="number" formControlName="number">
+    <label for="complement">complement: </label>
+    <input id="complement" type="text" formControlName="complement">
+    <label for="road">road: </label>
+    <input id="road" type="text" formControlName="road">
+    <label for="codePostal">codePostal: </label>
+    <input id="codePostal" type="text" formControlName="codePostal">
+    <label for="city">city: </label>
+    <input id="city" type="text" formControlName="city">
+
+    <button type="submit" class="btn red rounded-pill">Ajouter le garage</button>
+  </form>
+
+</ng-template>
+<br>

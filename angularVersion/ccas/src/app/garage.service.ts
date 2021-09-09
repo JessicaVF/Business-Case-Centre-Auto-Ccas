@@ -33,7 +33,8 @@ delete(id:number){
   return this.http.delete(this.link);
 }
 add(infoToSend:any){
-  this.link = "http://127.0.0.1:8000/garage/create";
-  return this.http.post<any[]>(this.link, infoToSend);
+  const headers = { 'Authorization': "Bearer " + sessionStorage.getItem("token") };
+  this.link = "http://127.0.0.1:8000/api/garage/create";
+  return this.http.post<any[]>(this.link, infoToSend, {headers});
 }
 }
