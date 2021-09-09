@@ -19,7 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { ManageMyAccountComponent } from './manage-my-account/manage-my-account.component';
 import { ManageMyGaragesComponent } from './manage-my-garages/manage-my-garages.component';
-import { ManageMyAnnoncesByGaragesComponent } from './manage-my-annonces-by-garages/manage-my-annonces-by-garages.component';
+import { ManageMyAnnoncesComponent } from './manage-my-annonces/manage-my-annonces.component';
 import { ProfilAdminComponent } from './profil-admin/profil-admin.component';
 import { MenuUserComponent } from './menu-user/menu-user.component';
 import { ManageUsersAdminComponent } from './manage-users-admin/manage-users-admin.component';
@@ -46,7 +46,7 @@ import { AddAnnonceComponent } from './add-annonce/add-annonce.component';
     MyProfileComponent,
     ManageMyAccountComponent,
     ManageMyGaragesComponent,
-    ManageMyAnnoncesByGaragesComponent,
+    ManageMyAnnoncesComponent,
     ProfilAdminComponent,
     MenuUserComponent,
     ManageUsersAdminComponent,

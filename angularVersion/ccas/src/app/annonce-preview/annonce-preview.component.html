@@ -58,9 +58,7 @@
       </a>
       <div class="card-body">
         <h5 [routerLink]="['/detail', annonce.id]" target="_blank" class="card-title">{{annonce?.title}}</h5>
-        <p [routerLink]="['/detail', annonce.id]" target="_blank" class="card-text">{{annonce?.shortDescription}}
-        </p>
-
+        <p [routerLink]="['/detail', annonce.id]" target="_blank" class="card-text">{{annonce?.shortDescription}}</p>
 
         <div class="d-flex mt-3 justify-content-between">
           <p [routerLink]="['/detail', annonce.id]" target="_blank">{{annonce?.price}}€</p>
@@ -72,6 +70,10 @@
 
           <span *ngIf="usernameLogged == annonce.author.username">
 
+            <p>Marque: {{annonce.make.name}}</p>
+            <p>Modele: {{annonce.model.name}}</p>
+            <p>Carburant: {{annonce.fuelType.name}}</p>
+            <p>Kilometrage: {{annonce.kilometers}}</p>
             <button class="btn btn-primary" (click)="edit(annonce.id)">Edit</button>
             <button class="btn btn-danger" (click)="delete(annonce.id)">Delete</button>
           </span>

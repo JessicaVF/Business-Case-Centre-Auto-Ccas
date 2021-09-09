@@ -3,11 +3,11 @@ import { AnnonceService } from '../annonce.service';
 import { Annonce } from '../models/annonce';
 
 @Component({
-  selector: 'app-manage-my-annonces-by-garages',
-  templateUrl: './manage-my-annonces-by-garages.component.html',
-  styleUrls: ['./manage-my-annonces-by-garages.component.css']
+  selector: 'app-manage-my-annonces',
+  templateUrl: './manage-my-annonces.component.html',
+  styleUrls: ['./manage-my-annonces.component.css']
 })
-export class ManageMyAnnoncesByGaragesComponent implements OnInit {
+export class ManageMyAnnoncesComponent implements OnInit {
 
   annonces:Annonce[]=[];
   constructor(private annonceService : AnnonceService) { }

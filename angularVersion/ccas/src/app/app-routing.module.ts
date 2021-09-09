@@ -7,7 +7,7 @@ import { LogInComponent } from './log-in/log-in.component';
 import { ManageAnnoncesAdminComponent } from './manage-annonces-admin/manage-annonces-admin.component';
 import { ManageGaragesAdminComponent } from './manage-garages-admin/manage-garages-admin.component';
 import { ManageMyAccountComponent } from './manage-my-account/manage-my-account.component';
-import { ManageMyAnnoncesByGaragesComponent } from './manage-my-annonces-by-garages/manage-my-annonces-by-garages.component';
+import { ManageMyAnnoncesComponent } from './manage-my-annonces/manage-my-annonces.component';
 import { ManageMyGaragesComponent } from './manage-my-garages/manage-my-garages.component';
 import { ManageUsersAdminComponent } from './manage-users-admin/manage-users-admin.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
@@ -23,7 +23,7 @@ const routes: Routes = [
   {path:"profil", component:MyProfileComponent},
   {path:"compte", component:ManageMyAccountComponent},
   {path:"garages", component:ManageMyGaragesComponent},
-  {path:"annonces", component:ManageMyAnnoncesByGaragesComponent},
+  {path:"annonces", component:ManageMyAnnoncesComponent},
   {path:"admin/profil", component:ProfilAdminComponent},
   {path:"admin/utilisateurs", component:ManageUsersAdminComponent},
   {path:"admin/garages", component:ManageGaragesAdminComponent},
