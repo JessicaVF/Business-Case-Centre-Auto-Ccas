@@ -75,7 +75,7 @@
             <p>Carburant: {{annonce.fuelType.name}}</p>
             <p>Kilometrage: {{annonce.kilometers}}</p>
             <button class="btn btn-primary" (click)="edit(annonce.id)">Edit</button>
-            <button class="btn btn-danger" (click)="delete(annonce.id)">Delete</button>
+            <!-- <button class="btn btn-danger" (click)="delete(annonce.id)">Delete</button> -->
             <app-delete-modal [data]="data"></app-delete-modal>
           </span>
         </div>

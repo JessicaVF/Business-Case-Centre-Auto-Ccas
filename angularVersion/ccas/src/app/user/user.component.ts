@@ -12,6 +12,7 @@ import { UserService } from '../user.service';
 })
 export class UserComponent implements OnInit {
   @Input() user!:User;
+  data!:any;
   editUser!:number;
   editUserForm!: FormGroup;
   editPasswordForm!: FormGroup;
@@ -24,6 +25,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.usernameLogged = this.authService.getUsernameInStorage();
+    this.data = ["user", this.user.id];
   }
   edit(id:number){
     this.editUser = id;

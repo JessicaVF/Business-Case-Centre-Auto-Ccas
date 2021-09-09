@@ -11,6 +11,7 @@ import { Garage } from '../models/garage.model';
 export class GarageComponent implements OnInit {
 
   @Input() garage!: Garage;
+  data!:any;
   editGarage!: number;
   editGarageForm!: FormGroup;
   addGarageForm!: FormGroup;
@@ -19,6 +20,7 @@ export class GarageComponent implements OnInit {
   constructor(private fb: FormBuilder, private garageService: GarageService) { }
 
   ngOnInit(): void {
+    this.data = ["garage", this.garage.id];
   }
 
   edit(id: number) {
