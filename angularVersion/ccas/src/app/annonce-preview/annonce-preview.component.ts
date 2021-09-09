@@ -15,6 +15,7 @@ import { UserService } from '../user.service';
 export class AnnoncePreviewComponent implements OnInit {
 
   @Input() annonce!:Annonce;
+  data!:any;
   usernameLogged!:any;
   user!:User;
   editAnnonce!: number;
@@ -33,6 +34,7 @@ export class AnnoncePreviewComponent implements OnInit {
     );
     this.annonceService.getMakes().then( data => this.makes = data);
     this.annonceService.getFuelTypes().then(data => this.fuelTypes = data);
+    this.data = ["annonce", this.annonce.id];
   }
 
   getModels():any{
@@ -69,7 +71,7 @@ export class AnnoncePreviewComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.annonceService.delete(id).subscribe(r => location.reload());;
+    this.annonceService.delete(id).subscribe(r => location.reload());
   }
 
 }
