@@ -39,6 +39,13 @@
     <option *ngFor="let garage of user.garages" value={{garage.id}}>{{garage.name}}</option>
   </select>
 
+  <label for="photos">photos: </label>
+  <input type="file" formControlName="photos" (change)="test($event)">
+
+  <img [src]="imgURL" height="200" *ngIf="imgURL">
+  <!-- {{ receivedImageData['pic'] | json}}
+  <img [src]='convertedImage'> -->
+  {{imgURL}}
   <button type="submit" class="btn red rounded-pill">Ajoute annonce</button>
 
 </form>

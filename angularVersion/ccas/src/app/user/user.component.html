@@ -52,11 +52,16 @@
         annonces</button>
       <hr>
       <div *ngIf="user.username == usernameLogged">
-        <button class="btn btn-warning" (click)="editPassword()">Modifier le mot de passe</button>
       </div>
 
       <button class="btn btn-primary" (click)="edit(user.id)">Edit</button>
       <!-- <button class="btn btn-danger" (click)="delete(user.id)">Delete</button> -->
+      <div *ngIf="user.username == usernameLogged">
+
+        <button class="btn btn-warning" (click)="editPassword()">Modifier le mot de passe</button>
+        <hr>
+        DANGER ZONE, here you delete your account
+      </div>
       <app-delete-modal [data]="data"></app-delete-modal>
     </div>
   </div>
