@@ -63,6 +63,9 @@
           {{garage.address.complement}}
         </span>{{garage.address.road}}, {{garage.address.codePostal}}, {{garage.address.city}}
       </li>
+      <div *ngIf="isAdmin">
+        <li class="list-group-item"> Propriétaire: {{garage.user.firstname}} {{garage.user.lastname}}</li>
+      </div>
     </ul>
 
     <div class="card-body">
@@ -74,7 +77,7 @@
       <ng-template #notAnnoncesDisplay> You dont have annonces</ng-template>
       <hr>
       <button class="btn btn-primary" (click)="edit(garage.id)">Edit</button>
-      <!-- <button class="btn btn-danger" (click)="delete(garage.id)">Delete</button> -->
+
       <app-delete-modal [data]="data"></app-delete-modal>
     </div>
   </div>

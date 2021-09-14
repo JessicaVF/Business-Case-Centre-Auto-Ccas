@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 import { GarageService } from '../garage.service';
 import { Garage } from '../models/garage.model';
 
@@ -16,11 +17,19 @@ export class GarageComponent implements OnInit {
   editGarageForm!: FormGroup;
   addGarageForm!: FormGroup;
   isAddForm:boolean = false ;
+  isAdmin:boolean = false ;
 
-  constructor(private fb: FormBuilder, private garageService: GarageService) { }
+  constructor(private fb: FormBuilder, private garageService: GarageService, private authService: AuthService)
+  {
+
+
+  }
 
   ngOnInit(): void {
     this.data = ["garage", this.garage.id];
+    this.authService.isAdmin().subscribe(data => this.isAdmin = data);
+
+
   }
 
   edit(id: number) {
@@ -50,7 +59,7 @@ export class GarageComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.garageService.delete(id).subscribe(r => location.reload());;
+    this.garageService.delete(id).subscribe(r => location.reload());
   }
 
   showAddForm(){

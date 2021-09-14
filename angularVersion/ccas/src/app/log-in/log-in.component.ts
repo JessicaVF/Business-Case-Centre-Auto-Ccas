@@ -36,7 +36,6 @@ export class LogInComponent implements OnInit {
         this.authService.loginChangeStatus();
         this.authService.setTokenInStorage(data.token);
         const tokenDecoded: any = jwt_decode(data.token);
-        console.log(tokenDecoded.username);
         this.authService.setUsernameInStorage(tokenDecoded.username);
         this.router.navigate(['/profil']);
       },

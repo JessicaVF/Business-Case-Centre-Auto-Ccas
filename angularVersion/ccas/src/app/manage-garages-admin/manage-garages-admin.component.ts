@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
+import { Garage } from '../models/garage.model';
 
 @Component({
   selector: 'app-manage-garages-admin',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageGaragesAdminComponent implements OnInit {
 
-  constructor() { }
+  garages!:any[];
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
+
+    this.adminService.getAllGarages().subscribe(data => this.garages = data);
+
   }
 
 }
