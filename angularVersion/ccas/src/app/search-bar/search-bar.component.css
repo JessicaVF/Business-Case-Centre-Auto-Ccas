@@ -14,6 +14,11 @@
 ::ng-deep .custom-slider .ngx-slider .ngx-slider-pointer {
   background: #c4c4c4 !important;
   color: black;
-
   box-shadow: 2px 2px 5px 1px #686565 inset;
+}
+.dbLabel {
+  height: 50px;
+}
+.searchBtn {
+  margin-bottom: 10px;
 }

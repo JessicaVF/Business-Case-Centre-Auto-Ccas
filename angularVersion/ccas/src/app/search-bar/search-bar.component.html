@@ -5,21 +5,21 @@
   <form [formGroup]="searchForm" (ngSubmit)="submitForm()">
     <div class="d-flex align-items-end">
       <div>
-        <label for="make">Marque</label>
-        <select class="btn grey rounded-pill mr-5" name="make" id="make" formControlName="make"
+        <label class="dbLabel" for="make">Marque</label>
+        <select class="btn grey rounded-pill mr-5 mb-1" name="make" id="make" formControlName="make"
           (ngModelChange)="getModels()">
           <option *ngFor=" let make of makes" value={{make.id}}>{{make.name}}</option>
         </select>
       </div>
       <div>
-        <label for="model">Modèle</label>
-        <select name="model" id="model" class="btn grey rounded-pill mr-5" formControlName="model">
+        <label class="dbLabel" for="model">Modèle</label>
+        <select name="model" id="model" class="btn grey rounded-pill mr-5 mb-1" formControlName="model">
           <option *ngFor="let model of models" value={{model.id}}>{{model.name}}</option>
         </select>
       </div>
       <div>
-        <label for="fuelType">Type de carburant</label>
-        <select name="fuelType" id="fuelType" class="btn grey rounded-pill mr-5" formControlName="fuelType">
+        <label class="dbLabel" for="fuelType">Type de carburant</label>
+        <select name="fuelType" id="fuelType" class="btn grey rounded-pill mr-5 mb-1" formControlName="fuelType">
           <option *ngFor="let fuelType of fuelTypes" value={{fuelType.id}}>{{fuelType.name}}</option>
         </select>
       </div>
@@ -45,7 +45,7 @@
         </div>
       </div>
 
-      <button type="submit" class="btn red rounded-pill">Recherchez</button>
+      <button type="submit" class="btn red rounded-pill searchBtn">Recherchez</button>
     </div>
 
   </form>
