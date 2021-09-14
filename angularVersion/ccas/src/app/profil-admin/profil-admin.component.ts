@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AdminService } from '../admin.service';
 import { UserService } from '../user.service';
 
 @Component({
@@ -10,12 +11,18 @@ import { UserService } from '../user.service';
 })
 export class ProfilAdminComponent implements OnInit {
 
-  constructor() {
+  quickStats!:any;
 
-
+  constructor(private adminService: AdminService) {
   }
 
   ngOnInit(): void {
+
+    this.adminService.getQuickStats().subscribe
+    ( data => {
+      this.quickStats = data;
+      }
+    );
   }
 
 
