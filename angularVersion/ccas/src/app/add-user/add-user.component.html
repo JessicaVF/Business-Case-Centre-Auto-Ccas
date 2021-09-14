@@ -1,0 +1,26 @@
+Ajouter l'utilisateur
+
+
+<form [formGroup]="addUserForm" (ngSubmit)="submitForm()">
+
+  <label for="lastname">Nom: </label>
+  <input id="lastname" type="text" formControlName="lastname">
+
+  <label for="firstname">Prenom : </label>
+  <input id="firstname" type="text" formControlName="firstname">
+
+  <label for="email">Adresse Mail : </label>
+  <input id="email" type="email" formControlName="email">
+
+  <label for="telephone">telephone: </label>
+  <input id="telephone" type="text" formControlName="telephone">
+
+  <label for="siret">siret: </label>
+  <input id="siret" type="text" formControlName="siret">
+
+  <label for="username">Nom d'utilisateur: </label>
+  <input id="username" type="text" formControlName="username">
+
+  <button type="submit" class="btn red rounded-pill">Ajouter l'utilisateur</button>
+
+</form>

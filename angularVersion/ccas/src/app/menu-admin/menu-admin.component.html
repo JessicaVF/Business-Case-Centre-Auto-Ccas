@@ -1,6 +1,7 @@
-<p>menu-admin works!</p>
-<p><a [routerLink]="['/admin/profil']">Profil De Lodevie</a></p>
-<!-- <p><a [routerLink]="['/compte']">Mon compte</a></p> -->
-<p><a [routerLink]="['/admin/utilisateurs']">Les utilisateurs</a></p>
-<p><a [routerLink]="['/admin/garages']">Les garages</a></p>
-<p><a [routerLink]="['/admin/annonces']">Les annonces</a></p>
+<div class="d-flex">
+  <a class="btn grey rounded-pill" [routerLink]="['/admin/profil']">Ajoute un utilsateur</a>
+  <a class="btn grey rounded-pill" [routerLink]="['/compte']">Mon compte</a>
+  <a class="btn grey rounded-pill" [routerLink]="['/admin/utilisateurs']">Les utilisateurs</a>
+  <a class="btn grey rounded-pill" [routerLink]="['/admin/garages']">Les garages</a>
+  <a class="btn grey rounded-pill" [routerLink]="['/admin/annonces']">Les annonces</a>
+</div>

@@ -10,31 +10,13 @@ import { UserService } from '../user.service';
 })
 export class ProfilAdminComponent implements OnInit {
 
-  addUserForm!: FormGroup;
+  constructor() {
 
-  constructor(private fb: FormBuilder, private userService: UserService, private route: Router) {
 
-    this.addUserForm = fb.group({
-      lastname: fb.control('', Validators.required),
-      firstname: fb.control('', Validators.required),
-      email: fb.control('', Validators.required),
-      telephone: fb.control('', Validators.required),
-      siret: fb.control('', Validators.required),
-      password: fb.control('0123456789', Validators.required),
-      username:fb.control('')
-
-    })
   }
 
   ngOnInit(): void {
   }
-  submitForm(){
 
-    if (this.addUserForm.valid) {
-      const formInfo = this.addUserForm.value;
-      this.userService.add(formInfo).subscribe(r => location.reload());
-    }
-
-  }
 
 }
