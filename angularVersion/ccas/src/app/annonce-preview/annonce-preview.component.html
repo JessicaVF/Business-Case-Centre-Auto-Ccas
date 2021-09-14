@@ -68,16 +68,22 @@
             <!-- <i class="fas fa-share-alt"></i> -->
           </p>
 
-          <span *ngIf="usernameLogged == annonce.author.username">
+          <span *ngIf="usernameLogged == !annonce.author.username">
 
             <p>Marque: {{annonce.make.name}}</p>
             <p>Modele: {{annonce.model.name}}</p>
             <p>Carburant: {{annonce.fuelType.name}}</p>
             <p>Kilometrage: {{annonce.kilometers}}</p>
             <button class="btn btn-primary" (click)="edit(annonce.id)">Edit</button>
-            <!-- <button class="btn btn-danger" (click)="delete(annonce.id)">Delete</button> -->
             <app-delete-modal [data]="data"></app-delete-modal>
           </span>
+
+          <div *ngIf="isAdmin">
+            Propriétaire: {{annonce.author.firstname}} {{annonce.author.lastname}}
+            Garage: {{annonce.garage.name}}
+            <button class="btn btn-primary" (click)="edit(annonce.id)">Edit</button>
+            <app-delete-modal [data]="data"></app-delete-modal>
+          </div>
         </div>
       </div>
     </div>

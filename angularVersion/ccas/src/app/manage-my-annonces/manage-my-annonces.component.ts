@@ -16,7 +16,7 @@ export class ManageMyAnnoncesComponent implements OnInit {
     this.getAnnouncesByUser();
   }
 
-  getAnnouncesByUser():void{
+  getAnnouncesByUser():void {
     this.annonceService.getAllByUser().subscribe( data => this.annonces = data);
   }
 

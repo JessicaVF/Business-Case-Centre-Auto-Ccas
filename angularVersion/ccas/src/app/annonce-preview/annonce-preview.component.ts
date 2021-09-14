@@ -23,18 +23,23 @@ export class AnnoncePreviewComponent implements OnInit {
   makes: Array<any> =[];
   models: Array<any>=[];
   fuelTypes: Array<any>=[];
+  isAdmin: any = false;
 
   constructor(private userService: UserService, private authService: AuthService, private fb: FormBuilder, private annonceService : AnnonceService) { }
 
   ngOnInit(): void {
     this.usernameLogged = this.authService.getUsernameInStorage();
-    this.userService.getOne().subscribe
-    ( data => {
-      this.user = data;}
-    );
+    // this.userService.getOne().subscribe
+    // ( data => {
+    //   this.user = data;}
+    // );
     this.annonceService.getMakes().then( data => this.makes = data);
     this.annonceService.getFuelTypes().then(data => this.fuelTypes = data);
     this.data = ["annonce", this.annonce.id];
+    // this.authService.isAdmin().subscribe(data => this.isAdmin = data);
+    this.isAdmin = this.authService.isAdmin();
+
+
   }
 
   getModels():any{
@@ -64,14 +69,8 @@ export class AnnoncePreviewComponent implements OnInit {
 
   submitForm(){
 
-
     let formInfo = this.editAnnonceForm.value;
-
     this.annonceService.edit(formInfo, this.annonce.id).subscribe(r => location.reload());
-  }
-
-  delete(id: number) {
-    this.annonceService.delete(id).subscribe(r => location.reload());
   }
 
 }
