@@ -1,4 +1,8 @@
-<p>manage-my-account works!</p>
-<app-menu-user></app-menu-user>
-Votre info:
+<div *ngIf="isAdmin=='true'; else regularDisplay">
+  <app-menu-admin></app-menu-admin>
+</div>
+<ng-template #regularDisplay>
+  <app-menu-user></app-menu-user>
+</ng-template>
+
 <app-user [user]="user"></app-user>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { User } from '../models/user.model';
 import { UserService } from '../user.service';
 
@@ -9,11 +10,15 @@ import { UserService } from '../user.service';
 })
 export class ManageMyAccountComponent implements OnInit {
   user!:User;
-  constructor(private userService: UserService) { }
+  isAdmin!:any;
+  constructor(private userService: UserService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.userService.getOne().subscribe( data => {
       this.user = data;});
+      this.isAdmin = this.authService.getIfAdminInStorage();
+      console.log(this.isAdmin);
+
   }
 
 }
