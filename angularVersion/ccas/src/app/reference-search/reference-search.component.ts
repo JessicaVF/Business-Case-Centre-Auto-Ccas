@@ -10,7 +10,7 @@ import { AnnonceService } from '../annonce.service';
 export class ReferenceSearchComponent implements OnInit {
 
   searchForm!: FormGroup;
-
+  annonce!:any;
   constructor(private fb: FormBuilder, private annonceService : AnnonceService) {
 
     this.searchForm = fb.group({
@@ -24,6 +24,6 @@ export class ReferenceSearchComponent implements OnInit {
     const formsInfo = this.searchForm.value;
     console.log(formsInfo.id);
 
-     this.annonceService.getOne(formsInfo.id).subscribe((data:any) => console.log(data));
+     this.annonceService.getOne(formsInfo.id).subscribe((data:any) => this.annonce = data);
   }
 }
