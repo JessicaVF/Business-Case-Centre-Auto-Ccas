@@ -1,0 +1,8 @@
+<form [formGroup]="searchForm" (ngSubmit)="submitForm()">
+  <div class="d-flex align-items-end">
+    <label for="id">Reference:</label>
+    <input id="id" name="id" formControlName="id">
+    <button type="submit" class="btn red rounded-pill searchBtn">Recherchez</button>
+
+  </div>
+</form>

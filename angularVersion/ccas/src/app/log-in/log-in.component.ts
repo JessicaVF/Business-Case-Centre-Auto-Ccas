@@ -12,7 +12,8 @@ import jwt_decode from 'jwt-decode';
 export class LogInComponent implements OnInit {
 
   loginForm!:FormGroup;
-  redirect = false;
+  adminStatus!:any;
+
 
   constructor(private router: Router, private fb: FormBuilder, private authService: AuthService) {
 
@@ -20,6 +21,8 @@ export class LogInComponent implements OnInit {
       username: fb.control('', Validators.required),
       password: fb.control('', Validators.required)
     })
+
+
   }
 
   ngOnInit(): void {
@@ -27,7 +30,6 @@ export class LogInComponent implements OnInit {
   submitForm(){
     if (this.loginForm.valid){
       const formInfo = this.loginForm.value;
-      console.log(formInfo.password);
 
       this.authService.login(formInfo)
         .subscribe(
@@ -38,6 +40,18 @@ export class LogInComponent implements OnInit {
         const tokenDecoded: any = jwt_decode(data.token);
         this.authService.setUsernameInStorage(tokenDecoded.username);
         this.router.navigate(['/profil']);
+        // this.authService.checkIfAdmin().subscribe(adminBool =>
+        //   console.log(this.authService.setIfAdmin(adminBool)));
+
+        //   console.log("aca" + this.adminStatus);
+
+
+          // if(this.authService.isAdmin()){
+          //   this.router.navigate(['admin/profil']);
+          // }
+          // else{
+
+          // }
 
       },
       (error) => {
@@ -47,6 +61,8 @@ export class LogInComponent implements OnInit {
 
       }
       );
+
+
   }
 
   }

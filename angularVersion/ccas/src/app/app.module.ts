@@ -33,6 +33,7 @@ import { AddAnnonceComponent } from './add-annonce/add-annonce.component';
 import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 import { AddGarageComponent } from './add-garage/add-garage.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { ReferenceSearchComponent } from './reference-search/reference-search.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { AddUserComponent } from './add-user/add-user.component';
     DeleteModalComponent,
     AddGarageComponent,
     AddUserComponent,
+    ReferenceSearchComponent,
 
   ],
   imports: [

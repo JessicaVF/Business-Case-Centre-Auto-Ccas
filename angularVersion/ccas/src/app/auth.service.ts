@@ -8,7 +8,7 @@ export class AuthService {
 
   link="";
   isLogin = false;
-
+  adminStatus: boolean = false;
   constructor(private http: HttpClient) { }
 
   login(loginData: any){
@@ -33,10 +33,21 @@ export class AuthService {
   getUsernameInStorage(): any {
     return sessionStorage.getItem("username");
   }
-  isAdmin(): any {
+  checkIfAdmin(){
+
     const headers = { 'Authorization': "Bearer " + sessionStorage.getItem("token") };
     this.link = "http://127.0.0.1:8000/api/auth/isAdmin"
     return this.http.get<boolean>(this.link, { headers });
+  }
+  setIfAdmin(adminBool: any){
+    this.adminStatus = adminBool;
+    return this.adminStatus;
 
+  }
+  isAdmin(): any {
+    // const headers = { 'Authorization': "Bearer " + sessionStorage.getItem("token") };
+    // this.link = "http://127.0.0.1:8000/api/auth/isAdmin"
+    // return this.http.get<boolean>(this.link, { headers });
+      return this.adminStatus;
   }
 }
