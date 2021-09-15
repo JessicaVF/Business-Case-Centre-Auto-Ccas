@@ -40,17 +40,16 @@ export class LogInComponent implements OnInit {
         const tokenDecoded: any = jwt_decode(data.token);
         this.authService.setUsernameInStorage(tokenDecoded.username);
         this.authService.checkIfAdmin(tokenDecoded.roles);
-        this.router.navigate(['/profil']);
-          //   this.router.navigate(['admin/profil']);
-
-      },
+        if(this.authService.getIfAdminInStorage()){
+          this.router.navigate(['admin/profil']);
+        }
+        else{this.router.navigate(['/profil']);}
+    },
       (error) => {
         console.log(error);
+        location.reload();
 
-        // location.reload();
-
-      }
-      );
+      });
 
 
   }
