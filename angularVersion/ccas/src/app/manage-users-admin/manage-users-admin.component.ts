@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
 import { User } from '../models/user.model';
 import { UserService } from '../user.service';
 
@@ -10,10 +11,10 @@ import { UserService } from '../user.service';
 export class ManageUsersAdminComponent implements OnInit {
   users!:User[];
 
-  constructor(private userService: UserService) { }
+  constructor(private adminService:AdminService) { }
 
   ngOnInit(): void {
-    this.userService.getAll().subscribe( data => {
+    this.adminService.getAll().subscribe( data => {
       this.users = data;
     });
   }
