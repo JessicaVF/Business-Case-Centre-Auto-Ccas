@@ -39,19 +39,9 @@ export class LogInComponent implements OnInit {
         this.authService.setTokenInStorage(data.token);
         const tokenDecoded: any = jwt_decode(data.token);
         this.authService.setUsernameInStorage(tokenDecoded.username);
+        this.authService.checkIfAdmin(tokenDecoded.roles);
         this.router.navigate(['/profil']);
-        // this.authService.checkIfAdmin().subscribe(adminBool =>
-        //   console.log(this.authService.setIfAdmin(adminBool)));
-
-        //   console.log("aca" + this.adminStatus);
-
-
-          // if(this.authService.isAdmin()){
           //   this.router.navigate(['admin/profil']);
-          // }
-          // else{
-
-          // }
 
       },
       (error) => {

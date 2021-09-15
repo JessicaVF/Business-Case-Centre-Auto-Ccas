@@ -27,8 +27,8 @@ export class GarageComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = ["garage", this.garage.id];
-    this.authService.isAdmin().subscribe((data:any) => this.isAdmin = data);
-
+    // this.authService.isAdmin().subscribe((data:any) => this.isAdmin = data);
+    this.isAdmin = this.authService.getIfAdminInStorage();
 
   }
 

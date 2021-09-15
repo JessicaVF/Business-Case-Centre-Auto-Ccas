@@ -18,7 +18,7 @@ export class AuthService {
   loginChangeStatus(){
     this.isLogin = !this.isLogin;
   }
-  loginStatus(){
+  getLoginStatus(){
     return this.isLogin;
   }
   setTokenInStorage(data: any) {
@@ -33,21 +33,37 @@ export class AuthService {
   getUsernameInStorage(): any {
     return sessionStorage.getItem("username");
   }
-  checkIfAdmin(){
+  checkIfAdmin(data: any){
+    if(data.length == 2){
+      sessionStorage.setItem("isAdmin", "true");
 
-    const headers = { 'Authorization': "Bearer " + sessionStorage.getItem("token") };
-    this.link = "http://127.0.0.1:8000/api/auth/isAdmin"
-    return this.http.get<boolean>(this.link, { headers });
-  }
-  setIfAdmin(adminBool: any){
-    this.adminStatus = adminBool;
-    return this.adminStatus;
 
+    }
   }
+  getIfAdminInStorage(): any {
+    return sessionStorage.getItem("isAdmin");
+  }
+
+
+  // checkIfAdmin(){
+
+  //   const headers = { 'Authorization': "Bearer " + sessionStorage.getItem("token") };
+  //   this.link = "http://127.0.0.1:8000/api/auth/isAdmin"
+  //   return this.http.get<boolean>(this.link, { headers });
+  // }
+  // setIfAdmin(adminBool: any){
+  //   console.log("adminBool", adminBool);
+  //   this.adminStatus = adminBool;
+  //   console.log("adminStatus1", this.adminStatus);
+
+  //   return this.adminStatus;
+
+  // }
   isAdmin(): any {
     // const headers = { 'Authorization': "Bearer " + sessionStorage.getItem("token") };
     // this.link = "http://127.0.0.1:8000/api/auth/isAdmin"
     // return this.http.get<boolean>(this.link, { headers });
+    console.log("adminStatus2",this.adminStatus);
       return this.adminStatus;
   }
 }

@@ -16,6 +16,7 @@ export class ManageAnnoncesAdminComponent implements OnInit {
   ngOnInit(): void {
 
     this.getAllAnnonces();
+
   }
   getAllAnnonces():void{
     this.adminService.getAllAnnonces().subscribe( data => this.annonces = data);

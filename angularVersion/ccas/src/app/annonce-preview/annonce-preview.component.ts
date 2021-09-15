@@ -23,12 +23,16 @@ export class AnnoncePreviewComponent implements OnInit {
   makes: Array<any> =[];
   models: Array<any>=[];
   fuelTypes: Array<any>=[];
-  isAdmin: any = false;
+  isAdmin!: any;
 
   constructor(private userService: UserService, private authService: AuthService, private fb: FormBuilder, private annonceService : AnnonceService) { }
 
   ngOnInit(): void {
     this.usernameLogged = this.authService.getUsernameInStorage();
+    console.log(this.usernameLogged);
+    this.isAdmin = this.authService.getIfAdminInStorage();
+    console.log("isadmin", + this.isAdmin);
+
     // this.userService.getOne().subscribe
     // ( data => {
     //   this.user = data;}
@@ -36,10 +40,7 @@ export class AnnoncePreviewComponent implements OnInit {
     this.annonceService.getMakes().then( data => this.makes = data);
     this.annonceService.getFuelTypes().then(data => this.fuelTypes = data);
     this.data = ["annonce", this.annonce.id];
-    this.authService.isAdmin().subscribe((data:any) => this.isAdmin = data);
-
-
-
+    // this.authService.isAdmin().subscribe((data:any) => this.isAdmin = data);
 
   }
 
