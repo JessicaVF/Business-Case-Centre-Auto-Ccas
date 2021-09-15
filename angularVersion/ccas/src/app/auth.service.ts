@@ -33,7 +33,7 @@ export class AuthService {
   getUsernameInStorage(): any {
     return sessionStorage.getItem("username");
   }
-  isAdmin(){
+  isAdmin(): any {
     const headers = { 'Authorization': "Bearer " + sessionStorage.getItem("token") };
     this.link = "http://127.0.0.1:8000/api/auth/isAdmin"
     return this.http.get<boolean>(this.link, { headers });

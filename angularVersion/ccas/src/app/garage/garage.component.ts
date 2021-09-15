@@ -17,7 +17,7 @@ export class GarageComponent implements OnInit {
   editGarageForm!: FormGroup;
   addGarageForm!: FormGroup;
   isAddForm:boolean = false ;
-  isAdmin: any = false ;
+  isAdmin: boolean = false ;
 
   constructor(private fb: FormBuilder, private garageService: GarageService, private authService: AuthService)
   {
@@ -27,7 +27,7 @@ export class GarageComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = ["garage", this.garage.id];
-    this.isAdmin = this.authService.isAdmin();
+    this.authService.isAdmin().subscribe((data:any) => this.isAdmin = data);
 
 
   }

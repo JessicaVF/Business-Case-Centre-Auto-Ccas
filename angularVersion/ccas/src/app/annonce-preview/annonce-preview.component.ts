@@ -36,8 +36,9 @@ export class AnnoncePreviewComponent implements OnInit {
     this.annonceService.getMakes().then( data => this.makes = data);
     this.annonceService.getFuelTypes().then(data => this.fuelTypes = data);
     this.data = ["annonce", this.annonce.id];
-    // this.authService.isAdmin().subscribe(data => this.isAdmin = data);
-    this.isAdmin = this.authService.isAdmin();
+    this.authService.isAdmin().subscribe((data:any) => this.isAdmin = data);
+
+
 
 
   }
