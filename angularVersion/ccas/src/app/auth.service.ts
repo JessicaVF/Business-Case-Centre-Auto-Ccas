@@ -9,24 +9,28 @@ export class AuthService {
 
   link="";
   isLogin = false;
+
   adminStatus: boolean = false;
 
-  private logStatusSource = new BehaviorSubject(this.isLogin)
-  logStatus = this.logStatusSource.asObservable();
+  // private logStatusSource = new BehaviorSubject(this.isLogin)
+  // logStatus = this.logStatusSource.asObservable();
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+
+   }
 
   login(loginData: any){
     this.link = "http://127.0.0.1:8000/api/login_check";
     return this.http.post<any[]>(this.link, loginData);
   }
+  logout(){
+    sessionStorage.clear();
+  }
   loginChangeStatus(){
     this.isLogin = !this.isLogin;
-    this.logStatusSource.next(this.isLogin)
+    // this.logStatusSource.next(this.isLogin)
     console.log(this.isLogin, "isLogin");
-
-
   }
   getLoginStatus(){
     return this.isLogin;

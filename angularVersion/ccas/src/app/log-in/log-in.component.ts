@@ -35,8 +35,8 @@ export class LogInComponent implements OnInit {
         .subscribe(
         (data:any) => {
 
-        this.authService.loginChangeStatus();
-        // this.authService.setIsLoginInStorage();
+        // this.authService.loginChangeStatus();
+        this.authService.setIsLoginInStorage();
         this.authService.setTokenInStorage(data.token);
         const tokenDecoded: any = jwt_decode(data.token);
         this.authService.setUsernameInStorage(tokenDecoded.username);

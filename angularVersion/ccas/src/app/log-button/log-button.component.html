@@ -1,9 +1,9 @@
-<div *ngIf="isLogin == false; else loginDisplay">
+<div *ngIf="isLogin == 'false' || isLogin == null || isLogin == 'undefined' ; else logoutDisplay">
   <p>Vous voulez faire votre annonce ici ? <a [routerLink]="['/contact']">contactez M.Lodevie </a></p>
   <p><a [routerLink]="['/login']">Garage? Connectez-vous</a></p>
 </div>
-<ng-template #loginDisplay>
+<ng-template #logoutDisplay>
   <div>
-    <p><a [routerLink]="['/accueil']">Logout</a></p>
+    <p> <button (click)="logout()">Logout</button> </p>
   </div>
 </ng-template>
