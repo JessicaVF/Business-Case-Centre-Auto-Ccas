@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,11 @@ export class AuthService {
   link="";
   isLogin = false;
   adminStatus: boolean = false;
+
+  private logStatusSource = new BehaviorSubject(this.isLogin)
+  logStatus = this.logStatusSource.asObservable();
+
+
   constructor(private http: HttpClient) { }
 
   login(loginData: any){
@@ -17,6 +23,10 @@ export class AuthService {
   }
   loginChangeStatus(){
     this.isLogin = !this.isLogin;
+    this.logStatusSource.next(this.isLogin)
+    console.log(this.isLogin, "isLogin");
+
+
   }
   getLoginStatus(){
     return this.isLogin;
@@ -36,34 +46,17 @@ export class AuthService {
   checkIfAdmin(data: any){
     if(data.length == 2){
       sessionStorage.setItem("isAdmin", "true");
-
-
     }
+    //else erase "isadmin"NOTA FOR ME
   }
   getIfAdminInStorage(): any {
     return sessionStorage.getItem("isAdmin");
   }
-
-
-  // checkIfAdmin(){
-
-  //   const headers = { 'Authorization': "Bearer " + sessionStorage.getItem("token") };
-  //   this.link = "http://127.0.0.1:8000/api/auth/isAdmin"
-  //   return this.http.get<boolean>(this.link, { headers });
-  // }
-  // setIfAdmin(adminBool: any){
-  //   console.log("adminBool", adminBool);
-  //   this.adminStatus = adminBool;
-  //   console.log("adminStatus1", this.adminStatus);
-
-  //   return this.adminStatus;
-
-  // }
-  isAdmin(): any {
-    // const headers = { 'Authorization': "Bearer " + sessionStorage.getItem("token") };
-    // this.link = "http://127.0.0.1:8000/api/auth/isAdmin"
-    // return this.http.get<boolean>(this.link, { headers });
-    console.log("adminStatus2",this.adminStatus);
-      return this.adminStatus;
+  setIsLoginInStorage(): any{
+    sessionStorage.setItem("isLogin", "true");
   }
+  getIsLoginIfInStorage():any{
+    return sessionStorage.getItem("isLogin");
+  }
+
 }

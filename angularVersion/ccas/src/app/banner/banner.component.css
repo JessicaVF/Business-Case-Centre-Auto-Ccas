@@ -23,15 +23,3 @@ header [alt~="car_woman"] {
   right: 10%;
   transform: matrix(-1, 0, 0, 1, 0, 0);
 }
-header a {
-  color: red;
-}
-header div {
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-  justify-content: flex-end;
-  position: relative;
-  top: 170px;
-  right: 10px;
-}

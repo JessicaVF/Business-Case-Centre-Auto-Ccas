@@ -34,6 +34,7 @@ import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 import { AddGarageComponent } from './add-garage/add-garage.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { ReferenceSearchComponent } from './reference-search/reference-search.component';
+import { LogButtonComponent } from './log-button/log-button.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { ReferenceSearchComponent } from './reference-search/reference-search.co
     AddGarageComponent,
     AddUserComponent,
     ReferenceSearchComponent,
+    LogButtonComponent,
 
   ],
   imports: [

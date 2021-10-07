@@ -29,9 +29,8 @@ export class AnnoncePreviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.usernameLogged = this.authService.getUsernameInStorage();
-    console.log(this.usernameLogged);
     this.isAdmin = this.authService.getIfAdminInStorage();
-    console.log("isadmin", + this.isAdmin);
+
 
     // this.userService.getOne().subscribe
     // ( data => {

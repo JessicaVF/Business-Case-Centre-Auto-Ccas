@@ -15,7 +15,7 @@ export class LogInComponent implements OnInit {
   adminStatus!:any;
 
 
-  constructor(private router: Router, private fb: FormBuilder, private authService: AuthService) {
+  constructor(private route: Router, private fb: FormBuilder, private authService: AuthService) {
 
     this.loginForm = fb.group({
       username: fb.control('', Validators.required),
@@ -36,14 +36,16 @@ export class LogInComponent implements OnInit {
         (data:any) => {
 
         this.authService.loginChangeStatus();
+        // this.authService.setIsLoginInStorage();
         this.authService.setTokenInStorage(data.token);
         const tokenDecoded: any = jwt_decode(data.token);
         this.authService.setUsernameInStorage(tokenDecoded.username);
         this.authService.checkIfAdmin(tokenDecoded.roles);
         if(this.authService.getIfAdminInStorage()){
-          this.router.navigate(['admin/profil']);
+          this.route.navigate(['admin/profil']);
+
         }
-        else{this.router.navigate(['/profil']);}
+        else{this.route.navigate(['/profil']);}
     },
       (error) => {
         console.log(error);
