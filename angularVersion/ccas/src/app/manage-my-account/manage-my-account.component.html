@@ -1,8 +1,9 @@
+<h1> Mon compte</h1>
 <div *ngIf="isAdmin=='true'; else regularDisplay">
   <app-menu-admin></app-menu-admin>
 </div>
 <ng-template #regularDisplay>
   <app-menu-user></app-menu-user>
 </ng-template>
-<h1> Mon compte</h1>
+
 <app-user [user]="user"></app-user>
