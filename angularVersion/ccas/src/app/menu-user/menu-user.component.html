@@ -1,6 +1,12 @@
-<div class="d-flex">
-  <a class="btn grey rounded-pill" [routerLink]="['/profil']">Profil / creer annonce</a>
-  <a class="btn grey rounded-pill" [routerLink]="['/compte']">Mon compte</a>
-  <a class="btn grey rounded-pill" [routerLink]="['/garages']">Mes garages</a>
-  <a class="btn grey rounded-pill" [routerLink]="['/annonces']">Mes annonces</a>
-</div>
+<nav class="navbar navbar-light bg-light">
+  <form class="container-fluid justify-content-start">
+    <button class="btn btn-outline-danger m-2" type="button" [routerLink]="['/profil']">
+      Profil / creer annonce
+    </button>
+    <button class="btn btn-outline-secondary" type="button" [routerLink]="['/compte']">Mon compte</button>
+    <button class="btn btn-outline-danger m-2" type="button" [routerLink]="['/garages']">Mes garages</button>
+    <button class="btn btn-outline-secondary" type="button" [routerLink]="['/annonces']">
+      Mes annonces
+    </button>
+  </form>
+</nav>
