@@ -1,7 +1,15 @@
-<div class="d-flex">
-  <a class="btn grey rounded-pill" [routerLink]="['/admin/profil']">Ajoute un utilsateur</a>
-  <a class="btn grey rounded-pill" [routerLink]="['/compte']">Mon compte</a>
-  <a class="btn grey rounded-pill" [routerLink]="['/admin/utilisateurs']">Les utilisateurs</a>
-  <a class="btn grey rounded-pill" [routerLink]="['/admin/garages']">Les garages</a>
-  <a class="btn grey rounded-pill" [routerLink]="['/admin/annonces']">Les annonces</a>
-</div>
+<nav class="navbar navbar-light bg-light">
+  <form class="container-fluid justify-content-start">
+    <button class="btn btn-outline-danger m-2" type="button" [routerLink]="['/admin/profil']">
+      Ajouter un utilisateur
+    </button>
+    <button class="btn btn-outline-secondary" type="button" [routerLink]="['/compte']">Mon compte</button>
+    <button class="btn btn-outline-danger m-2" type="button" [routerLink]="['/admin/utilisateurs']">
+      Les utilisateurs
+    </button>
+    <button class="btn btn-outline-secondary" type="button" [routerLink]="['/admin/garages']">Les garages</button>
+    <button class="btn btn-outline-danger m-2" type="button" [routerLink]="['/admin/annonces']">
+      Les annonces
+    </button>
+  </form>
+</nav>
