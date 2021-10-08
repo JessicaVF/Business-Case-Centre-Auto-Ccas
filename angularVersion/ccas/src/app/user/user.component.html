@@ -45,22 +45,25 @@
       <li class="list-group-item">Email: {{user.email}}</li>
       <li class="list-group-item">Telephone: {{user.telephone}}</li>
       <li class="list-group-item"> Siret: {{user.siret}} </li>
-      <li class="list-group-item"> Username: {{user.username}} </li>
+      <li class="list-group-item"> Nom d'utilisateur : {{user.username}} </li>
     </ul>
     <div class="card-body">
-      <button [routerLink]="['/user/detail', user.id]" target="_blank" class="btn btn-primary">Voir les garages et
+      <button [routerLink]="['/user/detail', user.id]" target="_blank" class="btn btn-outline-secondary">Voir les
+        garages
+        et
         annonces</button>
       <hr>
       <div *ngIf="user.username == usernameLogged">
+        <button class="btn btn-outline-secondary" (click)="edit(user.id)">Edit</button>
       </div>
 
-      <button class="btn btn-primary" (click)="edit(user.id)">Edit</button>
+      <hr>
       <!-- <button class="btn btn-danger" (click)="delete(user.id)">Delete</button> -->
       <div *ngIf="user.username == usernameLogged">
 
-        <button class="btn btn-warning" (click)="editPassword()">Modifier le mot de passe</button>
+        <button class="btn btn-outline-warning" (click)="editPassword()">Modifier le mot de passe</button>
         <hr>
-        DANGER ZONE, here you delete your account
+        ATTENTION, ici vous supprimez votre compte
       </div>
       <app-delete-modal [data]="data"></app-delete-modal>
     </div>
