@@ -1,12 +1,15 @@
 <app-log-button></app-log-button>
-<h3>Bienvenue M. Lodevie</h3>
+<h2>Bienvenue M. Lodevie</h2>
+<div>
+  <p><em>Total des garages:</em> {{quickStats.totalGarages}} | <em>Total des utilisateurs:</em>
+    {{quickStats.totalUsers}} |
+    <em>Total de annonces:{{quickStats.totalAnnonces}} </em>
+  </p>
+</div>
 
 <app-menu-admin></app-menu-admin>
 
 
-<p>Total des garages: {{quickStats.totalGarages}} </p>
-<p>Total des utilisateurs: {{quickStats.totalUsers}}</p>
-<p>Total de annonces:{{quickStats.totalAnnonces}} </p>
 <app-reference-search></app-reference-search>
 
 <app-add-user></app-add-user>

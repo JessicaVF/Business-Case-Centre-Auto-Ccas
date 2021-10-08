@@ -1,10 +1,12 @@
 <app-log-button></app-log-button>
-<p>Bienvenue {{user.firstname}} {{user.lastname}}</p>
-
+<h2>Bienvenue {{user.firstname}} {{user.lastname}}</h2>
+<div>
+  <p><em>Nombre total d'annonces :</em> {{this.user['annonces'].length}} | <em>Nombre de garages :</em>
+    {{this.user['garages'].length}}</p>
+</div>
 <app-menu-user></app-menu-user>
 
 
-<h2>Number total of annonces: {{this.user['annonces'].length}}</h2>
-<h2>Number of garages: {{this.user['garages'].length}}</h2>
+
 
 <app-add-annonce></app-add-annonce>
