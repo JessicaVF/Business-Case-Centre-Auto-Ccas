@@ -48,12 +48,14 @@
       <li class="list-group-item"> Nom d'utilisateur : {{user.username}} </li>
     </ul>
     <div class="card-body">
-      <button [routerLink]="['/user/detail', user.id]" target="_blank" class="btn btn-outline-secondary">Voir les
-        garages
-        et
-        annonces</button>
-      <hr>
-      <div *ngIf="user.username == usernameLogged">
+      <div *ngIf="isAdmin">
+        <button [routerLink]="['/user/detail', user.id]" target="_blank" class="btn btn-outline-secondary">
+          Voir les garages et annonces
+        </button>
+        <hr>
+      </div>
+      <div *ngIf="user.username == usernameLogged || isAdmin">
+
         <button class="btn btn-outline-secondary" (click)="edit(user.id)">Editer</button>
       </div>
 

@@ -18,6 +18,7 @@ export class UserComponent implements OnInit {
   editPasswordForm!: FormGroup;
   usernameLogged!:any;
   isForEditPassword = false;
+  isAdmin!:any;
 
   constructor(private fb: FormBuilder, private userService: UserService, private authService: AuthService, private route: Router) {
 
@@ -26,6 +27,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.usernameLogged = this.authService.getUsernameInStorage();
     this.data = ["user", this.user.id];
+    this.isAdmin = this.authService.getIfAdminInStorage();
   }
   edit(id:number){
     this.editUser = id;
