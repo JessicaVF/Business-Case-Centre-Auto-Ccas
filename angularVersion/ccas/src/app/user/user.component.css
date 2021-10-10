@@ -1,4 +1,5 @@
 div {
   text-align: center;
-  margin: auto;
+  margin: 0.5em;
+  align-items: flex-start;
 }

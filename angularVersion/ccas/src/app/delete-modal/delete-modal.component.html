@@ -1,19 +1,19 @@
 <ng-template #confirmDelete let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Confirm delete</h4>
+    <h4 class="modal-title" id="modal-basic-title">Confirmer la suppression</h4>
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <p>Is not possible to recover the things you delete, are you sure you want to continue?</p>
+    <p>Il n'est pas possible de récupérer ce que vous supprimez, êtes-vous sur de vouloir continuer ?</p>
   </div>
   <div class="modal-footer">
 
 
-    <button type="button" class="btn btn-outline-dark" (click)="c('confirm')">Yes, delete</button>
-    <button type="button" class="btn btn-outline-secondary" (click)="c('cancel')">Cancel</button>
+    <button type="button" class="btn btn-outline-dark" (click)="c('confirm')">Oui, supprimer</button>
+    <button type="button" class="btn btn-outline-secondary" (click)="c('cancel')">Annuler</button>
   </div>
 </ng-template>
 
-<button class="btn btn-danger" (click)="open(confirmDelete)">Delete</button>
+<button class="btn btn-danger" (click)="open(confirmDelete)">Supprimer</button>

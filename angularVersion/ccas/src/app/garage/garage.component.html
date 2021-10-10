@@ -32,16 +32,16 @@
     <input id="name" type="text" value="{{garage.name}}" formControlName="name">
     <label for="telephone">telephone: </label>
     <input id="telephone" type="text" value="{{garage.telephone}}" formControlName="telephone">
-    <p>Address:</p>
-    <label for="number">number: </label>
+    <p>Adresse:</p>
+    <label for="number">numero: </label>
     <input id="number" type="number" value="{{garage.address.number}}" formControlName="number">
     <label for="complement">complement: </label>
     <input id="complement" type="text" value="{{garage.address.complement}}" formControlName="complement">
-    <label for="road">road: </label>
+    <label for="road">rue: </label>
     <input id="road" type="text" value="{{garage.address.road}}" formControlName="road">
     <label for="codePostal">codePostal: </label>
     <input id="codePostal" type="text" value="{{garage.address.codePostal}}" formControlName="codePostal">
-    <label for="city">city: </label>
+    <label for="city">ville: </label>
     <input id="city" type="text" value="{{garage.address.city}}" formControlName="city">
 
     <button type="submit" class="btn red rounded-pill">Editer le garage</button>
@@ -58,7 +58,7 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Nom: {{garage.name}}</li>
       <li class="list-group-item">Telephone: {{garage.telephone}}</li>
-      <li class="list-group-item"> Address: {{garage.address.number}}
+      <li class="list-group-item"> Adresse: {{garage.address.number}}
         <span *ngIf="garage.address.complement != null">
           {{garage.address.complement}}
         </span>{{garage.address.road}}, {{garage.address.codePostal}}, {{garage.address.city}}
@@ -76,7 +76,7 @@
       </div>
       <ng-template #notAnnoncesDisplay> You dont have annonces</ng-template>
       <hr>
-      <button class="btn btn-primary" (click)="edit(garage.id)">Edit</button>
+      <button class="btn btn-primary" (click)="edit(garage.id)">Editer</button>
 
       <app-delete-modal [data]="data"></app-delete-modal>
     </div>
