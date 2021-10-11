@@ -1,14 +1,28 @@
 <form [formGroup]="addAnnonceForm" (ngSubmit)="submitForm()">
-  <div class="main">
-    <label for="title">Title: </label>
-    <input id="title" type="text" formControlName="title">
+  <div class="row">
+    <div class="col-7">
+      <div class="main">
+        <label for="title">Title: </label>
+        <input id="title" type="text" formControlName="title">
 
-    <label for="description">description: </label>
-    <textarea id="description" type="text" formControlName="description" rows="5"></textarea>
+        <label for="description">description: </label>
+        <textarea id="description" type="text" formControlName="description" rows="5"></textarea>
 
-    <label for="shortDescription">shortDescription: </label>
-    <textarea id="shortDescription" type="text" formControlName="shortDescription"></textarea>
+        <label for="shortDescription">shortDescription: </label>
+        <textarea id="shortDescription" type="text" formControlName="shortDescription"></textarea>
+      </div>
+    </div>
+    <div class="col-4">
+      <label for="photos">photos: </label>
+      <input type="file" formControlName="photos" (change)="test($event)">
+
+      <img [src]="imgURL" height="200" *ngIf="imgURL">
+      <!-- {{ receivedImageData['pic'] | json}}
+      <img [src]='convertedImage'> -->
+      <!-- {{imgURL}} -->
+    </div>
   </div>
+
   <div class="tecnical">
     <div class="verticalLabels">
       <label for="circulationYear">circulationYear: </label>
@@ -47,13 +61,7 @@
       </select>
     </div>
   </div>
-  <label for="photos">photos: </label>
-  <input type="file" formControlName="photos" (change)="test($event)">
-
-  <img [src]="imgURL" height="200" *ngIf="imgURL">
-  <!-- {{ receivedImageData['pic'] | json}}
-  <img [src]='convertedImage'> -->
-  {{imgURL}}
-  <button type="submit" class="btn red rounded-pill">Ajoute annonce</button>
-
+  <div class="btn">
+    <button type="submit" class="btn red rounded-pill">Ajoute annonce</button>
+  </div>
 </form>
