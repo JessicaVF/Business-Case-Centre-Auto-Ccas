@@ -1,43 +1,52 @@
 <form [formGroup]="addAnnonceForm" (ngSubmit)="submitForm()">
+  <div class="main">
+    <label for="title">Title: </label>
+    <input id="title" type="text" formControlName="title">
 
-  <label for="title">Title: </label>
-  <input id="title" type="text" formControlName="title">
+    <label for="description">description: </label>
+    <textarea id="description" type="text" formControlName="description" rows="5"></textarea>
 
-  <label for="description">description: </label>
-  <input id="description" type="text" formControlName="description">
-
-  <label for="shortDescription">shortDescription: </label>
-  <input id="shortDescription" type="text" formControlName="shortDescription">
-
-  <label for="circulationYear">circulationYear: </label>
-  <input id="circulationYear" type="number" formControlName="circulationYear">
-
-  <label for="kilometers">kilometers: </label>
-  <input id="kilometers" type="number" formControlName="kilometers">
-
-  <label for="price">prix: </label>
-  <input id="price" type="number" formControlName="price">
-
-  <label for="make">make: </label>
-  <select name="make" formControlName="make" (ngModelChange)="getModels()">
-    <option *ngFor=" let make of makes" value={{make.id}}>{{make.name}}</option>
-  </select>
-
-  <label for="model">model: </label>
-  <select name="model" formControlName="model">
-    <option *ngFor="let model of models" value={{model.id}}>{{model.name}}</option>
-  </select>
-
-  <label for="fyelType">fuel type: </label>
-  <select name="fuelType" formControlName="fuelType">
-    <option *ngFor="let fuelType of fuelTypes" value={{fuelType.id}}>{{fuelType.name}}</option>
-  </select>
-
-  <label for="garage">garage: </label>
-  <select name="garage" formControlName="garage">
-    <option *ngFor="let garage of user.garages" value={{garage.id}}>{{garage.name}}</option>
-  </select>
-
+    <label for="shortDescription">shortDescription: </label>
+    <textarea id="shortDescription" type="text" formControlName="shortDescription"></textarea>
+  </div>
+  <div class="tecnical">
+    <div class="verticalLabels">
+      <label for="circulationYear">circulationYear: </label>
+      <input id="circulationYear" type="number" formControlName="circulationYear">
+    </div>
+    <div class="verticalLabels">
+      <label for="kilometers">kilometers: </label>
+      <input id="kilometers" type="number" formControlName="kilometers">
+    </div>
+    <div class="verticalLabels">
+      <label for="price">prix: </label>
+      <input id="price" type="number" formControlName="price">
+    </div>
+    <div class="verticalLabels">
+      <label for="make">make: </label>
+      <select name="make" formControlName="make" (ngModelChange)="getModels()">
+        <option *ngFor=" let make of makes" value={{make.id}}>{{make.name}}</option>
+      </select>
+    </div>
+    <div class="verticalLabels">
+      <label for="model">model: </label>
+      <select name="model" formControlName="model">
+        <option *ngFor="let model of models" value={{model.id}}>{{model.name}}</option>
+      </select>
+    </div>
+    <div class="verticalLabels">
+      <label for="fyelType">fuel type: </label>
+      <select name="fuelType" formControlName="fuelType">
+        <option *ngFor="let fuelType of fuelTypes" value={{fuelType.id}}>{{fuelType.name}}</option>
+      </select>
+    </div>
+    <div class="verticalLabels">
+      <label for="garage">garage: </label>
+      <select name="garage" formControlName="garage">
+        <option *ngFor="let garage of user.garages" value={{garage.id}}>{{garage.name}}</option>
+      </select>
+    </div>
+  </div>
   <label for="photos">photos: </label>
   <input type="file" formControlName="photos" (change)="test($event)">
 
