@@ -15,9 +15,9 @@ export class LogButtonComponent implements OnInit {
   ngOnInit(): void {
     // this.authService.logStatus.subscribe(data => this.isLogin = data)
     // this.isLogin = this.authService.getLoginStatus();
-    console.log(this.isLogin, "l btn");
+
     this.isLogin = this.authService.getIsLoginIfInStorage();
-    console.log(this.isLogin, "l2 btn");
+
   }
 
   logout(){

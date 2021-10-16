@@ -16,7 +16,7 @@ export class AddAnnonceComponent implements OnInit {
   models: Array<any>=[];
   fuelTypes: Array<any>=[];
   addAnnonceForm!: FormGroup;
-  imgURL!:any;
+  imgURL:Array<any>=[];
 
   constructor(private userService: UserService, private fb: FormBuilder, private annonceService : AnnonceService) {
     this.addAnnonceForm = fb.group({
@@ -26,15 +26,12 @@ export class AddAnnonceComponent implements OnInit {
       circulationYear: fb.control('', Validators.required),
       kilometers: fb.control('', Validators.required),
       price: fb.control('', Validators.required),
-
       photos: fb.control('', Validators.required),
-
       make: fb.control(false, Validators.required),
       model: fb.control(false, Validators.required),
       fuelType: fb.control(false, Validators.required),
       user: fb.control('', Validators.required),
       garage: fb.control('', Validators.required),
-
 
     })
    }
@@ -52,14 +49,23 @@ export class AddAnnonceComponent implements OnInit {
   }
   test(event:any){
 
-    const file = event.target.files[0];
-    console.log("g");
-    console.log(file);
-    let reader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]);
-    reader.onload =(event2)=>{ this.imgURL = reader.result}
-    console.log(this.imgURL);
+    for(let i = 0; i < event.target.files.length; i++){
 
+      const file = event.target.files[i];
+      let reader = new FileReader();
+      reader.readAsDataURL(event.target.files[i]);
+      reader.onload =(event2)=>{ this.imgURL[i] = reader.result}
+
+    }
+
+
+
+    // const file = event.target.files[0];
+
+    // let reader = new FileReader();
+
+    // reader.readAsDataURL(event.target.files[0]);
+    // reader.onload =(event2)=>{ this.imgURL[0] = reader.result}
   }
   submitForm(){
 
