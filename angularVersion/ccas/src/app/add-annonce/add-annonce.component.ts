@@ -47,7 +47,7 @@ export class AddAnnonceComponent implements OnInit {
   getModels():any{
     this.annonceService.getModelsByMake(this.addAnnonceForm.value.make).then(data=>this.models = data);
   }
-  test(event:any){
+  getPhotos(event:any){
 
     for(let i = 0; i < event.target.files.length; i++){
 
@@ -55,10 +55,7 @@ export class AddAnnonceComponent implements OnInit {
       let reader = new FileReader();
       reader.readAsDataURL(event.target.files[i]);
       reader.onload =(event2)=>{ this.imgURL[i] = reader.result}
-
     }
-
-
 
     // const file = event.target.files[0];
 
@@ -70,7 +67,7 @@ export class AddAnnonceComponent implements OnInit {
   submitForm(){
 
     let formInfo = this.addAnnonceForm.value;
-    let photos = [this.imgURL];
+    let photos = this.imgURL;
     formInfo.photos = photos;
 
 

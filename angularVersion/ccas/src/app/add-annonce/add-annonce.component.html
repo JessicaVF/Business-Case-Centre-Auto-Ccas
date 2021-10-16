@@ -14,7 +14,7 @@
     </div>
     <div class="col-4">
       <label for="photos">Photos: </label>
-      <input type="file" multiple formControlName="photos" (change)="test($event)">
+      <input type="file" multiple formControlName="photos" (change)="getPhotos($event)">
 
       <div *ngIf="imgURL.length > 0">
         <div *ngFor="let photo of imgURL">
