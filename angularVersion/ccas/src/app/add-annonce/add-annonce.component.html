@@ -13,22 +13,17 @@
       </div>
     </div>
     <div class="col-4">
-      <label for="photos">Photos: </label>
-
-
-      <input type="file" multiple formControlName="photos" (change)="getPhotos($event)">
-
-
+      <label for="photos">Photos:</label>
+      <div class="photoStyle d-flex justify-content-center align-items-center">
+        <input type="file" multiple formControlName="photos" class="" (change)="getPhotos($event)">
+      </div>
 
       <div *ngIf="imgURL.length > 0">
-
         <div *ngFor="let photo of imgURL">
           <img [src]="photo" height="100" width="100" (click)="deletePhoto($event)">
         </div>
       </div>
-      <!-- {{ receivedImageData['pic'] | json}}
-      <img [src]='convertedImage'> -->
-      <!-- {{imgURL}} -->
+
     </div>
   </div>
 

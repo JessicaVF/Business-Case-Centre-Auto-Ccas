@@ -15,17 +15,16 @@ form {
   flex-direction: column;
   text-align: center;
 }
-.inputfile {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
 
 .btn {
   display: flex;
   justify-content: center;
   margin-top: 1%;
 }
+.photoStyle {
+  border: 2px solid #c4c4c4;
+  height: 88%;
+  width: 120%;
+}
+/* input[type="file"] {
+} */
