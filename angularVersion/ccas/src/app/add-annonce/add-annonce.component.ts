@@ -47,22 +47,49 @@ export class AddAnnonceComponent implements OnInit {
   getModels():any{
     this.annonceService.getModelsByMake(this.addAnnonceForm.value.make).then(data=>this.models = data);
   }
-  getPhotos(event:any){
-
-    for(let i = 0; i < event.target.files.length; i++){
-
+  getPhotos(event:any)
+  {
+    for(let i = 0; i < event.target.files.length; i++)
+    {
       const file = event.target.files[i];
       let reader = new FileReader();
       reader.readAsDataURL(event.target.files[i]);
-      reader.onload =(event2)=>{ this.imgURL[i] = reader.result}
+      reader.onload =(event2)=>
+        //{ this.imgURL[i] = reader.result}
+      {
+        for(let j = 0; j < 5; j++)
+        {
+          if(this.imgURL[j] == null)
+          {
+            console.log('null');
+
+            this.imgURL[j] = reader.result;
+            break
+          }
+        }
+      }
     }
-
     // const file = event.target.files[0];
-
     // let reader = new FileReader();
-
     // reader.readAsDataURL(event.target.files[0]);
     // reader.onload =(event2)=>{ this.imgURL[0] = reader.result}
+  }
+  addMorePhotos(event:any){
+    for(let i = 0; i < event.target.files.length; i++){
+      const file = event.target.files[i];
+      let reader = new FileReader();
+      reader.readAsDataURL(event.target.files[i]);
+      reader.onload =(event2)=>{
+        for(let j = 0; j < 5; i++){
+          if(this.imgURL[j] == null){
+            this.imgURL[j] = reader.result;
+            break
+          }
+          // else if this.imgURL[5] != null put the new phot at the place of the last one?
+        }
+
+      }
+    }
   }
   submitForm(){
 
