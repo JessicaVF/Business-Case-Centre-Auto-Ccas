@@ -17,7 +17,7 @@ export class AddAnnonceComponent implements OnInit {
   fuelTypes: Array<any>=[];
   addAnnonceForm!: FormGroup;
   imgURL:Array<any>=[];
-
+  noPhotos = true;
   constructor(private userService: UserService, private fb: FormBuilder, private annonceService : AnnonceService) {
     this.addAnnonceForm = fb.group({
       title: fb.control('', Validators.required),
@@ -49,6 +49,7 @@ export class AddAnnonceComponent implements OnInit {
   }
   getPhotos(event:any)
   {
+    this.noPhotos = false;
     for(let i = 0; i < event.target.files.length; i++)
     {
       const file = event.target.files[i];
