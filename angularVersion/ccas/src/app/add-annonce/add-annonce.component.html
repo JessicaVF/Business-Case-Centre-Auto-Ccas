@@ -15,18 +15,30 @@
     <div class="col-4">
       <label for="photos">Photos:</label>
       <span *ngIf="noPhotos; else withPhotosDisplay">
+
+
         <div class="photoStyle d-flex justify-content-center align-items-center">
           <input type="file" multiple formControlName="photos" (change)="getPhotos($event)">
         </div>
+
       </span>
+
       <ng-template #withPhotosDisplay>
-        <input type="file" multiple formControlName="photos" (change)="getPhotos($event)">
-      </ng-template>
-      <div *ngIf="imgURL.length > 0">
-        <div *ngFor="let photo of imgURL">
-          <img [src]="photo" height="100" width="100" (click)="deletePhoto($event)">
+        <div class="photoStyle">
+          <div class="d-flex justify-content-center">
+            <img class="m-1" *ngFor="let photo of imgURL" [src]="photo" height="100" width="100"
+              (click)="deletePhoto($event)">
+          </div>
+          <div class="d-flex justify-content-center">
+            <input class="" type="file" multiple formControlName="photos" (change)="getPhotos($event)">
+          </div>
         </div>
-      </div>
+
+
+
+      </ng-template>
+
+
 
     </div>
   </div>
