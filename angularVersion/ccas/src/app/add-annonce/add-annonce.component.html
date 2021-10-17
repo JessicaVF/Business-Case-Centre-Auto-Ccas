@@ -23,7 +23,7 @@
       <div *ngIf="imgURL.length > 0">
 
         <div *ngFor="let photo of imgURL">
-          <img [src]="photo" height="100" width="100" *ngIf="imgURL">
+          <img [src]="photo" height="100" width="100" (click)="deletePhoto($event)">
         </div>
       </div>
       <!-- {{ receivedImageData['pic'] | json}}
