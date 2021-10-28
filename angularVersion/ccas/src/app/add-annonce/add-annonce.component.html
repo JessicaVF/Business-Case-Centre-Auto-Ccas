@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col-7">
       <div class="main">
-        <label for="title">Title: </label>
+        <label for="title">Titre: </label>
         <input id="title" type="text" formControlName="title">
 
         <label for="description">description: </label>
         <textarea id="description" type="text" formControlName="description" rows="5"></textarea>
 
-        <label for="shortDescription">shortDescription: </label>
+        <label for="shortDescription">description courte: </label>
         <textarea id="shortDescription" type="text" formControlName="shortDescription"></textarea>
       </div>
     </div>
@@ -29,8 +29,12 @@
             <img class="m-1" *ngFor="let photo of imgURL" [src]="photo" height="100" width="100"
               (click)="deletePhoto($event)">
           </div>
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-center mt-4">
             <input class="" type="file" multiple formControlName="photos" (change)="getPhotos($event)">
+          </div>
+          <div class="m-3">
+            <p> -> Pour supprimer une image, cliquez dessus</p>
+            <p> -> Seules 5 images sont acceptées par annonce</p>
           </div>
         </div>
 
@@ -45,11 +49,11 @@
 
   <div class="tecnical">
     <div class="verticalLabels">
-      <label for="circulationYear">circulationYear: </label>
+      <label for="circulationYear">Année de mise en circulation: </label>
       <input id="circulationYear" type="number" formControlName="circulationYear">
     </div>
     <div class="verticalLabels">
-      <label for="kilometers">kilometers: </label>
+      <label for="kilometers">kilomètres: </label>
       <input id="kilometers" type="number" formControlName="kilometers">
     </div>
     <div class="verticalLabels">
@@ -57,19 +61,19 @@
       <input id="price" type="number" formControlName="price">
     </div>
     <div class="verticalLabels">
-      <label for="make">make: </label>
+      <label for="make">marque: </label>
       <select name="make" formControlName="make" (ngModelChange)="getModels()">
         <option *ngFor=" let make of makes" value={{make.id}}>{{make.name}}</option>
       </select>
     </div>
     <div class="verticalLabels">
-      <label for="model">model: </label>
+      <label for="model">modèle: </label>
       <select name="model" formControlName="model">
         <option *ngFor="let model of models" value={{model.id}}>{{model.name}}</option>
       </select>
     </div>
     <div class="verticalLabels">
-      <label for="fyelType">fuel type: </label>
+      <label for="fyelType">type de carburant: </label>
       <select name="fuelType" formControlName="fuelType">
         <option *ngFor="let fuelType of fuelTypes" value={{fuelType.id}}>{{fuelType.name}}</option>
       </select>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
+import { AuthService } from '../auth.service';
 import { User } from '../models/user.model';
 import { UserService } from '../user.service';
 
@@ -11,12 +13,17 @@ import { UserService } from '../user.service';
 export class ManageUsersAdminComponent implements OnInit {
   users!:User[];
 
-  constructor(private adminService:AdminService) { }
+  constructor(private adminService:AdminService, private authService: AuthService, private route: Router) { }
 
   ngOnInit(): void {
     this.adminService.getAll().subscribe( data => {
       this.users = data;
     });
+    this.checkIfAdmin();
   }
-
+  checkIfAdmin() {
+    if(this.authService.getIfAdminInStorage() != "true"){
+      this.route.navigate(['login']);
+    }
+  }
 }

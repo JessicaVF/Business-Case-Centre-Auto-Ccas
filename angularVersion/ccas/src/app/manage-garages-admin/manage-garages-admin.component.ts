@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
+import { AuthService } from '../auth.service';
 import { Garage } from '../models/garage.model';
 
 @Component({
@@ -10,12 +12,17 @@ import { Garage } from '../models/garage.model';
 export class ManageGaragesAdminComponent implements OnInit {
 
   garages!:any[];
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, private authService: AuthService, private route: Router) { }
 
   ngOnInit(): void {
 
     this.adminService.getAllGarages().subscribe(data => this.garages = data);
-
+    this.checkIfAdmin();
+  }
+  checkIfAdmin() {
+    if(this.authService.getIfAdminInStorage() != "true"){
+      this.route.navigate(['login']);
+    }
   }
 
 }

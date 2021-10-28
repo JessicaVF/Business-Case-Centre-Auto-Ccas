@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
+import { AuthService } from '../auth.service';
 import { UserService } from '../user.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class ProfilAdminComponent implements OnInit {
 
   quickStats!:any;
 
-  constructor(private adminService: AdminService) {
+  constructor(private adminService: AdminService, private authService: AuthService, private route: Router) {
   }
 
   ngOnInit(): void {
@@ -23,7 +24,13 @@ export class ProfilAdminComponent implements OnInit {
       this.quickStats = data;
       }
     );
+    this.checkIfAdmin();
+
   }
 
-
+  checkIfAdmin() {
+    if(this.authService.getIfAdminInStorage() != "true"){
+      this.route.navigate(['login']);
+    }
+  }
 }

@@ -1,4 +1,6 @@
 <h1> Mes garages</h1>
 <app-menu-user></app-menu-user>
 <app-add-garage></app-add-garage>
-<app-garage *ngFor="let garage of garages" [garage]="garage"></app-garage>
+<div class="d-flex justify-content-center">
+  <app-garage class="m-1" *ngFor="let garage of garages" [garage]="garage"></app-garage>
+</div>

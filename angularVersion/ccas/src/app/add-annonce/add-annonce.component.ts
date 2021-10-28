@@ -71,7 +71,10 @@ export class AddAnnonceComponent implements OnInit {
   deletePhoto(event:any){
 
 
-    this.imgURL.splice(this.imgURL.indexOf(event))
+    this.imgURL.splice(this.imgURL.indexOf(event));
+    if(this.imgURL.length == 0){
+      this.noPhotos = true;
+    }
 
   }
   submitForm(){

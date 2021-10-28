@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 import { GarageService } from '../garage.service';
 import { Garage } from '../models/garage.model';
 
@@ -11,11 +13,17 @@ export class ManageMyGaragesComponent implements OnInit {
 
   garages!:Garage[];
 
-  constructor(private garageService: GarageService) { }
+  constructor(private garageService: GarageService, private authService: AuthService, private route: Router) { }
 
   ngOnInit(): void {
     this.garageService.getAllByUser().subscribe(data =>  this.garages= data
     );
+    this.checkIfLogin();
   }
+  checkIfLogin(){
+    if(this.authService.getIsLoginIfInStorage() != "true"){
+      this.route.navigate(['login']);
+    };
+}
 
 }

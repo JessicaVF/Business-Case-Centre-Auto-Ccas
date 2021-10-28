@@ -1,5 +1,8 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AnnonceService } from '../annonce.service';
+import { AuthService } from '../auth.service';
 import { Annonce } from '../models/annonce';
 
 @Component({
@@ -10,14 +13,20 @@ import { Annonce } from '../models/annonce';
 export class ManageMyAnnoncesComponent implements OnInit {
 
   annonces:Annonce[]=[];
-  constructor(private annonceService : AnnonceService) { }
+  constructor(private annonceService : AnnonceService, private authService: AuthService, private route: Router) { }
 
   ngOnInit(): void {
     this.getAnnouncesByUser();
+    this.checkIfLogin();
   }
 
   getAnnouncesByUser():void {
     this.annonceService.getAllByUser().subscribe( data => this.annonces = data);
-  }
 
+  }
+  checkIfLogin(){
+      if(this.authService.getIsLoginIfInStorage() != "true"){
+        this.route.navigate(['login']);
+      };
+  }
 }
