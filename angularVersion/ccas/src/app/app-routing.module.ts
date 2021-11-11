@@ -15,7 +15,8 @@ import { ProfilAdminComponent } from './profil-admin/profil-admin.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'accueil', pathMatch: 'full'},
+  // {path: '', redirectTo: 'accueil', pathMatch: 'full'},
+  {path: "", component: HomeComponent},
   {path:"accueil", component: HomeComponent},
   {path:"contact", component: ContactLodevieComponent},
   {path:"login", component: LogInComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path:"admin/utilisateurs", component:ManageUsersAdminComponent},
   {path:"admin/garages", component:ManageGaragesAdminComponent},
   {path:"admin/annonces", component:ManageAnnoncesAdminComponent},
-  {path:"user/detail/:id", component:UserDetailComponent}
+  {path:"user/detail/:id", component:UserDetailComponent},
+  {path: "**", component: HomeComponent},
 
 ];
 
