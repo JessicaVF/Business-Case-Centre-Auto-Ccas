@@ -22,7 +22,7 @@
 
 <!-- The form that will be show for default -->
 <ng-template #regularDisplay>
-  <div class="card" style="width: 18rem;">
+  <div class="card m-2" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">{{garage.name}}</h5>
     </div>
@@ -34,7 +34,7 @@
           {{garage.address.complement}}
         </span>{{garage.address.road}}, {{garage.address.codePostal}}, {{garage.address.city}}
       </li>
-      <div *ngIf="isAdmin">
+      <div *ngIf="isAdmin" class="list-group-flush">
         <li class="list-group-item"> Propriétaire: {{garage.user.firstname}} {{garage.user.lastname}}</li>
       </div>
     </ul>
