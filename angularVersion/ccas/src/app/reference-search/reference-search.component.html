@@ -1,11 +1,11 @@
-<form [formGroup]="searchForm" (ngSubmit)="submitForm()">
-  <div class="d-flex align-items-end">
-    <label for="id">Reference:</label>
-    <input id="id" name="id" formControlName="id">
-    <button type="submit" class="btn red rounded-pill searchBtn">Recherchez</button>
+<div class="d-flex justify-content-center mt-3">
+  <form [formGroup]="searchForm" (ngSubmit)="submitForm()">
+    <label for="id" class="m-1">Reference:</label>
+    <input id="id" class="m-1" name="id" formControlName="id">
+    <button type="submit" class="btn red rounded-pill searchBtn m-1">Recherchez</button>
+  </form>
+</div>
 
-  </div>
-</form>
 <div *ngIf="annonce">
   <app-annonce-preview [annonce]="annonce"></app-annonce-preview>
 </div>
