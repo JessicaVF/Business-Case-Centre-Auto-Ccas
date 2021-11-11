@@ -15,7 +15,7 @@ import { ProfilAdminComponent } from './profil-admin/profil-admin.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 
 const routes: Routes = [
-  // {path: '', redirectTo: 'accueil', pathMatch: 'full'},
+
   {path: "", component: HomeComponent},
   {path:"accueil", component: HomeComponent},
   {path:"contact", component: ContactLodevieComponent},
