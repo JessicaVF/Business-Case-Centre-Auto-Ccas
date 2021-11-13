@@ -1,7 +1,14 @@
+<app-log-button></app-log-button>
 <h1> Mes garages</h1>
 <app-menu-user></app-menu-user>
-<app-add-garage></app-add-garage>
 
-<div>
-  <app-garage class="m-1" *ngFor="let garage of garages" [garage]="garage"></app-garage>
+<div class="mt-2">
+  <app-add-garage>
+  </app-add-garage>
+</div>
+
+<div class="row d-flex justify-content-center">
+
+  <app-garage class="m-1 col-3" *ngFor="let garage of garages" [garage]="garage"></app-garage>
+
 </div>

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AnnonceService } from '../annonce.service';
 import { Annonce } from '../models/annonce';
 
@@ -11,6 +11,7 @@ import { Annonce } from '../models/annonce';
 export class HomeComponent implements OnInit {
 
   annonces:Annonce[]=[];
+  atHome = true;
 
   constructor(private annonceService : AnnonceService) { }
 

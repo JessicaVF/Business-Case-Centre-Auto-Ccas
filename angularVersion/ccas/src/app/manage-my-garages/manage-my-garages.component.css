@@ -1,8 +1,4 @@
-h1 {
+h1,
+app-add-garage {
   text-align: center;
-}
-div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }

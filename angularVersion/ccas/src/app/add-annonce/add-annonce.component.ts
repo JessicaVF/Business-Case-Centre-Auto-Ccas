@@ -82,8 +82,6 @@ export class AddAnnonceComponent implements OnInit {
     let formInfo = this.addAnnonceForm.value;
     let photos = this.imgURL;
     formInfo.photos = photos;
-
-
     formInfo.user = this.user.id;
     let dataReady = {"title": formInfo.title, "description":formInfo.description, "shortDescription":formInfo.shortDescription, "circulationYear": formInfo.circulationYear, "kilometers": formInfo.kilometers, "price": formInfo.price, "photos": formInfo.photos };
     let dataToRetrieve = {"user":formInfo.user, "make": 3, "model": formInfo.model, "fuelType": formInfo.fuelType, "garage": formInfo.garage}
