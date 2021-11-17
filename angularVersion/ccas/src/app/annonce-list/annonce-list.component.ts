@@ -12,7 +12,7 @@ export class AnnonceListComponent implements OnInit {
 
 
   @Input() annonces: Annonce[]=[];
-
+  @Input() atHome:any;
 
   constructor() {
    }

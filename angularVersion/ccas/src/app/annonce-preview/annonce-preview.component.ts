@@ -15,6 +15,8 @@ import { UserService } from '../user.service';
 export class AnnoncePreviewComponent implements OnInit {
 
   @Input() annonce!:Annonce;
+  @Input() atHome:any;
+
   data!:any;
   usernameLogged!:any;
   user!:User;
