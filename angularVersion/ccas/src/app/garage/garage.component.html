@@ -1,6 +1,6 @@
 <!-- Form to edit the garage if the user click in the btn "edit" -->
 <div *ngIf="editGarage == garage.id; else regularDisplay">
-  <form [formGroup]="editGarageForm" (ngSubmit)="submitForm()">
+  <form [formGroup]="editGarageForm" (ngSubmit)="submitForm()" class="d-flex flex-column">
     <label for="name">name: </label>
     <input id="name" type="text" value="{{garage.name}}" formControlName="name">
     <label for="telephone">telephone: </label>
@@ -16,7 +16,9 @@
     <input id="codePostal" type="text" value="{{garage.address.codePostal}}" formControlName="codePostal">
     <label for="city">ville: </label>
     <input id="city" type="text" value="{{garage.address.city}}" formControlName="city">
-    <button type="submit" class="btn red rounded-pill">Editer le garage</button>
+    <div class="mt-2">
+      <button type="submit" class="btn red rounded-pill">Editer</button>
+    </div>
   </form>
 </div>
 

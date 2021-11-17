@@ -2,7 +2,7 @@
 
 <div *ngIf="editUser == user.id; else regularDisplay">
 
-  <form [formGroup]="editUserForm" (ngSubmit)="submitForm()">
+  <form [formGroup]="editUserForm" (ngSubmit)="submitForm()" class="d-flex flex-column">
 
     <label for="lastname">Nom: </label>
     <input id="lastname" type="text" value="{{user.lastname}}" placeholder="{{user.lastname}}"
@@ -20,7 +20,9 @@
     <label for="siret">siret: </label>
     <input id="siret" type="text" value="{{user.siret}}" formControlName="siret">
 
-    <button type="submit" class="btn red rounded-pill">Editer l'utilisateur</button>
+    <div class="mt-2">
+      <button type="submit" class="btn red rounded-pill">Editer</button>
+    </div>
 
   </form>
 </div>
