@@ -6,14 +6,14 @@
   <form [formGroup]=" addGarageForm" (ngSubmit)="submitAddForm()" class="row justify-content-center">
     <div class="col-4">
       <div class="d-flex justify-content-center flex-column">
-        <label for="name">Nom: </label>
+        <label for="name">Nom:</label>
         <input id="name" type="text" formControlName="name">
-        <label for="telephone">Téléphone: </label>
+        <label for="telephone">Téléphone:</label>
         <input id="telephone" type="text" formControlName="telephone">
         <strong class="mt-1">Adresse</strong>
         <label for="number">Numéro: </label>
         <input id="number" type="number" formControlName="number">
-        <label for="complement">Complément: </label>
+        <label for="complement">Complément:</label>
         <input id="complement" type="text" formControlName="complement">
         <label for="road">Rue: </label>
         <input id="road" type="text" formControlName="road">
@@ -24,6 +24,7 @@
       </div>
       <div class="d-flex justify-content-center mt-2">
         <button type="submit" class="btn red rounded-pill">Ajouter le garage</button>
+        <button class="btn greyVersion rounded-pill ml-1" (click)="cancelAddGarage">Annuler</button>
       </div>
     </div>
   </form>

@@ -69,7 +69,7 @@ export class AnnoncePreviewComponent implements OnInit {
 
   cancelEdit(){
     this.editAnnonce = 0;
-    location.reload;
+
   }
 
 }

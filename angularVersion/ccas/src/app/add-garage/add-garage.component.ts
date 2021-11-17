@@ -39,5 +39,8 @@ export class AddGarageComponent implements OnInit {
     let infoToSend = [addressInput, garageInfo];
     this.garageService.add(infoToSend).subscribe(r => location.reload());
   }
+  cancelAddGarage(){
+    this.isAddForm = false;
+  }
 
 }

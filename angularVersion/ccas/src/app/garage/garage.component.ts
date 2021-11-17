@@ -85,5 +85,7 @@ export class GarageComponent implements OnInit {
     let infoToSend = [addressInput, garageInfo];
     this.garageService.add(infoToSend).subscribe(r => location.reload());
   }
-
+  cancelEditGarage(){
+    this.editGarage = 0
+  }
 }
