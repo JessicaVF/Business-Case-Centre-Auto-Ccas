@@ -1,8 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
 .btn.red {
   background-color: red;
   color: white;
 }
+
+.greyVersion {
+  background-color: #c4c4c4;
+  color: white;
+}
+
 .btn.grey {
   background-color: #c4c4c4;
   color: black;

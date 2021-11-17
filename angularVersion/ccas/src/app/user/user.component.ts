@@ -57,14 +57,19 @@ export class UserComponent implements OnInit {
 
     const formInfo = this.editPasswordForm.value;
     this.userService.changePassword(formInfo, this.user.id).subscribe(r => location.reload());
-
-
   }
 
   delete(id:number){
-    this.userService.delete(id).subscribe(r => location.reload());;
+    this.userService.delete(id).subscribe(r => location.reload());
 
   }
+  cancelEditUser(){
+    this.editUser = 0;
 
+  }
+  cancelEditPassword(){
+    this.isForEditPassword = false;
+
+  }
 
 }
