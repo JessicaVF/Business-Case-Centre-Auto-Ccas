@@ -4,14 +4,13 @@
 </div>
 <ng-template #logoutDisplay>
   <a class="logout" (click)="logout()">Déconnexion -></a>
-  <br>
   <div *ngIf="atHome">
     <div *ngIf="isAdmin">
       <p><a [routerLink]="['admin/profil']">Profil</a></p>
     </div>
     <div *ngIf="!isAdmin">
-
       <p><a [routerLink]="['/profil']">Profil</a></p>
+
     </div>
   </div>
 </ng-template>
