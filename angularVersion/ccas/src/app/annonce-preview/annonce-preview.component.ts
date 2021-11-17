@@ -30,16 +30,9 @@ export class AnnoncePreviewComponent implements OnInit {
   ngOnInit(): void {
     this.usernameLogged = this.authService.getUsernameInStorage();
     this.isAdmin = this.authService.getIfAdminInStorage();
-
-
-    // this.userService.getOne().subscribe
-    // ( data => {
-    //   this.user = data;}
-    // );
     this.annonceService.getMakes().then( data => this.makes = data);
     this.annonceService.getFuelTypes().then(data => this.fuelTypes = data);
     this.data = ["annonce", this.annonce.id];
-    // this.authService.isAdmin().subscribe((data:any) => this.isAdmin = data);
 
   }
 
@@ -72,6 +65,11 @@ export class AnnoncePreviewComponent implements OnInit {
 
     let formInfo = this.editAnnonceForm.value;
     this.annonceService.edit(formInfo, this.annonce.id).subscribe(r => location.reload());
+  }
+
+  cancelEdit(){
+    this.editAnnonce = 0;
+    location.reload;
   }
 
 }

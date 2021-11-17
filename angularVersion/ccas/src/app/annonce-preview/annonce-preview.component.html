@@ -1,56 +1,55 @@
-<div *ngIf="editAnnonce == annonce.id">
+<!-- Form for edit the announce if the user click in the btn edit -->
 
-  <form [formGroup]="editAnnonceForm" (ngSubmit)="submitForm()">
+<div *ngIf="editAnnonce == annonce.id">
+  <form [formGroup]="editAnnonceForm" (ngSubmit)="submitForm()" class="d-flex flex-column">
     <label for="title">Titre: </label>
     <input id="title" type="text" value="{{annonce.title}}" formControlName="title">
 
-    <label for="description">description: </label>
+    <label for="description">Description: </label>
     <input id="description" type="text" value="{{annonce.description}}" formControlName="description">
 
-    <label for="shortDescription">description courte: </label>
+    <label for="shortDescription">Description courte: </label>
     <input id="shortDescription" type="text" value="{{annonce.shortDescription}}" formControlName="shortDescription">
 
-    <label for="circulationYear">année de mise en circulation: </label>
+    <label for="circulationYear">Année de mise en circulation: </label>
     <input id="circulationYear" type="number" value="{{annonce.circulationYear}}" formControlName="circulationYear">
 
-    <label for="kilometers">kilomètres: </label>
+    <label for="kilometers">Kilomètres: </label>
     <input id="kilometers" type="number" value="{{annonce.kilometers}}" formControlName="kilometers">
 
-    <label for="price">prix: </label>
+    <label for="price">Prix: </label>
     <input id="price" type="number" value="{{annonce.price}}" formControlName="price">
 
-    <label for="make">marque: </label>
+    <label for="make">Marque: </label>
     <select name="make" formControlName="make" (ngModelChange)="getModels()">
       <option *ngFor=" let make of makes" value={{make.id}}>{{make.name}}</option>
     </select>
 
-    <label for="model">modèle: </label>
+    <label for="model">Modèle: </label>
     <select name="model" formControlName="model">
       <option *ngFor="let model of models" value={{model.id}}>{{model.name}}</option>
     </select>
 
-    <label for="fyelType">type de carburant: </label>
+    <label for="fyelType">Type de carburant: </label>
     <select name="fuelType" formControlName="fuelType">
       <option *ngFor="let fuelType of fuelTypes" value={{fuelType.id}}>{{fuelType.name}}</option>
     </select>
 
-    <label for="garage">garage: </label>
+    <label for="garage">Garage: </label>
     <select name="garage" formControlName="garage">
       <option *ngFor="let garage of user.garages" value={{garage.id}}>{{garage.name}}</option>
     </select>
-
-    <button type="submit" class="btn red rounded-pill">Editer l'annonce</button>
+    <div class="mt-2">
+      <button type="submit" class="btn red rounded-pill">Editer l'annonce</button>
+      <button (click)="cancelEdit">Annuler</button>
+    </div>
 
   </form>
-
-
 </div>
 
+<!-- Regular display of the annonce preview -->
 
-
-
-<div class=" row justify-content-center">
-
+<div class="row justify-content-center">
   <div class="col-lg-3 mt-2 col-9 col-md-5">
     <div class="card border border-3" style="width: 18rem;">
       <a [routerLink]="['/detail', annonce.id]" target="_blank">
@@ -59,7 +58,6 @@
       <div class="card-body">
         <h5 [routerLink]="['/detail', annonce.id]" target="_blank" class="card-title">{{annonce?.title}}</h5>
         <p [routerLink]="['/detail', annonce.id]" target="_blank" class="card-text">{{annonce?.shortDescription}}</p>
-
         <div class="d-flex mt-3 justify-content-between">
           <p [routerLink]="['/detail', annonce.id]" target="_blank">{{annonce?.price}}€</p>
           <p class="btn grey rounded-pill">
@@ -67,23 +65,17 @@
             <!-- <i class="far fa-copy" id="i"></i> -->
             <!-- <i class="fas fa-share-alt"></i> -->
           </p>
-
-          <span *ngIf="usernameLogged == !annonce.author.username">
-
-            <p>Marque: {{annonce.make.name}}</p>
-            <p>Modele: {{annonce.model.name}}</p>
-            <p>Carburant: {{annonce.fuelType.name}}</p>
-            <p>Kilometrage: {{annonce.kilometers}}</p>
-            <button class="btn btn-primary" (click)="edit(annonce.id)">Editer</button>
-            <app-delete-modal [data]="data"></app-delete-modal>
-          </span>
-
-          <div *ngIf="isAdmin">
-            Propriétaire: {{annonce.author.firstname}} {{annonce.author.lastname}}
-            Garage: {{annonce.garage.name}}
-            <button class="btn btn-primary" (click)="edit(annonce.id)">Editer</button>
-            <app-delete-modal [data]="data"></app-delete-modal>
-          </div>
+        </div>
+        <div *ngIf="usernameLogged == annonce.author.username">
+          <button class="btn btn-primary" (click)="edit(annonce.id)">Editer</button>
+          <app-delete-modal [data]="data"></app-delete-modal>
+        </div>
+        <div *ngIf="isAdmin">
+          Propriétaire: {{annonce.author.firstname}} {{annonce.author.lastname}}
+          Garage: {{annonce.garage.name}}
+          <br>
+          <button class="btn btn-primary" (click)="edit(annonce.id)">Editer</button>
+          <app-delete-modal [data]="data"></app-delete-modal>
         </div>
       </div>
     </div>
