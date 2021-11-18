@@ -24,20 +24,24 @@ export class AnnonceEditComponent implements OnInit {
   user!:User;
   photos!:any;
   noPhotos = false;
+  isAdmin!: any;
 
   constructor(private authService: AuthService, private userService: UserService, private fb: FormBuilder, private annonceService: AnnonceService, private route: ActivatedRoute, private router: Router)
   {
 
-
   }
 
   ngOnInit(): void {
+    this.checkIfLogin();
+    this.usernameLogged = this.authService.getUsernameInStorage();
+    this.isAdmin = this.authService.getIfAdminInStorage();
 
 
     const id: any= this.route.snapshot.paramMap.get('id');
-
-
     this.annonceService.getOneForEdit(+id).then( (data:any) => {
+      if(data.author.username != this.usernameLogged && this.isAdmin != "true" ){
+        this.router.navigate(['/accueil'])
+      }
       this.annonce = data;
       this.annonceService.getMakes().then( data => this.makes = data);
       this.annonceService.getFuelTypes().then(data => this.fuelTypes = data);
@@ -45,10 +49,6 @@ export class AnnonceEditComponent implements OnInit {
       this.createForm();
       this.photos = this.editAnnonceForm.value.photos
     } );
-
-    // this.usernameLogged = this.authService.getUsernameInStorage();
-
-
   }
 
   getModels():any{
@@ -113,7 +113,12 @@ export class AnnonceEditComponent implements OnInit {
     if(this.photos.length == 0){
       this.noPhotos = true;
     }
-
   }
+
+  checkIfLogin(){
+    if(this.authService.getIsLoginIfInStorage() != "true"){
+      this.router.navigate(['login']);
+    };
+}
 
 }
