@@ -1,54 +1,3 @@
-<!-- Form for edit the announce if the user click in the btn edit -->
-
-<div *ngIf="editAnnonce == annonce.id">
-  <form [formGroup]="editAnnonceForm" (ngSubmit)="submitForm()" class="d-flex flex-column">
-    <label for="title">Titre: </label>
-    <input id="title" type="text" value="{{annonce.title}}" formControlName="title">
-
-    <label for="description">Description: </label>
-    <input id="description" type="text" value="{{annonce.description}}" formControlName="description">
-
-    <label for="shortDescription">Description courte: </label>
-    <input id="shortDescription" type="text" value="{{annonce.shortDescription}}" formControlName="shortDescription">
-
-    <label for="circulationYear">Année de mise en circulation: </label>
-    <input id="circulationYear" type="number" value="{{annonce.circulationYear}}" formControlName="circulationYear">
-
-    <label for="kilometers">Kilomètres: </label>
-    <input id="kilometers" type="number" value="{{annonce.kilometers}}" formControlName="kilometers">
-
-    <label for="price">Prix: </label>
-    <input id="price" type="number" value="{{annonce.price}}" formControlName="price">
-
-    <label for="make">Marque: </label>
-    <select name="make" formControlName="make" (ngModelChange)="getModels()">
-      <option *ngFor=" let make of makes" value={{make.id}}>{{make.name}}</option>
-    </select>
-
-    <label for="model">Modèle: </label>
-    <select name="model" formControlName="model">
-      <option *ngFor="let model of models" value={{model.id}}>{{model.name}}</option>
-    </select>
-
-    <label for="fyelType">Type de carburant: </label>
-    <select name="fuelType" formControlName="fuelType">
-      <option *ngFor="let fuelType of fuelTypes" value={{fuelType.id}}>{{fuelType.name}}</option>
-    </select>
-
-    <label for="garage">Garage: </label>
-    <select name="garage" formControlName="garage">
-      <option *ngFor="let garage of user.garages" value={{garage.id}}>{{garage.name}}</option>
-    </select>
-    <div class="mt-2">
-      <button type="submit" class="btn red rounded-pill">Editer l'annonce</button>
-      <button class="btn greyVersion rounded-pill m-1" (click)="cancelEdit">Annuler</button>
-    </div>
-
-  </form>
-</div>
-
-<!-- Regular display of the annonce preview -->
-
 <div class="row justify-content-center">
   <div class="col-lg-3 mt-2 col-9 col-md-5">
     <div class="card border border-3" style="width: 18rem;">
@@ -66,17 +15,18 @@
             <!-- <i class="fas fa-share-alt"></i> -->
           </p>
         </div>
-        <div *ngIf="usernameLogged == annonce.author.username">
-          <button class="btn btn-primary" (click)="edit(annonce.id)">Editer</button>
+        <div *ngIf="usernameLogged == annonce.author.username && !atHome">
+          <button class="btn btn-primary" [routerLink]="['/edit', annonce.id]" target="_blank">Editer</button>
           <app-delete-modal [data]="data"></app-delete-modal>
         </div>
         <div *ngIf="isAdmin">
           Propriétaire: {{annonce.author.firstname}} {{annonce.author.lastname}}
           Garage: {{annonce.garage.name}}
           <br>
-          <button class="btn btn-primary" (click)="edit(annonce.id)">Editer</button>
+          <button class="btn btn-primary" [routerLink]="['/edit', annonce.id]">Editer</button>
           <app-delete-modal [data]="data"></app-delete-modal>
         </div>
       </div>
     </div>
   </div>
+</div>

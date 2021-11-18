@@ -20,8 +20,6 @@ export class AnnoncePreviewComponent implements OnInit {
   data!:any;
   usernameLogged!:any;
   user!:User;
-  editAnnonce!: number;
-  editAnnonceForm!: FormGroup;
   makes: Array<any> =[];
   models: Array<any>=[];
   fuelTypes: Array<any>=[];
@@ -35,43 +33,8 @@ export class AnnoncePreviewComponent implements OnInit {
     this.annonceService.getMakes().then( data => this.makes = data);
     this.annonceService.getFuelTypes().then(data => this.fuelTypes = data);
     this.data = ["annonce", this.annonce.id];
-
   }
 
-  getModels():any{
-    this.annonceService.getModelsByMake(this.editAnnonceForm.value.make).then(data=>this.models = data);
-  }
 
-  edit(id: number){
-
-    this.editAnnonce = id;
-    this.editAnnonceForm = this.fb.group({
-      id: this.fb.control(this.annonce.id, Validators.required),
-      title: this.fb.control(this.annonce.title, Validators.required),
-      description: this.fb.control(this.annonce.description, Validators.required),
-      shortDescription: this.fb.control(this.annonce.shortDescription, Validators.required),
-      price: this.fb.control(this.annonce.price, Validators.required),
-      // author: this.fb.control(this.annonce.author.id, Validators.required),
-      circulationYear: this.fb.control(this.annonce.circulationYear, Validators.required),
-      kilometers: this.fb.control(this.annonce.kilometers, Validators.required),
-      photos:this.fb.control(this.annonce.photos, Validators.required),
-      fuelType: this.fb.control(this.annonce.fuelType, Validators.required),
-      make: this.fb.control(this.annonce.make, Validators.required),
-      model: this.fb.control(this.annonce.model, Validators.required),
-      garage: this.fb.control(this.annonce.garage, Validators.required)
-
-    })
-  }
-
-  submitForm(){
-
-    let formInfo = this.editAnnonceForm.value;
-    this.annonceService.edit(formInfo, this.annonce.id).subscribe(r => location.reload());
-  }
-
-  cancelEdit(){
-    this.editAnnonce = 0;
-
-  }
 
 }
