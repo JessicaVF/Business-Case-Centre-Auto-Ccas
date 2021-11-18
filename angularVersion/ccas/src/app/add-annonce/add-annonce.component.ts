@@ -58,7 +58,7 @@ export class AddAnnonceComponent implements OnInit {
       reader.readAsDataURL(event.target.files[i]);
       reader.onload =(event2)=>
       {
-        for(let j = 0; j < 5; j++)
+        for(let j = 0; j <= 4; j++)
         {
           if(this.imgURL[j] == null)
           {
@@ -70,7 +70,6 @@ export class AddAnnonceComponent implements OnInit {
     }
   }
   deletePhoto(event:any){
-
 
     this.imgURL.splice(this.imgURL.indexOf(event.path[0].src), 1);
     if(this.imgURL.length == 0){

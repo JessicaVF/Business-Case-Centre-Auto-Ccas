@@ -26,7 +26,7 @@
             <img class="m-1" *ngFor="let photo of imgURL" [src]="photo" height="100" width="100"
               (click)="deletePhoto($event)">
           </div>
-          <div class="d-flex justify-content-center mt-4">
+          <div *ngIf="imgURL.length < 5" class="d-flex justify-content-center mt-4">
             <input class="" type="file" multiple formControlName="photos" (change)="getPhotos($event)">
           </div>
           <div class="m-3">
@@ -35,7 +35,6 @@
           </div>
         </div>
       </ng-template>
-
 
 
     </div>
@@ -47,33 +46,33 @@
       <input id="circulationYear" type="number" formControlName="circulationYear">
     </div>
     <div class="verticalLabels">
-      <label for="kilometers">kilomètres: </label>
+      <label for="kilometers">Kilomètres: </label>
       <input id="kilometers" type="number" formControlName="kilometers">
     </div>
     <div class="verticalLabels">
-      <label for="price">prix: </label>
+      <label for="price">Prix: </label>
       <input id="price" type="number" formControlName="price">
     </div>
     <div class="verticalLabels">
-      <label for="make">marque: </label>
+      <label for="make">Marque: </label>
       <select name="make" formControlName="make" (ngModelChange)="getModels()">
         <option *ngFor=" let make of makes" value={{make.id}}>{{make.name}}</option>
       </select>
     </div>
     <div class="verticalLabels">
-      <label for="model">modèle: </label>
+      <label for="model">Modèle: </label>
       <select name="model" formControlName="model">
         <option *ngFor="let model of models" value={{model.id}}>{{model.name}}</option>
       </select>
     </div>
     <div class="verticalLabels">
-      <label for="fyelType">type de carburant: </label>
+      <label for="fyelType">Type de carburant: </label>
       <select name="fuelType" formControlName="fuelType">
         <option *ngFor="let fuelType of fuelTypes" value={{fuelType.id}}>{{fuelType.name}}</option>
       </select>
     </div>
     <div class="verticalLabels">
-      <label for="garage">garage: </label>
+      <label for="garage">Garage: </label>
       <select name="garage" formControlName="garage">
         <option *ngFor="let garage of user.garages" value={{garage.id}}>{{garage.name}}</option>
       </select>
