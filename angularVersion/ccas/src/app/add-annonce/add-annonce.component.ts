@@ -18,6 +18,7 @@ export class AddAnnonceComponent implements OnInit {
   addAnnonceForm!: FormGroup;
   imgURL:Array<any>=[];
   noPhotos = true;
+
   constructor(private userService: UserService, private fb: FormBuilder, private annonceService : AnnonceService) {
     this.addAnnonceForm = fb.group({
       title: fb.control('', Validators.required),
@@ -71,7 +72,7 @@ export class AddAnnonceComponent implements OnInit {
   deletePhoto(event:any){
 
 
-    this.imgURL.splice(this.imgURL.indexOf(event));
+    this.imgURL.splice(this.imgURL.indexOf(event.path[0].src), 1);
     if(this.imgURL.length == 0){
       this.noPhotos = true;
     }

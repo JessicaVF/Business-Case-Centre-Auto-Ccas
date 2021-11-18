@@ -15,12 +15,9 @@
     <div class="col-4">
       <label for="photos">Photos:</label>
       <span *ngIf="noPhotos; else withPhotosDisplay">
-
-
         <div class="photoStyle d-flex justify-content-center align-items-center">
           <input type="file" multiple formControlName="photos" (change)="getPhotos($event)">
         </div>
-
       </span>
 
       <ng-template #withPhotosDisplay>
@@ -37,9 +34,6 @@
             <p> -> Seules 5 images sont acceptées par annonce</p>
           </div>
         </div>
-
-
-
       </ng-template>
 
 
