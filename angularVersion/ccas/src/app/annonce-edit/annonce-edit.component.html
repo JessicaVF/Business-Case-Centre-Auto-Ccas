@@ -1,0 +1,66 @@
+<form *ngIf="annonce" [formGroup]="editAnnonceForm" (ngSubmit)="submitForm()" class="d-flex flex-column">
+  <label for="title">Titre: </label>
+  <input id="title" type="text" value="{{annonce.title}}" formControlName="title">
+
+  <label for="description">Description: </label>
+  <input id="description" type="text" value="{{annonce.description}}" formControlName="description">
+
+  <label for="shortDescription">Description courte: </label>
+  <input id="shortDescription" type="text" value="{{annonce.shortDescription}}" formControlName="shortDescription">
+
+  <label for="circulationYear">Année de mise en circulation: </label>
+  <input id="circulationYear" type="number" value="{{annonce.circulationYear}}" formControlName="circulationYear">
+
+  <label for="kilometers">Kilomètres: </label>
+  <input id="kilometers" type="number" value="{{annonce.kilometers}}" formControlName="kilometers">
+
+  <label for="price">Prix: </label>
+  <input id="price" type="number" value="{{annonce.price}}" formControlName="price">
+
+  <label for="make">Marque: </label>
+  <select name="make" formControlName="make" (ngModelChange)="getModels()">
+    <option *ngFor=" let make of makes" value={{make.id}} selected="{{make.name}}">{{make.name}}</option>
+  </select>
+
+  <label for="model">Modèle: </label>
+  <select name="model" formControlName="model">
+    <option *ngFor="let model of models" value={{model.id}} selected="{{model.name}}">{{model.name}}</option>
+  </select>
+
+  <label for="fyelType">Type de carburant: </label>
+  <select name="fuelType" formControlName="fuelType">
+    <option *ngFor="let fuelType of fuelTypes" value={{fuelType.id}} selected="{{fuelType.name}}">{{fuelType.name}}
+    </option>
+  </select>
+
+  <label for="garage">Garage: </label>
+  <select name="garage" formControlName="garage">
+    <option *ngFor="let garage of user.garages" value={{garage.id}} selected="{{garage.name}}">{{garage.name}}</option>
+  </select>
+
+  <label for="photos">Photos:</label>
+  <span *ngIf="noPhotos; else withPhotosDisplay">
+    <div class="photoStyle d-flex justify-content-center align-items-center">
+      <input type="file" multiple formControlName="photos" (change)="getPhotos($event)">
+    </div>
+  </span>
+  <ng-template #withPhotosDisplay>
+    <div class="d-flex justify-content-center">
+      <img class="m-1" *ngFor="let photo of photos" [src]="photo" height="100" width="100"
+        (click)="deletePhoto($event)">
+    </div>
+    <div *ngIf="photos.length < 5" class="d-flex justify-content-center mt-4">
+      <input class="" type="file" multiple formControlName="photos" (change)="getPhotos($event)">
+    </div>
+    <div class="m-3">
+      <p> -> Pour supprimer une image, cliquez dessus</p>
+      <p> -> Seules 5 images sont acceptées par annonce</p>
+    </div>
+  </ng-template>
+
+  <div class="mt-2">
+    <button type="submit" class="btn red rounded-pill">Editer l'annonce</button>
+    <button class="btn greyVersion rounded-pill m-1" [routerLink]="['/admin/annonces']">Annuler</button>
+  </div>
+
+</form>

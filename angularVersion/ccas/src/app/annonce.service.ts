@@ -43,6 +43,10 @@ currentAnnonces = this.annoncesSource.asObservable();
     this.link = 'http://127.0.0.1:8000/annonce/show';
     return this.http.get<Annonce>(this.link + "/"+ id)
   }
+  async getOneForEdit(id: number): Promise<any[]>{
+    this.link = 'http://127.0.0.1:8000/annonce/show';
+    return await this.http.get<any[]>(this.link + "/"+ id).toPromise();
+  }
   getMakes(): Promise<any[]>{
     this.link = 'http://127.0.0.1:8000/make';
     return this.http.get<any[]>(this.link).toPromise();
@@ -51,7 +55,7 @@ currentAnnonces = this.annoncesSource.asObservable();
     this.link = 'http://127.0.0.1:8000/make';
     return this.http.get<any[]>(this.link+ "/"+ id+"/models").toPromise();
   }
-  getFuelTypes(): Promise<any[]>{
+  async getFuelTypes(): Promise<any[]>{
     this.link = 'http://127.0.0.1:8000/fueltype';
     return this.http.get<any[]>(this.link).toPromise();
   }

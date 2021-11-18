@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnnonceDetailComponent } from './annonce-detail/annonce-detail.component';
+import { AnnonceEditComponent } from './annonce-edit/annonce-edit.component';
 import { ContactLodevieComponent } from './contact-lodevie/contact-lodevie.component';
 import { HomeComponent } from './home/home.component';
 import { LogInComponent } from './log-in/log-in.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:"admin/garages", component:ManageGaragesAdminComponent},
   {path:"admin/annonces", component:ManageAnnoncesAdminComponent},
   {path:"user/detail/:id", component:UserDetailComponent},
+  {path: "edit/:id", component: AnnonceEditComponent},
   {path: "**", component: HomeComponent},
 
 ];

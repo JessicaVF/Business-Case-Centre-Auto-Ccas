@@ -35,6 +35,7 @@ import { AddGarageComponent } from './add-garage/add-garage.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { ReferenceSearchComponent } from './reference-search/reference-search.component';
 import { LogButtonComponent } from './log-button/log-button.component';
+import { AnnonceEditComponent } from './annonce-edit/annonce-edit.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { LogButtonComponent } from './log-button/log-button.component';
     AddUserComponent,
     ReferenceSearchComponent,
     LogButtonComponent,
+    AnnonceEditComponent,
 
   ],
   imports: [
