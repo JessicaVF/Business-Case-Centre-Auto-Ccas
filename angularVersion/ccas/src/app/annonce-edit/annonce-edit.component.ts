@@ -78,11 +78,17 @@ export class AnnonceEditComponent implements OnInit {
   submitForm(){
 
     let formInfo = this.editAnnonceForm.value;
-    this.annonceService.edit(formInfo, this.annonce.id).subscribe(r => this.router.navigate(['/annonces']));
-  }
+    this.annonceService.edit(formInfo, this.annonce.id).subscribe(r => this.redirect())
+}
 
-  cancelEdit(){
-    this.router.navigate(['annonces']);
+  redirect(){
+
+    if(this.isAdmin == "true"){
+      this.router.navigate(['/admin/annonces']);
+    }
+    else{
+      this.router.navigate(['/annonces']);
+    }
   }
 
   getPhotos(event:any){

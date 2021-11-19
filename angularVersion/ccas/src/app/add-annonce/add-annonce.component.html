@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-7">
       <div class="main">
+
         <label for="title">Titre: </label>
         <input id="title" type="text" formControlName="title">
 
@@ -19,7 +20,6 @@
           <input type="file" multiple formControlName="photos" (change)="getPhotos($event)">
         </div>
       </span>
-
       <ng-template #withPhotosDisplay>
         <div class="photoStyle">
           <div class="d-flex justify-content-center">
@@ -35,8 +35,6 @@
           </div>
         </div>
       </ng-template>
-
-
     </div>
   </div>
 

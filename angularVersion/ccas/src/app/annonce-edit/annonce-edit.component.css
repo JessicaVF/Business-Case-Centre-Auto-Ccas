@@ -1,0 +1,23 @@
+form {
+  margin: 2%;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1%;
+}
+.tecnical {
+  display: flex;
+  justify-content: space-between;
+}
+.verticalLabels {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.photoStyle {
+  border: 2px solid #c4c4c4;
+  height: 88%;
+  width: 130%;
+}
