@@ -42,13 +42,13 @@
       </div>
     </ul>
     <div class="card-body">
-      <div *ngIf="garage.annonces.length >0; else notAnnoncesDisplay">
+      <!-- <div *ngIf="garage.annonces.length >0; else notAnnoncesDisplay">
         <button [routerLink]="['/garage/detail', garage.id]" target="_blank" class="btn btn-outline-secondary">Voir les
           annonces
         </button>
       </div>
       <ng-template #notAnnoncesDisplay> You dont have annonces</ng-template>
-      <hr>
+      <hr> -->
       <button class="btn btn-outline-secondary" (click)="edit(garage.id)">Editer</button>
       <hr>
       ATTENTION, ici vous supprimez votre compte
