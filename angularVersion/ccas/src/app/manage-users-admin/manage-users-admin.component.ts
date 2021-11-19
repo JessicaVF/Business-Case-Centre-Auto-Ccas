@@ -12,6 +12,7 @@ import { UserService } from '../user.service';
 })
 export class ManageUsersAdminComponent implements OnInit {
   users!:User[];
+  p: number = 1;
 
   constructor(private adminService:AdminService, private authService: AuthService, private route: Router) { }
 

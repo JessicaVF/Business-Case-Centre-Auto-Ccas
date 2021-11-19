@@ -12,6 +12,7 @@ import { Garage } from '../models/garage.model';
 export class ManageGaragesAdminComponent implements OnInit {
 
   garages!:any[];
+  p: number = 1;
   constructor(private adminService: AdminService, private authService: AuthService, private route: Router) { }
 
   ngOnInit(): void {

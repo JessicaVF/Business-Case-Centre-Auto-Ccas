@@ -2,5 +2,8 @@
 <h1>Les garages</h1>
 <app-menu-admin></app-menu-admin>
 <div>
-  <app-garage *ngFor="let garage of garages" [garage]="garage"></app-garage>
+  <app-garage *ngFor="let garage of garages | paginate: { itemsPerPage: 10, currentPage: p }" [garage]="garage">
+  </app-garage>
 </div>
+<pagination-controls previousLabel="" nextLabel="" (pageChange)="p = $event" class="d-flex justify-content-center mt-5">
+</pagination-controls>

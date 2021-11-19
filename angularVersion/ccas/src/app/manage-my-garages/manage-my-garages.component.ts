@@ -12,6 +12,7 @@ import { Garage } from '../models/garage.model';
 export class ManageMyGaragesComponent implements OnInit {
 
   garages!:Garage[];
+  p: number = 1;
 
   constructor(private garageService: GarageService, private authService: AuthService, private route: Router) { }
 

@@ -9,6 +9,10 @@
 
 <div class="row d-flex justify-content-center">
 
-  <app-garage class="m-1 col-3" *ngFor="let garage of garages" [garage]="garage"></app-garage>
+  <app-garage class="m-1 col-3" *ngFor="let garage of garages | paginate: { itemsPerPage: 10, currentPage: p }"
+    [garage]="garage"></app-garage>
 
 </div>
+
+<pagination-controls previousLabel="" nextLabel="" (pageChange)="p = $event" class="d-flex justify-content-center mt-5">
+</pagination-controls>
