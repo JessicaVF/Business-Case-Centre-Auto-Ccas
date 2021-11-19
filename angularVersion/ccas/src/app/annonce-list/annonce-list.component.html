@@ -1,3 +1,7 @@
 <div>
-  <app-annonce-preview *ngFor=" let annonce of annonces" [annonce]="annonce" [atHome]="atHome"></app-annonce-preview>
+  <app-annonce-preview *ngFor=" let annonce of annonces | paginate: { itemsPerPage: 10, currentPage: p }"
+    [annonce]="annonce" [atHome]="atHome"></app-annonce-preview>
 </div>
+
+<pagination-controls previousLabel="" nextLabel="" (pageChange)="p = $event" class="d-flex justify-content-center mt-1">
+</pagination-controls>

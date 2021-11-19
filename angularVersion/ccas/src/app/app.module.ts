@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BannerComponent } from './banner/banner.component';
@@ -36,6 +35,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { ReferenceSearchComponent } from './reference-search/reference-search.component';
 import { LogButtonComponent } from './log-button/log-button.component';
 import { AnnonceEditComponent } from './annonce-edit/annonce-edit.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -72,6 +72,7 @@ import { AnnonceEditComponent } from './annonce-edit/annonce-edit.component';
 
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
@@ -79,7 +80,9 @@ import { AnnonceEditComponent } from './annonce-edit/annonce-edit.component';
     FormsModule,
     NgxSliderModule,
     ReactiveFormsModule
+
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
   bootstrap: [AppComponent]
 })

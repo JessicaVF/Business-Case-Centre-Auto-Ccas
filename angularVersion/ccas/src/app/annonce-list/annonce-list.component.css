@@ -2,3 +2,6 @@ div {
   display: flex;
   flex-wrap: wrap;
 }
+pagination-controls /deep/ .ngx-pagination .current {
+  background: red;
+}

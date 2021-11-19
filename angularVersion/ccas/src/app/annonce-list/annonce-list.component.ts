@@ -14,6 +14,8 @@ export class AnnonceListComponent implements OnInit {
   @Input() annonces: Annonce[]=[];
   @Input() atHome:any;
 
+  p: number = 1;
+
   constructor() {
    }
 
