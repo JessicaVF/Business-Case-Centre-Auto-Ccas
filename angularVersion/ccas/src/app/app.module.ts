@@ -36,6 +36,7 @@ import { ReferenceSearchComponent } from './reference-search/reference-search.co
 import { LogButtonComponent } from './log-button/log-button.component';
 import { AnnonceEditComponent } from './annonce-edit/annonce-edit.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FooterPagesComponent } from './footer-pages/footer-pages.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReferenceSearchComponent,
     LogButtonComponent,
     AnnonceEditComponent,
+    FooterPagesComponent,
 
   ],
   imports: [
