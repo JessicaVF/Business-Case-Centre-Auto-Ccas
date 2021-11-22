@@ -3,14 +3,30 @@
     <div class="col-7">
       <div class="main">
 
+
         <label for="title">Titre: </label>
         <input id="title" type="text" formControlName="title">
-
+        <div *ngIf="formSubmitted">
+          <p *ngIf="formSubmitted && this.addAnnonceForm.controls['title'].invalid" class="text-danger">L'annonce doit
+            comporter un titre,
+            de 10 caractères
+            minimum et 60 caractères maximum.</p>
+        </div>
         <label for="description">Description: </label>
-        <textarea id="description" type="text" formControlName="description" rows="5"></textarea>
-
+        <textarea id="description" type="text" formControlName="description" rows=5></textarea>
+        <p *ngIf="formSubmitted && this.addAnnonceForm.controls['description'].invalid" class="text-danger">L'annonce
+          doit comporter une
+          description,
+          de 155 caractères
+          minimum et 280 caractères maximum.</p>
         <label for="shortDescription">Description courte: </label>
         <textarea id="shortDescription" type="text" formControlName="shortDescription"></textarea>
+        <p *ngIf="formSubmitted && this.addAnnonceForm.controls['shortDescription'].invalid" class="text-danger">
+          L'annonce doit comporter
+          une
+          description courte,
+          de 155 caractères
+          minimum et 280 caractères maximum.</p>
       </div>
     </div>
     <div class="col-4">
@@ -19,6 +35,8 @@
         <div class="photoStyle d-flex justify-content-center align-items-center">
           <input type="file" multiple formControlName="photos" (change)="getPhotos($event)">
         </div>
+        <p *ngIf="formSubmitted && this.addAnnonceForm.controls['photos'].invalid" class="text-danger">
+          L'annonce doit comporter des photos </p>
       </span>
       <ng-template #withPhotosDisplay>
         <div class="photoStyle">
@@ -29,6 +47,7 @@
           <div *ngIf="imgURL.length < 5" class="d-flex justify-content-center mt-4">
             <input class="" type="file" multiple formControlName="photos" (change)="getPhotos($event)">
           </div>
+
           <div class="m-3">
             <p> -> Pour supprimer une image, cliquez dessus</p>
             <p> -> Seules 5 images sont acceptées par annonce</p>
@@ -42,38 +61,59 @@
     <div class="verticalLabels">
       <label for="circulationYear">Année de mise en circulation: </label>
       <input id="circulationYear" type="number" formControlName="circulationYear">
+      <p *ngIf="formSubmitted && this.addAnnonceForm.controls['circulationYear'].invalid" class="text-danger">
+        Champ obligatoire
+      </p>
     </div>
     <div class="verticalLabels">
       <label for="kilometers">Kilomètres: </label>
       <input id="kilometers" type="number" formControlName="kilometers">
+      <p *ngIf="formSubmitted && this.addAnnonceForm.controls['kilometers'].invalid" class="text-danger">
+        Champ obligatoire
+      </p>
     </div>
     <div class="verticalLabels">
       <label for="price">Prix: </label>
       <input id="price" type="number" formControlName="price">
+      <p *ngIf="formSubmitted && this.addAnnonceForm.value.price == false" class="text-danger">
+        Champ obligatoire
+      </p>
     </div>
     <div class="verticalLabels">
       <label for="make">Marque: </label>
       <select name="make" formControlName="make" (ngModelChange)="getModels()">
         <option *ngFor=" let make of makes" value={{make.id}}>{{make.name}}</option>
       </select>
+      <p *ngIf="formSubmitted && this.addAnnonceForm.value.make == false" class="text-danger">
+        Champ obligatoire
+      </p>
     </div>
     <div class="verticalLabels">
       <label for="model">Modèle: </label>
       <select name="model" formControlName="model">
         <option *ngFor="let model of models" value={{model.id}}>{{model.name}}</option>
       </select>
+      <p *ngIf="formSubmitted && this.addAnnonceForm.value.model == false" class="text-danger">
+        Champ obligatoire
+      </p>
     </div>
     <div class="verticalLabels">
       <label for="fyelType">Type de carburant: </label>
       <select name="fuelType" formControlName="fuelType">
         <option *ngFor="let fuelType of fuelTypes" value={{fuelType.id}}>{{fuelType.name}}</option>
       </select>
+      <p *ngIf="formSubmitted && this.addAnnonceForm.value.fuelType == false" class="text-danger">
+        Champ obligatoire
+      </p>
     </div>
     <div class="verticalLabels">
       <label for="garage">Garage: </label>
       <select name="garage" formControlName="garage">
         <option *ngFor="let garage of user.garages" value={{garage.id}}>{{garage.name}}</option>
       </select>
+      <p *ngIf="formSubmitted && this.addAnnonceForm.controls['garage'].invalid" class="text-danger">
+        Champ obligatoire
+      </p>
     </div>
   </div>
   <div class="btn">

@@ -32,7 +32,7 @@ export class AddAnnonceComponent implements OnInit {
       make: fb.control(false, Validators.required),
       model: fb.control(false, Validators.required),
       fuelType: fb.control(false, Validators.required),
-      user: fb.control('', Validators.required),
+      user: fb.control(''),
       garage: fb.control('', Validators.required),
 
     })
