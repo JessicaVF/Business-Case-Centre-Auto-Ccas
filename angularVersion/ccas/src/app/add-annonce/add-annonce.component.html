@@ -34,9 +34,10 @@
       <span *ngIf="noPhotos; else withPhotosDisplay">
         <div class="photoStyle d-flex justify-content-center align-items-center">
           <input type="file" multiple formControlName="photos" (change)="getPhotos($event)">
+          <p *ngIf="formSubmitted && this.addAnnonceForm.controls['photos'].invalid" class="text-danger">
+            Champ obligatoire </p>
         </div>
-        <p *ngIf="formSubmitted && this.addAnnonceForm.controls['photos'].invalid" class="text-danger">
-          L'annonce doit comporter des photos </p>
+
       </span>
       <ng-template #withPhotosDisplay>
         <div class="photoStyle">
