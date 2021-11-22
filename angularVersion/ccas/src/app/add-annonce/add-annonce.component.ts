@@ -18,12 +18,13 @@ export class AddAnnonceComponent implements OnInit {
   addAnnonceForm!: FormGroup;
   imgURL:Array<any>=[];
   noPhotos = true;
+  formSubmitted =false
 
   constructor(private userService: UserService, private fb: FormBuilder, private annonceService : AnnonceService) {
     this.addAnnonceForm = fb.group({
-      title: fb.control('', Validators.required),
-      description: fb.control('', Validators.required),
-      shortDescription: fb.control('', Validators.required),
+      title: fb.control('', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(60)])),
+      description: fb.control('', Validators.compose([Validators.required, Validators.minLength(155), Validators.maxLength(280)])),
+      shortDescription: fb.control('', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(60)])),
       circulationYear: fb.control('', Validators.required),
       kilometers: fb.control('', Validators.required),
       price: fb.control('', Validators.required),
@@ -78,6 +79,20 @@ export class AddAnnonceComponent implements OnInit {
 
   }
   submitForm(){
+    if(!this.addAnnonceForm.valid){
+      console.log('not ok');
+      this.formSubmitted = true;
+      const invalid = [];
+      const controls = this.addAnnonceForm.controls;
+        for (const name in controls) {
+            if (controls[name].invalid) {
+                invalid.push(name);
+            }
+          }
+      console.log(invalid)
+
+    }
+    else{
 
     let formInfo = this.addAnnonceForm.value;
     let photos = this.imgURL;
@@ -87,6 +102,9 @@ export class AddAnnonceComponent implements OnInit {
     let dataToRetrieve = {"user":formInfo.user, "make": 3, "model": formInfo.model, "fuelType": formInfo.fuelType, "garage": formInfo.garage}
     const data = [dataToRetrieve, dataReady];
     this.annonceService.add(data).subscribe(r => location.reload());
+    // this.form.reset();
+      // this.formSubmitted = false;
+    }
   }
 
 }
