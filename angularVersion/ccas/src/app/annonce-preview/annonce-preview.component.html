@@ -5,7 +5,7 @@
         <img [src]="annonce.photos[0]" class="card-img-top p-2 pic" alt="voiture">
       </a>
       <div class="card-body">
-        <h5 [routerLink]="['/detail', annonce.id]" target="_blank" class="card-title">{{annonce?.title}}</h5>
+        <h5 [routerLink]="['/detail', annonce.id]" target="_blank" class="card-title title">{{annonce?.title}}</h5>
         <p [routerLink]="['/detail', annonce.id]" target="_blank" class="card-text description">
           {{annonce?.shortDescription}}</p>
         <div class="d-flex mt-3 justify-content-between">
