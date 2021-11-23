@@ -54,16 +54,22 @@ export class AddAnnonceComponent implements OnInit {
     this.noPhotos = false;
     for(let i = 0; i < event.target.files.length; i++)
     {
+
       const file = event.target.files[i];
+
       let reader = new FileReader();
       reader.readAsDataURL(event.target.files[i]);
       reader.onload =(event2)=>
       {
+
         for(let j = 0; j <= 4; j++)
         {
+
           if(this.imgURL[j] == null)
           {
             this.imgURL[j] = reader.result;
+            console.log(j, this.imgURL[j]);
+
             break
           }
         }
@@ -102,9 +108,9 @@ export class AddAnnonceComponent implements OnInit {
     let dataReady = {"title": formInfo.title, "description":formInfo.description, "shortDescription":formInfo.shortDescription, "circulationYear": formInfo.circulationYear, "kilometers": formInfo.kilometers, "price": formInfo.price, "photos": formInfo.photos };
     let dataToRetrieve = {"user":formInfo.user, "make": formInfo.make, "model": formInfo.model, "fuelType": formInfo.fuelType, "garage": formInfo.garage}
     const data = [dataToRetrieve, dataReady];
-    this.annonceService.add(data).subscribe(r => location.reload());
-    // this.addAnnonceForm.reset();
-    // this.formSubmitted = false;
+    this.annonceService.add(data).subscribe(r =>  location.reload()
+    );
+
     }
   }
 

@@ -51,7 +51,6 @@ export class AuthService {
     if(data.length == 2){
       sessionStorage.setItem("isAdmin", "true");
     }
-    //else erase "isadmin"NOTA FOR ME
   }
   getIfAdminInStorage(): any {
     return sessionStorage.getItem("isAdmin");
