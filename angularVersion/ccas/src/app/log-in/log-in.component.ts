@@ -30,12 +30,9 @@ export class LogInComponent implements OnInit {
   submitForm(){
     if (this.loginForm.valid){
       const formInfo = this.loginForm.value;
-
       this.authService.login(formInfo)
         .subscribe(
         (data:any) => {
-
-        // this.authService.loginChangeStatus();
         this.authService.setIsLoginInStorage();
         this.authService.setTokenInStorage(data.token);
         const tokenDecoded: any = jwt_decode(data.token);
@@ -43,18 +40,14 @@ export class LogInComponent implements OnInit {
         this.authService.checkIfAdmin(tokenDecoded.roles);
         if(this.authService.getIfAdminInStorage()){
           this.route.navigate(['admin/profil']);
-
         }
         else{this.route.navigate(['/profil']);}
     },
       (error) => {
         console.log(error);
         location.reload();
-
-      });
-
-
-  }
+    });
+}
 
   }
 

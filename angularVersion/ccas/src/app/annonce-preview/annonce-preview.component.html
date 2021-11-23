@@ -2,11 +2,12 @@
   <div class="col-lg-3 mt-2 col-9 col-md-5">
     <div class="card border border-3" style="width: 18rem;">
       <a [routerLink]="['/detail', annonce.id]" target="_blank">
-        <img [src]="annonce.photos[0]" class="card-img-top p-2" alt="">
+        <img [src]="annonce.photos[0]" class="card-img-top p-2 pic" alt="voiture">
       </a>
       <div class="card-body">
         <h5 [routerLink]="['/detail', annonce.id]" target="_blank" class="card-title">{{annonce?.title}}</h5>
-        <p [routerLink]="['/detail', annonce.id]" target="_blank" class="card-text">{{annonce?.shortDescription}}</p>
+        <p [routerLink]="['/detail', annonce.id]" target="_blank" class="card-text description">
+          {{annonce?.shortDescription}}</p>
         <div class="d-flex mt-3 justify-content-between">
           <p [routerLink]="['/detail', annonce.id]" target="_blank">{{annonce?.price}}€</p>
           <p class="btn grey rounded-pill">
@@ -16,15 +17,16 @@
           </p>
         </div>
         <div *ngIf="usernameLogged == annonce.author.username && !atHome">
-          <button class="btn btn-primary" [routerLink]="['/edit', annonce.id]" target="_blank">Editer</button>
-          <app-delete-modal [data]="data"></app-delete-modal>
+          <button class="btn btn-outline-secondary" [routerLink]="['/edit', annonce.id]" target="_blank">Editer</button>
+          <app-delete-modal [data]="data" class="ml-1"></app-delete-modal>
         </div>
         <div *ngIf="isAdmin">
           Propriétaire: {{annonce.author.firstname}} {{annonce.author.lastname}}
           Garage: {{annonce.garage.name}}
           <br>
-          <button class="btn btn-primary" [routerLink]="['/edit', annonce.id]">Editer</button>
-          <app-delete-modal [data]="data"></app-delete-modal>
+          <br>
+          <button class="btn btn-outline-secondary" [routerLink]="['/edit', annonce.id]">Editer</button>
+          <app-delete-modal [data]="data" class="ml-1"></app-delete-modal>
         </div>
       </div>
     </div>
