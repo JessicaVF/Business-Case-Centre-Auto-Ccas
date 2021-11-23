@@ -10,13 +10,10 @@ header [alt~="logo"] {
 }
 header img:not([alt~="logo"]) {
   width: 70%;
-  /* position: absolute;
-  top: 20px; */
 }
 /*  header [alt~="car_man"] {
-  left: 10%;
+
 } */
 header [alt~="car_woman"] {
-  /* right: 10%; */
   transform: matrix(-1, 0, 0, 1, 0, 0);
 }
