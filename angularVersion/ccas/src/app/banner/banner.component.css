@@ -5,21 +5,18 @@ header {
   margin-bottom: 150px;
 }
 header [alt~="logo"] {
-  width: 33%;
-  left: calc(50% - 480px / 2 - 4px);
-  top: 10%;
-  border-radius: 73px;
-  position: absolute;
+  width: 100%;
+  border-radius: 78px;
 }
 header img:not([alt~="logo"]) {
-  width: 20%;
-  position: absolute;
-  top: 20px;
+  width: 70%;
+  /* position: absolute;
+  top: 20px; */
 }
-header [alt~="car_man"] {
+/*  header [alt~="car_man"] {
   left: 10%;
-}
+} */
 header [alt~="car_woman"] {
-  right: 10%;
+  /* right: 10%; */
   transform: matrix(-1, 0, 0, 1, 0, 0);
 }
