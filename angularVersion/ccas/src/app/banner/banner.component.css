@@ -8,6 +8,7 @@ header [alt~="logo"] {
   width: 100%;
   border-radius: 78px;
 }
+
 header img:not([alt~="logo"]) {
   width: 70%;
 }
@@ -16,4 +17,12 @@ header img:not([alt~="logo"]) {
 } */
 header [alt~="car_woman"] {
   transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+@media only screen and (min-width: 1370px) {
+  header img:not([alt~="logo"]) {
+    width: 55%;
+  }
+  header {
+    margin-bottom: 190px;
+  }
 }
