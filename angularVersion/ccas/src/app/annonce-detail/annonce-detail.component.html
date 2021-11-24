@@ -24,29 +24,31 @@
 
     </div>
     <!-- Technical Details-->
-    <div class="row" id="detailsRow">
-      <div class="technicalDetails">
-        <p class="badge rounded-pill btn grey"> Année Mise en Circulation</p>
+    <div class="row rowFix bg-secondary" id="detailsRow">
+
+      <div class="technicalDetails anneFix m-auto">
+        <p class="badge rounded-pill btn grey m-auto"> Année Mise en Circulation</p>
         <span>{{annonce.circulationYear}}</span>
       </div>
-      <div class="technicalDetails">
-        <p class="badge rounded-pill btn grey">Marque</p>
+
+      <div class="technicalDetails tFix">
+        <p class="badge rounded-pill btn grey m-auto">Marque</p>
         <span>{{annonce.make.name}}</span>
       </div>
-      <div class="technicalDetails">
-        <p class="badge rounded-pill btn grey">Modele</p>
+      <div class="technicalDetails tFix">
+        <p class="badge rounded-pill btn grey m-auto">Modele</p>
         <span>{{annonce.model.name}}</span>
       </div>
-      <div class="technicalDetails">
-        <p class="badge rounded-pill btn grey">Carburant</p>
+      <div class="technicalDetails tFix">
+        <p class="badge rounded-pill btn grey m-auto">Carburant</p>
         <span>{{annonce.fuelType.name}}</span>
       </div>
-      <div class="technicalDetails">
-        <p class="badge rounded-pill btn grey">Kilometrage</p>
+      <div class="technicalDetails tFix">
+        <p class="badge rounded-pill btn grey m-auto">Kilometrage</p>
         <span>{{annonce.kilometers}}</span>
       </div>
-      <div class="technicalDetails">
-        <p class="badge rounded-pill btn grey">Prix</p>
+      <div class=" technicalDetails tFix">
+        <p class="badge rounded-pill btn grey m-auto">Prix</p>
         <span>{{annonce.price}}</span>
       </div>
     </div>
