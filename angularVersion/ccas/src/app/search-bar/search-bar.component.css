@@ -22,3 +22,24 @@
 .searchBtn {
   margin-bottom: 10px;
 }
+.makeFix {
+  margin-right: -5%;
+}
+.modelFix {
+  display: flex;
+  flex-direction: column;
+  padding: 0%;
+  margin-left: 3%;
+}
+@media only screen and (max-width: 992px) {
+  .rowFix {
+    display: flex;
+    flex-direction: column;
+  }
+  .colFix {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+  }
+}

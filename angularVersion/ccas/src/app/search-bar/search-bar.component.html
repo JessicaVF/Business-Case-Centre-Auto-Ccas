@@ -1,7 +1,58 @@
 <section id="search_bar" class="shadow m-5 text-center">
   <h2>Trouvez votre voiture idéale</h2>
-  <!-- <div class=" d-flex flex-column flex-lg-row"> -->
+  <form [formGroup]="searchForm" (ngSubmit)="submitForm()">
+    <div class="row rowFix d-flex align-items-end g-0">
+      <div class="col colFix makeFix">
+        <label class="dbLabel" for="make">Marque</label>
+        <select class="btn grey rounded-pill mb-1" name="make" id="make" formControlName="make"
+          (ngModelChange)="getModels()">
+          <option *ngFor=" let make of makes" value={{make.id}}>{{make.name}}</option>
+        </select>
+      </div>
+      <div class="col colFix modelFix">
+        <label class="dbLabel" for="model">Modèle</label>
+        <select name="model" id="model" class="btn grey rounded-pill mb-1" formControlName="model">
+          <option *ngFor="let model of models" value={{model.id}}>{{model.name}}</option>
+        </select>
+      </div>
+      <div class="col colFix">
+        <label class="dbLabel" for="fuelType">Type de carburant</label>
+        <select name="fuelType" id="fuelType" class="btn grey rounded-pill mb-1" formControlName="fuelType">
+          <option *ngFor="let fuelType of fuelTypes" value={{fuelType.id}}>{{fuelType.name}}</option>
+        </select>
+      </div>
+      <div class="mx-3 sliderContainer col">
+        <div class="custom-slider">
+          <label> kilométrage</label>
+          <ngx-slider [options]="optionsKilometers" formControlName="kilometers">
+          </ngx-slider>
+        </div>
+      </div>
 
+      <div class="mx-3 sliderContainer col">
+        <div class="custom-slider">
+          <label> Année de mise en Circulation</label>
+          <ngx-slider [options]="optionsCirculationYear" formControlName="circulationYear"></ngx-slider>
+        </div>
+      </div>
+
+      <div class="mx-3 sliderContainer col">
+        <div class="custom-slider">
+          <label> Prix</label>
+          <ngx-slider [options]="optionsPrice" formControlName="price"></ngx-slider>
+        </div>
+      </div>
+
+      <div>
+        <button type="submit" class="btn red rounded-pill searchBtn">Recherchez</button>
+      </div>
+    </div>
+  </form>
+</section>
+
+
+<!-- <section id="search_bar" class="shadow m-5 text-center">
+  <h2>Trouvez votre voiture idéale</h2>
   <form [formGroup]="searchForm" (ngSubmit)="submitForm()">
     <div class="d-flex align-items-end">
       <div>
@@ -17,12 +68,14 @@
           <option *ngFor="let model of models" value={{model.id}}>{{model.name}}</option>
         </select>
       </div>
+
       <div>
         <label class="dbLabel" for="fuelType">Type de carburant</label>
         <select name="fuelType" id="fuelType" class="btn grey rounded-pill mr-5 mb-1" formControlName="fuelType">
           <option *ngFor="let fuelType of fuelTypes" value={{fuelType.id}}>{{fuelType.name}}</option>
         </select>
       </div>
+
       <div class="mx-3 sliderContainer">
         <div class="custom-slider">
           <label> kilométrage</label>
@@ -47,9 +100,5 @@
 
       <button type="submit" class="btn red rounded-pill searchBtn">Recherchez</button>
     </div>
-
   </form>
-
-
-  <!-- </div> -->
-</section>
+</section> -->
