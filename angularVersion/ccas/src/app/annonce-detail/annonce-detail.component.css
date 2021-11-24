@@ -89,23 +89,20 @@ ngb-carousel {
   .rowFix {
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
   .tFix {
-    /* display: flex;
+    /* margin: auto;
+   */
+    display: flex;
     flex-direction: column;
     padding-bottom: 2%;
-    width: 20%;
-    justify-content: center; */
-    margin: auto;
+    width: 100%;
   }
   span {
     margin: auto;
   }
-  .anneFix {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 2%;
-    margin-bottom: 20px;
+  .annonce {
+    border: none;
   }
 }
