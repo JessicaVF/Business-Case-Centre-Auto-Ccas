@@ -41,15 +41,15 @@
       </span>
       <ng-template #withPhotosDisplay>
         <div class="photoStyle">
-          <div class="d-flex justify-content-center">
-            <img class="m-1" *ngFor="let photo of imgURL" [src]="photo" height="100" width="100"
+          <div class="d-flex justify-content-center photosFix">
+            <img class="m-1" *ngFor="let photo of imgURL" [src]="photo" height="85" width="100"
               (click)="deletePhoto($event)">
           </div>
           <div *ngIf="imgURL.length < 5" class="d-flex justify-content-center mt-4">
             <input class="" type="file" multiple formControlName="photos" (change)="getPhotos($event)">
           </div>
 
-          <div class="m-3">
+          <div class="m-3 photosMFix">
             <p> -> Pour supprimer une image, cliquez dessus</p>
             <p> -> Seules 5 images sont acceptées par annonce</p>
           </div>

@@ -31,4 +31,11 @@ form {
     display: flex;
     flex-direction: column;
   }
+  .photosFix {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .photosMFix {
+    display: none;
+  }
 }
